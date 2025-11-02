@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'Grenda';
+    src: url('/grenda.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Barlow';
+    src: url('/Barlow-Regular.ttf') format('truetype');
+}
+
+html, body{
+    overflow-x: hidden;
+    font-family: 'Grenda', sans-serif;
+    background-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Grenda', sans-serif;
+}
+p{
+    font-family: 'Barlow', sans-serif;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}

@@ -1,0 +1,4 @@
+- [ ] Modify ServiceCard to accept bgColor and textColor props
+- [ ] Update ServiceStack to compute and pass bgColor and textColor based on service.id
+- [ ] Adjust line color, motion div background, and other elements for contrast
+- [ ] Test the component by running the app
