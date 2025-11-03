@@ -93,21 +93,34 @@ export default function LetterParallax () {
   Innovation
 </motion.h2>
       </div>
-      <div className="relative z-10 text-center" style={{ transformStyle: 'preserve-3d' }}>
+      <div className="relative z-10 text-center px-4" style={{ transformStyle: 'preserve-3d' }}>
         <div
           ref={textRef}
-          className="text-6xl md:text-9xl lg:text-10xl  text-black leading-tight select-none"
+          className="text-[clamp(3rem,9vw,6rem)] md:text-9xl lg:text-[10rem] text-black leading-tight select-none"
           style={{
             perspective: '2000px',
             transformStyle: 'preserve-3d'
           }}
         >
-          <div className="block md:block" style={{ transformStyle: 'preserve-3d' }}>
+          {/* Mobile: force two centered lines that scale to viewport width and do not overflow */}
+          <div
+            className="block md:hidden max-w-[92vw] mx-auto whitespace-nowrap overflow-hidden"
+            style={{ transformStyle: 'preserve-3d' }}
+            aria-hidden={false}
+          >
             {createLetters('EVOLVING WITH')}
           </div>
 
-          <div className="block md:hidden" style={{ transformStyle: 'preserve-3d' }}>
+          <div
+            className="block md:hidden mt-2 max-w-[92vw] mx-auto whitespace-nowrap overflow-hidden"
+            style={{ transformStyle: 'preserve-3d' }}
+          >
             {createLetters('THE LAND')}
+          </div>
+
+          {/* Desktop / larger screens: two lines as well but larger sizing */}
+          <div className="hidden md:block" style={{ transformStyle: 'preserve-3d' }}>
+            {createLetters('EVOLVING WITH')}
           </div>
 
           <div className="hidden md:block" style={{ transformStyle: 'preserve-3d' }}>

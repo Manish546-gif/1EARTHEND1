@@ -1,6 +1,16 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function ContactForm() {
+  // ...existing code...
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [projectType, setProjectType] = useState("");
+  const [message, setMessage] = useState("");
+
+  // toast state
+  const [toastVisible, setToastVisible] = useState(false);
 
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -15,6 +25,41 @@ export default function ContactForm() {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
+
+    const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const to = "oneearthpropertiesllp@gmail.com";
+    const subject = `Contact Form: ${name || company || "New Enquiry"}`;
+
+    const bodyLines = [
+      `Name: ${name || "-"}`,
+      `Email: ${email || "-"}`,
+      `Company: ${company || "-"}`,
+      `Project Type: ${projectType || "-"}`,
+      "",
+      "Message:",
+      `${message || "-"}`,
+    ];
+    const body = bodyLines.join("\r\n");
+
+    // Open Gmail web compose (Gmail only). Do not show alerts or fall back.
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+      to
+    )}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}&tf=1`;
+
+    window.open(gmailUrl, "_blank", "noopener,noreferrer");
+
+    // show a short toast confirmation and then refresh the contact page
+    setToastVisible(true);
+    // keep toast visible briefly so user sees confirmation, then reload
+    setTimeout(() => {
+      setToastVisible(false);
+      // reload contact page
+      window.location.reload();
+    }, 1600);
+  };
+
 
   return (
     <motion.div
@@ -91,11 +136,11 @@ export default function ContactForm() {
           className="lg:w-1/2 p-8 lg:p-12 bg-[#FBF0DA]"
           variants={itemVariants}
         >
-          <motion.form className="space-y-8" variants={containerVariants}>
+          <motion.form className="space-y-8" variants={containerVariants} onSubmit={handleSubmit}>
             {[
-              { label: "NAME", type: "text", placeholder: "Your Name" },
-              { label: "EMAIL ADDRESS", type: "email", placeholder: "your@email.com" },
-              { label: "COMPANY NAME", type: "text", placeholder: "Your Company Name" },
+              { label: "NAME", state: name, setState: setName, type: "text", placeholder: "Your Name" },
+              { label: "EMAIL ADDRESS", state: email, setState: setEmail, type: "email", placeholder: "your@email.com" },
+              { label: "COMPANY NAME", state: company, setState: setCompany, type: "text", placeholder: "Your Company Name" },
             ].map((field, index) => (
               <motion.div key={index} variants={itemVariants}>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -107,6 +152,8 @@ export default function ContactForm() {
                   className="w-full px-0 py-3 bg-transparent focus:outline-none placeholder-gray-400"
                   whileFocus={{ scale: 1.01 }}
                   transition={{ duration: 0.3 }}
+                  value={field.state}
+                  onChange={(e) => field.setState(e.target.value)}
                 />
                 <motion.div
                   initial={{ scaleX: 0 }}
@@ -123,8 +170,12 @@ export default function ContactForm() {
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 PROJECT TYPE
               </label>
-              <select className="w-full px-0 py-3 bg-[#FBF0DA] focus:outline-none text-gray-800">
-                <option>Select One</option>
+              <select
+                className="w-full px-0 py-3 bg-[#FBF0DA] focus:outline-none text-gray-800"
+                value={projectType}
+                onChange={(e) => setProjectType(e.target.value)}
+              >
+                <option value="">Select One</option>
                 <option>Residential</option>
                 <option>Commercial</option>
                 <option>Investment</option>
@@ -147,6 +198,8 @@ export default function ContactForm() {
                 placeholder="Your Message"
                 rows="4"
                 className="w-full px-0 py-3 bg-transparent focus:outline-none placeholder-gray-400 resize-none"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               ></textarea>
               <motion.div
                 initial={{ scaleX: 0 }}
@@ -159,6 +212,7 @@ export default function ContactForm() {
 
             {/* SUBMIT BUTTON */}
             <motion.button
+              type="submit"
               whileHover={{
                 scale: 1.05,
                 backgroundColor: "#000",
@@ -177,6 +231,15 @@ export default function ContactForm() {
           </motion.form>
         </motion.div>
       </div>
+
+      {/* Toast: simple confirmation shown briefly before page refresh */}
+      {toastVisible && (
+        <div className="fixed left-1/2 bottom-8 transform -translate-x-1/2 z-50">
+          <div className="bg-black text-white px-4 py-2 rounded-md shadow-lg text-sm">
+            Message prepared — opening Gmail
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 }

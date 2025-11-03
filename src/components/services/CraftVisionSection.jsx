@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Line from "../common/Line.jsx";
 import craft1 from "../../assets/craft1.png";
 import craft2 from "../../assets/craft2.png";
-
+import TransitionLink from "../common/redirect.jsx";
 const textVariant = {
   hidden: { y: 40, opacity: 0 },
   visible: (i) => ({
@@ -115,7 +115,7 @@ export default function CraftVisionSection() {
                 ))}
               </div>
 
-              <Link to="/contact">
+              <TransitionLink to="/contact">
                 <motion.button
                   className="relative overflow-hidden bg-yellow-600 hover:bg-black hover:cursor-pointer text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-300 group"
                   variants={textVariant}
@@ -131,7 +131,7 @@ export default function CraftVisionSection() {
                     GET IN TOUCH
                   </span>
                 </motion.button>
-              </Link>
+              </TransitionLink>
             </motion.div>
 
             {/* RIGHT IMAGE */}
@@ -214,7 +214,7 @@ export default function CraftVisionSection() {
                 </motion.p>
               ))}
 
-              <Link to="/contact">
+              <TransitionLink to="/contact">
                 <motion.button
                   className="relative mt-2 overflow-hidden bg-yellow-600 hover:bg-black hover:cursor-pointer text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-300 group"
                   variants={textVariant}
@@ -230,7 +230,7 @@ export default function CraftVisionSection() {
                     GET IN TOUCH
                   </span>
                 </motion.button>
-              </Link>
+              </TransitionLink>
             </div>
 
             {/* SECOND IMAGE */}
