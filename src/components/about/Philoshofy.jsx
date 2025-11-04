@@ -69,7 +69,7 @@ export default function Philosophy() {
           >
             OUR PHILOSOPHY
           </motion.h3>
-          <div className="md:text-lg mb-2 md:mb-28">
+          <div className="md:text-lg whitespace-nowrap mb-2 md:mb-28">
             {originsLines.map((line, i) => (
               <motion.p
                 key={i}
@@ -84,7 +84,7 @@ export default function Philosophy() {
               </motion.p>
             ))}
           </div>
-          <div className="md:text-lg">
+          <div className="md:text-lg whitespace-nowrap">
             {philosophyDescLines.map((line, i) => (
               <motion.p
                 key={i}

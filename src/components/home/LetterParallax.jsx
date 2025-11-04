@@ -104,7 +104,7 @@ export default function LetterParallax () {
         >
           {/* Mobile: force two centered lines that scale to viewport width and do not overflow */}
           <div
-            className="block md:hidden max-w-[92vw] mx-auto whitespace-nowrap overflow-hidden"
+            className="block md:hidden max-w-[95vw] mx-auto whitespace-nowrap overflow-hidden"
             style={{ transformStyle: 'preserve-3d' }}
             aria-hidden={false}
           >
@@ -112,7 +112,7 @@ export default function LetterParallax () {
           </div>
 
           <div
-            className="block md:hidden mt-2 max-w-[92vw] mx-auto whitespace-nowrap overflow-hidden"
+            className="block md:hidden mt-2 max-w-[95vw] mx-auto whitespace-nowrap overflow-hidden"
             style={{ transformStyle: 'preserve-3d' }}
           >
             {createLetters('THE LAND')}

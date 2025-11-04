@@ -90,7 +90,7 @@ export default function Origin() {
           >
             OUR ORIGINS
           </motion.h3>
-          <div className="mb-2 md:mb-28">
+          <div className="mb-2 md:mb-28 whitespace-nowrap">
             {originLines.map((line, i) => (
               <motion.p
                 key={i}
@@ -105,7 +105,7 @@ export default function Origin() {
               </motion.p>
             ))}
           </div>
-          <div className="text-sm sm:text-base leading-relaxed">
+          <div className="text-sm sm:text-base whitespace-nowrap leading-relaxed">
             {philosophyLines.map((line, i) => (
               <motion.p
                 key={i}

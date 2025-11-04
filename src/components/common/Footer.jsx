@@ -80,7 +80,7 @@ export default function Footer() {
           </nav>
 
           {/* Paragraph */}
-          <div className="space-y-1 text-xs md:text-sm md:max-w-sm sm:text-[0.7rem]">
+          <div className="space-y-1 text-xs md:text-sm whitespace-nowrap md:max-w-sm sm:text-[0.6rem]">
             {paragraphLines.map((line, i) => (
               <motion.p
                 key={i}

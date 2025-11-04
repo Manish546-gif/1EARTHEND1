@@ -99,11 +99,11 @@ export default function CraftVisionSection() {
                 ))}
               </h1>
 
-              <div className="md:w-3/5 w-full sm:mb-10 lg:mb-10 mb-5 md:mb-10">
+              <div className="md:w-3/5 w-full sm:mb-10 whitespace-nowrap lg:mb-10 mb-5 md:mb-10">
                 {paragraphLines.map((line, i) => (
                   <motion.p
                     key={i}
-                    className="md:text-sm lg:text-sm text-lg"
+                    className="md:text-sm lg:text-sm text-lg whitespace-nowrap"
                     variants={textVariant}
                     initial="hidden"
                     whileInView="visible"
@@ -203,7 +203,7 @@ export default function CraftVisionSection() {
               {paragraphLines.map((line, i) => (
                 <motion.p
                   key={i}
-                  className="text-base sm:text-lg"
+                  className="text-base sm:text-lg whitespace-nowrap"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
