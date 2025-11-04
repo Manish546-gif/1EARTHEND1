@@ -53,7 +53,7 @@ const SoloInfo = () => {
             ].map((line, i) => (
               <motion.p
                 key={i}
-                className="block"
+                className="block whitespace-nowrap"
                
                 initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}

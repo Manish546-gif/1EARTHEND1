@@ -45,7 +45,7 @@ export default function Philosophy() {
     <div className="flex flex-col md:flex-row bg-[#FBF0DA] justify-center min-h-screen mb-10 p-8 md:gap-15 xl:gap-15 gap:10 md:mt-20">
       <div className="text-5xl md:text-7xl  mb-8 md:mb-0 md:mr-20 text-left">
         {heading.map((word, i) => (
-          <motion.p
+          <motion.h1
             key={i}
             className="block"
             variants={textVariant}
@@ -55,7 +55,7 @@ export default function Philosophy() {
             custom={i}
           >
             {word}
-          </motion.p>
+          </motion.h1>
         ))}
       </div>
       <div className="mb-6 md:w-3/6 md:ml-10">
