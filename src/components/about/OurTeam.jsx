@@ -60,7 +60,7 @@ export default function OurTeam() {
               </div>
               <div className="text-center lg:text-left w-full">
                 <motion.h3
-                  className="text-lg sm:text-xl md:text-2xl text-black uppercase tracking-wide mb-2"
+                  className="text-lg sm:text-xl md:text-2xl text-black whitespace-nowrap uppercase tracking-wide mb-2"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -70,7 +70,7 @@ export default function OurTeam() {
                   SHREYASH TARAWADE
                 </motion.h3>
                 <motion.p
-                  className="text-xs sm:text-sm md:text-base font-sans text-black uppercase tracking-wide"
+                  className="text-xs sm:text-sm md:text-base font-sans text-black whitespace-nowrap uppercase tracking-wide"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"

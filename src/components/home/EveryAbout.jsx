@@ -47,7 +47,7 @@ function EverySpaceSection() {
               <h5
                 className="tracking-[0.3em] text-black mt-4 sm:mt-6"
                 style={{
-                  fontSize: "clamp(0.6rem, 1vw, 0.9rem)",
+                  fontSize: "0.9vw",
                   fontWeight: 400,
                 }}
               >
@@ -58,7 +58,7 @@ function EverySpaceSection() {
             <div
               className="text-black tracking-tight mt-6 md:mt-0 leading-[1.1]"
               style={{
-                fontSize: "clamp(2rem, 4vw, 4.5rem)",
+                fontSize: "4vw",
                 fontWeight: 400,
               }}
             >
@@ -103,7 +103,7 @@ function EverySpaceSection() {
             </motion.div>
           </div>
 
-          {/* Column 3 — now perfectly right-aligned */}
+          {/* Column 3 */}
           <div className="flex flex-col justify-between lg:justify-center items-start lg:items-end w-full gap-10 mt-5 md:mt-8 lg:mt-0 text-right">
             {/* Paragraphs */}
             <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[85%] xl:w-[70%] text-left  space-y-1 lg:mb-10">
@@ -112,7 +112,7 @@ function EverySpaceSection() {
                   key={i}
                   className="text-black"
                   style={{
-                    fontSize: "clamp(1rem, 1.2vw, 1rem)",
+                    fontSize: "1.1vw",
                     fontWeight: 400,
                     lineHeight: "1.6",
                   }}
@@ -129,23 +129,26 @@ function EverySpaceSection() {
 
             {/* Button */}
             <div className="w-full flex justify-start lg:justify-end">
-                <TransitionLink to="/about">
-                  <motion.button
-                    className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full text-sm font-medium transition-colors duration-300 group"
-                    variants={textVariant}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    custom={paragraphLines.length + 4}
-                  >
-                    <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
-                      ABOUT US
-                    </span>
-                    <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
-                      ABOUT US
-                    </span>
-                  </motion.button>
-                </TransitionLink>
+              <TransitionLink to="/about">
+                <motion.button
+                  className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full font-medium transition-colors duration-300 group"
+                  style={{
+                    fontSize: "1vw",
+                  }}
+                  variants={textVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={paragraphLines.length + 4}
+                >
+                  <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
+                    ABOUT US
+                  </span>
+                  <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
+                    ABOUT US
+                  </span>
+                </motion.button>
+              </TransitionLink>
             </div>
 
             {/* Small Image */}

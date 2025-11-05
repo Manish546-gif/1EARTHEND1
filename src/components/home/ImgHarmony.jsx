@@ -111,7 +111,7 @@ const ImgHarmony = () => {
           <motion.h1
             custom={4}
             variants={textVariant}
-            className="text-[clamp(3.2rem,8.9vw,10rem)] font-medium text-black leading-none text-center lg:text-left"
+            className="text-[clamp(3.2rem,8.9vw,10rem)] font-medium text-black whitespace-nowrap leading-none text-center lg:text-left"
           >
             WITH EARTH
           </motion.h1>

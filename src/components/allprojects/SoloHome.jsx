@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import projectimg from '../../assets/projectland.png';
+import projectimg from '../../assets/solo32.jpg';
 
 const textVariant = {
   hidden: { y: 40, opacity: 0 },

@@ -67,7 +67,13 @@ export default function OverDesign() {
                 },
               }}
             >
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-black leading-tight">
+              <h1
+                className="text-black leading-tight"
+                style={{
+                  fontSize: "4.5vw",
+                  fontWeight: 400,
+                }}
+              >
                 {["DESIGN", "THAT", "NURTURES", "EARTH"].map((word, index) => (
                   <div className="overflow-hidden" key={word}>
                     <motion.span
@@ -111,7 +117,11 @@ export default function OverDesign() {
                   {paragraphLines.map((line, i) => (
                     <motion.p
                       key={i}
-                      className="text-sm sm:text-base leading-relaxed text-gray-900"
+                      className="text-gray-900 leading-relaxed"
+                      style={{
+                        fontSize: "1.1vw",
+                        fontWeight: 400,
+                      }}
                       variants={textVariant}
                       initial="hidden"
                       whileInView="visible"
@@ -126,7 +136,10 @@ export default function OverDesign() {
                 <div className="mt-6 md:mt-10">
                   <TransitionLink to="/contact">
                     <motion.button
-                      className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-5 sm:px-6 py-3 rounded-full text-sm sm:text-base font-medium transition-colors duration-300 group"
+                      className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-5 sm:px-6 py-3 rounded-full font-medium transition-colors duration-300 group"
+                      style={{
+                        fontSize: "1vw",
+                      }}
                       variants={textVariant}
                       initial="hidden"
                       whileInView="visible"
@@ -150,7 +163,11 @@ export default function OverDesign() {
           <div className="lg:hidden flex flex-col items-start mt-10 space-y-8 sm:space-y-10">
             {/* Heading */}
             <motion.h1
-              className="text-4xl sm:text-5xl md:text-6xl text-black leading-tight"
+              className="text-black leading-tight"
+              style={{
+                fontSize: "7vw",
+                fontWeight: 400,
+              }}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
@@ -200,7 +217,11 @@ export default function OverDesign() {
                 {paragraphLines.map((line, i) => (
                   <motion.p
                     key={i}
-                    className="text-sm sm:text-base leading-relaxed text-gray-900"
+                    className="text-gray-900 leading-relaxed"
+                    style={{
+                      fontSize: "2.8vw",
+                      fontWeight: 400,
+                    }}
                     variants={textVariant}
                     initial="hidden"
                     whileInView="visible"
@@ -215,7 +236,10 @@ export default function OverDesign() {
               <div className="mt-6 md:mt-10">
                 <TransitionLink to="/contact">
                   <motion.button
-                    className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-5 sm:px-6 py-3 rounded-full text-sm sm:text-base font-medium transition-colors duration-300 group"
+                    className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-5 sm:px-6 py-3 rounded-full font-medium transition-colors duration-300 group"
+                    style={{
+                      fontSize: "2.5vw",
+                    }}
                     variants={textVariant}
                     initial="hidden"
                     whileInView="visible"

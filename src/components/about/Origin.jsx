@@ -26,7 +26,7 @@ const originLines = [
   "landscapes,our journey began",
   " with a simple belief:",
   "that land is not just to be",
-  "developed,but to be nurtured."
+  "developed,but to be nurtured.",
 ];
 
 const philosophyLines = [
@@ -39,7 +39,7 @@ const philosophyLines = [
   " Earth, and design becomes",
   "an expression of balance. Each",
   "project stands as a testament to",
-  "harmony, integrity, and renewal."
+  "harmony, integrity, and renewal.",
 ];
 
 export default function Origin() {
@@ -48,7 +48,7 @@ export default function Origin() {
   return (
     <div className="flex flex-col lg:flex-row bg-[#FBF0DA] justify-center md:mb-10 min-h-screen gap-10 md:mt-20 px-6 sm:px-8 lg:px-0 py-10 lg:py-0">
       {/* Heading Section */}
-      <div className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl  md:mb-0 lg:mr-12 text-left w-full lg:w-auto">
+      <div className="text-left w-full lg:w-auto md:mb-0 lg:mr-12 text-[6vw] sm:text-[5vw] md:text-5xl lg:text-6xl leading-tight">
         {heading.map((word, i) => (
           <motion.span
             key={i}
@@ -65,7 +65,7 @@ export default function Origin() {
       </div>
 
       {/* Image Section */}
-      <div className="flex-shrink-0 relative w-full sm:w-4/5 md:w-3/5 lg:w-[40%]  overflow-hidden md:mb-0 mx-auto lg:mx-0">
+      <div className="flex-shrink-0 relative w-full sm:w-4/5 md:w-3/5 lg:w-[40%] overflow-hidden md:mb-0 mx-auto lg:mx-0">
         <motion.div
           initial={{ scaleX: 1, opacity: 1 }}
           whileInView={{ scaleX: 0, opacity: 1 }}
@@ -81,7 +81,7 @@ export default function Origin() {
       <div className="w-full lg:w-1/6 text-left md:ml-22 px-1 sm:px-0">
         <div className="mb-6">
           <motion.h3
-            className="mb-2 text-base sm:text-lg"
+            className="mb-2 text-[3.8vw] sm:text-[2.8vw] md:text-lg lg:text-xl"
             variants={textVariant}
             initial="hidden"
             whileInView="visible"
@@ -90,11 +90,12 @@ export default function Origin() {
           >
             OUR ORIGINS
           </motion.h3>
-          <div className="mb-2 md:mb-28 whitespace-nowrap">
+
+          <div className="mb-2 md:mb-28">
             {originLines.map((line, i) => (
               <motion.p
                 key={i}
-                className="block text-sm sm:text-base leading-relaxed"
+                className="block text-[3vw] sm:text-[2.5vw] md:text-base lg:text-lg whitespace-nowrap leading-relaxed w-full"
                 variants={textVariant}
                 initial="hidden"
                 whileInView="visible"
@@ -105,11 +106,12 @@ export default function Origin() {
               </motion.p>
             ))}
           </div>
-          <div className="text-sm sm:text-base whitespace-nowrap leading-relaxed">
+
+          <div className="leading-relaxed">
             {philosophyLines.map((line, i) => (
               <motion.p
                 key={i}
-                className="block"
+                className="block text-[3vw] sm:text-[2.5vw] md:text-base whitespace-nowrap lg:text-lg w-full"
                 variants={textVariant}
                 initial="hidden"
                 whileInView="visible"
@@ -121,9 +123,10 @@ export default function Origin() {
             ))}
           </div>
         </div>
+
         <div>
           <motion.h3
-            className="font-bold mb-2 text-base sm:text-lg"
+            className="font-bold mb-2 text-[3.8vw] sm:text-[2.8vw] md:text-lg lg:text-xl"
             variants={textVariant}
             initial="hidden"
             whileInView="visible"
@@ -132,7 +135,8 @@ export default function Origin() {
           >
             OUR ORIGINS
           </motion.h3>
-          <motion.ul className="space-y-1 text-sm sm:text-base">
+
+          <motion.ul className="space-y-1 text-[3vw] sm:text-[2.5vw] md:text-base lg:text-lg">
             <motion.li
               variants={textVariant}
               initial="hidden"

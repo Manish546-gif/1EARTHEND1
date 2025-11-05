@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import projectimg from "../assets/projectland.png";
+import projectimg from "../assets/solo32.jpg";
 import TransitionLink from "../components/common/redirect";
 
 const ProjectsSection = () => {
@@ -38,9 +38,9 @@ const ProjectsSection = () => {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Foreground */}
-      <div className="relative z-10 flex flex-col justify-between h-full px-6 sm:px-10 md:px-16 lg:px-20 py-10">
+      <div className="relative z-10 h-full px-6 sm:px-10 md:px-16 lg:px-20 pt-25 pb-20">
         {/* Top */}
-        <div className="flex justify-between items-start mt-10">
+        <div className="flex justify-between items-start">
           <motion.h2
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -60,7 +60,7 @@ const ProjectsSection = () => {
         </div>
 
         {/* Center Project */}
-        <div className="flex flex-col items-center justify-center flex-1">
+        <div className="flex flex-col items-center justify-center flex-grow">
           <motion.div
             initial={{ opacity: 0, y: 60, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -112,7 +112,7 @@ const ProjectsSection = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-8 mt-8">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-8">
           {/* Controls */}
           <div className="flex gap-8 text-[#FBF0DA] text-xs sm:text-sm tracking-widest">
             <motion.button

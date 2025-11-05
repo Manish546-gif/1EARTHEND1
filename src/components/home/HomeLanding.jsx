@@ -71,7 +71,7 @@ const HeroSection = () => {
             {heading.map((word, i) => (
               <motion.span
                 key={i}
-                className="block font-Grenda text-[8vw] sm:text-[6vw] md:text-9xl"
+                className="block font-Grenda text-[8vw] sm:text-[6vw] md:text-[9vw] leading-none"
                 variants={textVariant}
                 initial="hidden"
                 animate="visible"

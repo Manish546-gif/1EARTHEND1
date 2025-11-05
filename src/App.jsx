@@ -69,10 +69,7 @@ const App = () => {
       data-scroll-container
       className="overflow-hidden bg-[#FBF0DA]"
     >
-      <Navbar />
-
-    
-    
+      <Navbar />    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/project" element={<Projects />} />
