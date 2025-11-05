@@ -58,116 +58,15 @@ const CurtainPreloader = ({ children }) => {
 
     // 1. Close curtains from edges
     gsap.set([leftCurtainRef.current, rightCurtainRef.current], { x: 0 });
-    
-    tl.fromTo(
-      leftCurtainRef.current,
-      { x: "-100%" },
-      { x: "0%", duration: 0.7, ease: "power3.inOut" }
-    ).fromTo(
-      rightCurtainRef.current,
-      { x: "100%" },
-      { x: "0%", duration: 0.7, ease: "power3.inOut" },
-      "<"
-    );
-
-    // 2. Grow edge lines from edges
-    gsap.set([leftEdgeLineRef.current, rightEdgeLineRef.current], { 
-      scaleY: 0, 
-      opacity: 1 
-    });
-
-    tl.to(
-      leftEdgeLineRef.current,
-      { scaleY: 1, duration: 0.7, ease: "power3.inOut" },
-      "+=0.1"
-    ).to(
-      rightEdgeLineRef.current,
-      { scaleY: 1, duration: 0.7, ease: "power3.inOut" },
-      "<+=0.1"
-    );
-
-    // 3. Show logo container and set initial states
-    gsap.set(logoContainerRef.current, { opacity: 0 });
-    gsap.set(logoDefaultRef.current, { opacity: 1 });
-
-    // Set circle to be fully visible during closing
-    if (circleArcRef.current) {
-      const circleLength = circleArcRef.current.getTotalLength();
-      gsap.set(circleArcRef.current, {
-        strokeDasharray: circleLength,
-        strokeDashoffset: -1,
-        stroke: "#FBF0DA",
-        strokeWidth: 0.5
-      });
-    }
-
-    tl.to(logoContainerRef.current, { opacity: 1, duration: 0.4 });
-
-    // 4. Grow center lines from edges to circle perimeter
-    if (circleArcRef.current) {
-      const rect = logoContainerRef.current.getBoundingClientRect();
-      const radiusPx = rect.width / 2;
-
-      gsap.set(topLineRef.current, {
-        height: `calc(40% - ${radiusPx}px)`,
-        bottom: `calc(40% + ${radiusPx}px)`,
-        top: 'auto',
-        scaleY: 0,
-        opacity: 1,
-        visibility: 'visible',
-        transformOrigin: 'top'
-      });
-
-      gsap.set(bottomLineRef.current, {
-        height: `calc(50% - ${radiusPx}px)`,
-        top: `calc(50% + ${radiusPx}px)`,
-        bottom: 'auto',
-        scaleY: 0,
-        opacity: 1,
-        visibility: 'visible',
-        transformOrigin: 'bottom'
-      });
-
-      tl.to(
-        topLineRef.current,
-        { scaleY: 1, duration: 0.7, ease: "power3.inOut" },
-        "<"
-      ).to(
-        bottomLineRef.current,
-        { scaleY: 1, duration: 0.7, ease: "power3.inOut" },
-        "<+=0.1"
-      );
-    }
-
-    return tl;
-  };
-
-  // Combined closing-to-opening animation
-  const runCombinedAnimation = (switchCallback) => {
-    const tl = gsap.timeline({
-      onComplete: () => {
-        setShowContent(true);
-        setIsTransitioning(false);
-        document.body.style.overflow = "auto";
-        if (containerRef.current) {
-          containerRef.current.style.display = "none";
-        }
-      },
-    });
-
-    document.body.style.overflow = "hidden";
-
-    // 1. Close curtains from edges
-    gsap.set([leftCurtainRef.current, rightCurtainRef.current], { x: 0 });
 
     tl.fromTo(
       leftCurtainRef.current,
       { x: "-100%" },
-      { x: "0%", duration: 0.7, ease: "power3.inOut" }
+      { x: "0%", duration: 0.5, ease: "power3.inOut" }
     ).fromTo(
       rightCurtainRef.current,
       { x: "100%" },
-      { x: "0%", duration: 0.7, ease: "power3.inOut" },
+      { x: "0%", duration: 0.5, ease: "power3.inOut" },
       "<"
     );
 
@@ -179,11 +78,11 @@ const CurtainPreloader = ({ children }) => {
 
     tl.to(
       leftEdgeLineRef.current,
-      { scaleY: 1, duration: 0.7, ease: "power3.inOut" },
+      { scaleY: 1, duration: 0.5, ease: "power3.inOut" },
       "+=0.1"
     ).to(
       rightEdgeLineRef.current,
-      { scaleY: 1, duration: 0.7, ease: "power3.inOut" },
+      { scaleY: 1, duration: 0.5, ease: "power3.inOut" },
       "<+=0.1"
     );
 
@@ -202,7 +101,7 @@ const CurtainPreloader = ({ children }) => {
       });
     }
 
-    tl.to(logoContainerRef.current, { opacity: 1, duration: 0.4 });
+    tl.to(logoContainerRef.current, { opacity: 1, duration: 0.3 });
 
     // 4. Grow center lines from edges to circle perimeter
     if (circleArcRef.current) {
@@ -231,11 +130,112 @@ const CurtainPreloader = ({ children }) => {
 
       tl.to(
         topLineRef.current,
-        { scaleY: 1, duration: 0.7, ease: "power3.inOut" },
+        { scaleY: 1, duration: 0.5, ease: "power3.inOut" },
         "<"
       ).to(
         bottomLineRef.current,
-        { scaleY: 1, duration: 0.7, ease: "power3.inOut" },
+        { scaleY: 1, duration: 0.5, ease: "power3.inOut" },
+        "<+=0.1"
+      );
+    }
+
+    return tl;
+  };
+
+  // Combined closing-to-opening animation
+  const runCombinedAnimation = (switchCallback) => {
+    const tl = gsap.timeline({
+      onComplete: () => {
+        setShowContent(true);
+        setIsTransitioning(false);
+        document.body.style.overflow = "auto";
+        if (containerRef.current) {
+          containerRef.current.style.display = "none";
+        }
+      },
+    });
+
+    document.body.style.overflow = "hidden";
+
+    // 1. Close curtains from edges
+    gsap.set([leftCurtainRef.current, rightCurtainRef.current], { x: 0 });
+
+    tl.fromTo(
+      leftCurtainRef.current,
+      { x: "-100%" },
+      { x: "0%", duration: 0.5, ease: "power3.inOut" }
+    ).fromTo(
+      rightCurtainRef.current,
+      { x: "100%" },
+      { x: "0%", duration: 0.5, ease: "power3.inOut" },
+      "<"
+    );
+
+    // 2. Grow edge lines from edges
+    gsap.set([leftEdgeLineRef.current, rightEdgeLineRef.current], {
+      scaleY: 0,
+      opacity: 1
+    });
+
+    tl.to(
+      leftEdgeLineRef.current,
+      { scaleY: 1, duration: 0.5, ease: "power3.inOut" },
+      "+=0.1"
+    ).to(
+      rightEdgeLineRef.current,
+      { scaleY: 1, duration: 0.5, ease: "power3.inOut" },
+      "<+=0.1"
+    );
+
+    // 3. Show logo container and set initial states
+    gsap.set(logoContainerRef.current, { opacity: 0 });
+    gsap.set(logoDefaultRef.current, { opacity: 1 });
+
+    // Set circle to be fully visible during closing
+    if (circleArcRef.current) {
+      const circleLength = circleArcRef.current.getTotalLength();
+      gsap.set(circleArcRef.current, {
+        strokeDasharray: circleLength,
+        strokeDashoffset: -1,
+        stroke: "#FBF0DA",
+        strokeWidth: 0.5
+      });
+    }
+
+    tl.to(logoContainerRef.current, { opacity: 1, duration: 0.3 });
+
+    // 4. Grow center lines from edges to circle perimeter
+    if (circleArcRef.current) {
+      const rect = logoContainerRef.current.getBoundingClientRect();
+      const radiusPx = rect.width / 2;
+
+      gsap.set(topLineRef.current, {
+        height: `calc(50% - ${radiusPx}px)`,
+        bottom: `calc(50% + ${radiusPx}px)`,
+        top: 'auto',
+        scaleY: 0,
+        opacity: 1,
+        visibility: 'visible',
+        transformOrigin: 'top'
+      });
+
+      gsap.set(bottomLineRef.current, {
+        height: `calc(50% - ${radiusPx}px)`,
+        top: `calc(50% + ${radiusPx}px)`,
+        bottom: 'auto',
+        scaleY: 0,
+        opacity: 1,
+        visibility: 'visible',
+        transformOrigin: 'bottom'
+      });
+
+      tl.to(
+        topLineRef.current,
+        { scaleY: 1, duration: 0.5, ease: "power3.inOut" },
+        "<"
+      ).to(
+        bottomLineRef.current,
+        { scaleY: 1, duration: 0.5, ease: "power3.inOut" },
         "<+=0.1"
       ).call(() => {
         if (switchCallback) switchCallback();
@@ -245,33 +245,33 @@ const CurtainPreloader = ({ children }) => {
     // 5. Once lines reach the circle, start the circle disappearing animation
     tl.to(circleArcRef.current, {
       strokeDashoffset: () => circleArcRef.current.getTotalLength(),
-      duration: 0.8,
+      duration: 0.6,
       ease: "power2.inOut",
     }, "+=0.2");
 
     // 6. Hide logo and shrink lines simultaneously
-    tl.to(logoContainerRef.current, { opacity: 0, duration: 0.6 }, "+=0.1")
+    tl.to(logoContainerRef.current, { opacity: 0, duration: 0.4 }, "+=0.1")
       .to(
         [leftEdgeLineRef.current, rightEdgeLineRef.current, topLineRef.current, bottomLineRef.current],
-        { scaleY: 0, duration: 0.8, ease: "power3.inOut" },
+        { scaleY: 0, duration: 0.6, ease: "power3.inOut" },
         "<"
       );
 
     // 7. Open curtains
     tl.to(
       leftCurtainRef.current,
-      { x: "-100%", duration: 0.8, ease: "power3.inOut" },
+      { x: "-100%", duration: 0.6, ease: "power3.inOut" },
       "+=0.1"
     ).to(
       rightCurtainRef.current,
-      { x: "100%", duration: 0.8, ease: "power3.inOut" },
+      { x: "100%", duration: 0.6, ease: "power3.inOut" },
       "<"
     );
 
     tl.to(containerRef.current, {
       opacity: 0,
-      duration: 0.2,
-    }, "+=0.3");
+      duration: 0.1,
+    }, "+=0.2");
 
     return tl;
   };
@@ -283,51 +283,8 @@ const CurtainPreloader = ({ children }) => {
 
     const imagesToPreload = [
       logoDefault,
-      "../../assets/HomeLanding.mp4", // video
-      "../../assets/1.png",
-      "../../assets/1earthcompletelogo.svg",
-      "../../assets/111.jpg",
-      "../../assets/2222.jpg",
-      "../../assets/aboutland.png",
-      "../../assets/blank1.png",
-      "../../assets/blank2.png",
-      "../../assets/center1.png",
-      "../../assets/centerbottom.png",
-      "../../assets/craft1.png",
-      "../../assets/craft2.png",
-      "../../assets/earthlogo.svg",
-      "../../assets/feature1.png",
-      "../../assets/feature2.png",
-      "../../assets/homeproject.png",
-      "../../assets/house-1477041_1920.png",
-      "../../assets/info1.png",
-      "../../assets/info2.png",
-      "../../assets/LandingHome.png",
-      "../../assets/leftbottom.png",
-      "../../assets/lefttop.png",
-      "../../assets/menu.svg",
-      "../../assets/nextp.png",
-      "../../assets/origin2.png",
-      "../../assets/origin3.png",
-      "../../assets/projectland.png",
-      "../../assets/Property 1=Default.png",
-      "../../assets/Property 1=Variant2.png",
-      "../../assets/react.svg",
-      "../../assets/Rectangle 2.png",
-      "../../assets/Rectangle 3.png",
-      "../../assets/Rectangle 51.png",
-      "../../assets/Rectangle 79.png",
-      "../../assets/Rectangle 107.png",
-      "../../assets/Rectangle 108.png",
-      "../../assets/Rectangle 109.png",
-      "../../assets/Rectangle 110.png",
-      "../../assets/rightbottom.png",
-      "../../assets/righttop.png",
-      "../../assets/serviceland.png",
-      "../../assets/team1.png",
-      "../../assets/team2.png",
-      "../../assets/topleft.png",
-      "../../assets/whychoose.png",
+      "../../assets/HomeLanding.mp4", // critical video
+      "../../assets/1earthcompletelogo.svg", // additional logo if needed
     ];
 
     const preloadImages = () => {
@@ -380,7 +337,26 @@ const CurtainPreloader = ({ children }) => {
 
     document.body.style.overflow = "hidden";
 
-    // Set initial heights for center lines
+    // Set initial states immediately
+    gsap.set([leftEdgeLineRef.current, rightEdgeLineRef.current], {
+      scaleY: 1,
+      opacity: 1
+    });
+
+    gsap.set(logoContainerRef.current, { opacity: 1 });
+    gsap.set(logoDefaultRef.current, { opacity: 1 });
+
+    if (circleArcRef.current) {
+      const circleLength = circleArcRef.current.getTotalLength();
+      gsap.set(circleArcRef.current, {
+        strokeDasharray: circleLength,
+        strokeDashoffset: -1,
+        stroke: "#FBF0DA",
+        strokeWidth: 0.5,
+      });
+    }
+
+    // Set center lines immediately
     if (circleArcRef.current) {
       const rect = logoContainerRef.current.getBoundingClientRect();
       const radiusPx = rect.width / 2;
@@ -406,60 +382,38 @@ const CurtainPreloader = ({ children }) => {
       });
     }
 
-    gsap.set([leftEdgeLineRef.current, rightEdgeLineRef.current], {
-      scaleY: 1,
-      opacity: 1
-    });
-
-    gsap.set(logoContainerRef.current, { opacity: 1 });
-    gsap.set(logoDefaultRef.current, { opacity: 1 });
-
-    if (circleArcRef.current) {
-      const circleLength = circleArcRef.current.getTotalLength();
-      gsap.set(circleArcRef.current, {
-        strokeDasharray: circleLength,
-        strokeDashoffset: -1,
-        stroke: "#FBF0DA",
-        strokeWidth: 0.5,
-      });
-    }
-
-    tl.to({}, { duration: 0.6 });
-
+    // Start circle animation immediately
     if (circleArcRef.current) {
       const circleLength = circleArcRef.current.getTotalLength();
       tl.to(circleArcRef.current, {
         strokeDashoffset: circleLength,
-        duration: 1.2,
+        duration: 0.8,
         ease: "power2.inOut",
-      }, "+=0.5");
+      });
     }
 
-    tl.to(logoContainerRef.current, { opacity: 0, duration: 0.4 }, "+=0.3")
+    // Fade out logo and shrink lines simultaneously
+    tl.to(logoContainerRef.current, { opacity: 0, duration: 0.3 }, "+=0.2")
       .to(
-        [leftEdgeLineRef.current, rightEdgeLineRef.current],
-        { scaleY: 0, duration: 0.7, ease: "power3.inOut", stagger: 0.1 },
-        "<"
-      )
-      .to(
-        [topLineRef.current, bottomLineRef.current],
-        { scaleY: 0, duration: 0.7, ease: "power3.inOut", stagger: 0.1 },
+        [leftEdgeLineRef.current, rightEdgeLineRef.current, topLineRef.current, bottomLineRef.current],
+        { scaleY: 0, duration: 0.5, ease: "power3.inOut" },
         "<"
       );
 
+    // Open curtains
     tl.to(
       leftCurtainRef.current,
-      { x: "-100%", duration: 0.7, ease: "power3.inOut" },
+      { x: "-100%", duration: 0.5, ease: "power3.inOut" },
       "+=0.1"
     ).to(
       rightCurtainRef.current,
-      { x: "100%", duration: 0.7, ease: "power3.inOut" },
+      { x: "100%", duration: 0.5, ease: "power3.inOut" },
       "<"
     );
 
     tl.to(containerRef.current, {
       opacity: 0,
-      duration: 0.2,
+      duration: 0.1,
       onComplete: () => {
         if (containerRef.current) {
           containerRef.current.style.display = "none";

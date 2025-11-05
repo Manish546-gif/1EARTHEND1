@@ -52,7 +52,7 @@ highland
           viewport={{ once: true }}
           custom={1}
         >
-         velhe, bhor, pune
+         Velhe,Bhor,Pune
         </motion.p>
       </div>
     </div>
