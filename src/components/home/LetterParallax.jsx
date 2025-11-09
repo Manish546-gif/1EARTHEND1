@@ -80,7 +80,7 @@ export default function LetterParallax () {
       className="relative md:h-[80vh] xl:h-[80vh] lg:h-[80vh] h-[50vh] md:mt-25 mt-15 bg-[#FBF0DA] overflow-hidden  justify-center"
       style={{ perspective: '2000px' }}
     >
-      <div className='flex justify-center uppercase text-2xl mb-10 text-gray-900'>
+      <div className='flex justify-center uppercase text-[3.5vw] sm:text-[2.2vw] md:text-2xl mb-10 text-gray-900 font-normal'>
          <motion.h2
   initial={{ y: 40, opacity: 0, scale: 0.95 }}
   whileInView={{ y: 0, opacity: 1, scale: 1 }}

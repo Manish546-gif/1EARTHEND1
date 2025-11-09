@@ -39,13 +39,30 @@ const ImgHarmony = () => {
       viewport={{ once: true, amount: 0.3 }}
     >
       {/* Top Label */}
-      <motion.p
-        variants={textVariant}
-        custom={0}
-        className="tracking-[0.3em] text-sm md:text-base mb-12 uppercase text-center lg:text-left"
+      <motion.div
+        className="lg:col-span-1 text-center lg:text-left lg:px-8 mb-8 md:mb-12"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.15 },
+          },
+        }}
       >
-        SERVICE
-      </motion.p>
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
+        >
+          <h5 className="tracking-[0.3em] text-black mt-4 sm:mt-6 text-[clamp(10px,1vw,14px)] font-normal">
+            SERVICE
+          </h5>
+        </motion.div>
+      </motion.div>
 
       {/* Headings section */}
       <div className="w-full relative leading-[0.95] text-black">
@@ -101,7 +118,7 @@ const ImgHarmony = () => {
           <motion.p
             custom={3}
             variants={textVariant}
-            className="max-w-md text-base sm:text-lg md:text-base leading-relaxed text-center lg:text-left text-gray-800"
+            className="max-w-md text-[3.5vw] sm:text-[2.2vw] md:text-base leading-relaxed text-center lg:text-left text-gray-800 font-normal"
           >
             Each One Earth creation blends thoughtful design with sustainable
             innovation — crafting spaces that reflect your vision while honoring
@@ -122,7 +139,7 @@ const ImgHarmony = () => {
       <motion.div
         custom={5}
         variants={textVariant}
-        className="mt-5 flex justify-center lg:justify-start"
+        className="mt-0 flex justify-center lg:justify-start"
       >
         <TransitionLink to="/services">
           <motion.button

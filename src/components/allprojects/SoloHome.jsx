@@ -1,62 +1,67 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import projectimg from '../../assets/solo32.jpg';
+import React from "react";
+import { motion } from "framer-motion";
+import projectimg from "../../assets/solo32.jpg";
 
 const textVariant = {
-  hidden: { y: 40, opacity: 0 },
+  hidden: { y: 30, opacity: 0 },
   visible: (i) => ({
     y: 0,
     opacity: 1,
     transition: {
       delay: i * 0.1,
-      duration: 0.5,
+      duration: 0.6,
       ease: "easeOut",
     },
   }),
 };
 
-const SoloHome = () => {
+export default function SoloHome() {
+  const title = ["HARMONY", "HIGHLAND"];
+
   return (
-    <div className="min-h-screen text-[#FBF0DA] overflow-hidden bg-cover bg-center bg-no-repeat relative">
-
-      {/* Background Image */}
+    <section className="relative min-h-screen w-full overflow-hidden">
+      {/* Background */}
       <img
-        data-scroll
-        data-scroll-speed="-0.2"
         src={projectimg}
-        alt="Background"
-        className="absolute inset-0 w-full h-full object-cover"
+        alt="Harmony Highland"
+        className="absolute inset-0 h-full w-full object-cover"
       />
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30"></div>
+      {/* Subtle bottom gradient for readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/30 to-black/10" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-end items-start min-h-screen p-8">
-        <motion.h1
-          className="text-4xl md:text-9xl uppercase w-40 mb-2 sm:text-3xl sm:w-full"
-          variants={textVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={0}
-        >
-          harmony <br/>
-highland
-        </motion.h1>
-        <motion.p
-          className="text-xl md:text-4xl tracking-wider sm:text-lg"
-          variants={textVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={1}
-        >
-         Velhe,Bhor,Pune
-        </motion.p>
-      </div>
-    </div>
-  );
-};
+      <div className="relative z-10 flex min-h-screen items-end">
+        <div className="w-full px-6 md:px-12 pb-16 md:pb-24 text-[#FBF0DA]">
+          {/* Title */}
+          <div className="text-left leading-none">
+            {title.map((word, i) => (
+              <motion.span
+                key={word}
+                className="block font-normal leading-[0.95] text-[clamp(32px,8vw,120px)] uppercase"
+                variants={textVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </div>
 
-export default SoloHome;
+          {/* Location */}
+          <motion.p
+            className="mt-3 text-[clamp(12px,1.2vw,18px)] tracking-wide"
+            variants={textVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={title.length + 1}
+          >
+            Velhe, Bhor, Pune
+          </motion.p>
+        </div>
+      </div>
+    </section>
+  );
+}

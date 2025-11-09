@@ -18,24 +18,19 @@ const textVariant = {
 const WhyChoose = () => {
   return (
     <section className="relative min-h-screen flex justify-center items-center px-8 py-16 overflow-hidden">
-     
       <img
-  data-scroll
-  data-scroll-speed="-0.2"
-  src={whychoose}
-  alt="Background"
-  className="absolute inset-0 w-full h-full object-cover"
-/>
+        data-scroll
+        data-scroll-speed="-0.2"
+        src={whychoose}
+        alt="Background"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
 
-      
       <div className="absolute inset-0 bg-black/60"></div>
 
-      
       <div className="relative z-10 max-w-7xl w-full grid lg:grid-cols-2 gap-8 text-[#FBF0DA]">
-        
-       
         <div className="grid grid-cols-2 gap-6 w-full">
-         
+          {/* Box 1 */}
           <motion.div
             className=" bg-white/10 border border-white/20  p-3 flex flex-col justify-center text-center md:h-80"
             variants={textVariant}
@@ -45,7 +40,7 @@ const WhyChoose = () => {
             custom={0}
           >
             <motion.p
-              className="text-lg font-semibold tracking-wide mb-2"
+              className="text-[clamp(13px,1.2vw,18px)] font-normal tracking-tight mb-1"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"
@@ -55,7 +50,7 @@ const WhyChoose = () => {
               TRANSPARENCY & TRUST
             </motion.p>
             <motion.p
-              className="text-sm text-gray-300"
+              className="text-[clamp(12px,1vw,16px)] text-gray-300 leading-[1.4]"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"
@@ -66,7 +61,7 @@ const WhyChoose = () => {
             </motion.p>
           </motion.div>
 
-          
+          {/* Box 2 */}
           <motion.div
             className=" bg-white/10 border border-white/20  p-6 flex flex-col justify-center text-center md:h-80"
             variants={textVariant}
@@ -76,7 +71,7 @@ const WhyChoose = () => {
             custom={3}
           >
             <motion.p
-              className="text-lg font-semibold tracking-wide mb-2"
+              className="text-[clamp(13px,1.2vw,18px)] font-normal tracking-tight mb-1"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"
@@ -86,7 +81,7 @@ const WhyChoose = () => {
               QUALITY & PLANNING
             </motion.p>
             <motion.p
-              className="text-sm text-gray-300"
+              className="text-[clamp(12px,1vw,16px)] text-gray-300 leading-[1.4]"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"
@@ -97,7 +92,7 @@ const WhyChoose = () => {
             </motion.p>
           </motion.div>
 
-         
+          {/* Box 3 */}
           <motion.div
             className=" bg-white/10 border border-white/20  p-6 flex flex-col justify-center text-center md:h-80"
             variants={textVariant}
@@ -107,7 +102,7 @@ const WhyChoose = () => {
             custom={6}
           >
             <motion.p
-              className="text-lg font-semibold tracking-wide mb-2"
+              className="text-[clamp(13px,1.2vw,18px)] font-normal tracking-tight mb-1"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"
@@ -117,7 +112,7 @@ const WhyChoose = () => {
               TIMELY DELIVERY
             </motion.p>
             <motion.p
-              className="text-sm text-gray-300"
+              className="text-[clamp(12px,1vw,16px)] text-gray-300 leading-[1.4]"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"
@@ -128,6 +123,7 @@ const WhyChoose = () => {
             </motion.p>
           </motion.div>
 
+          {/* Box 4 */}
           <motion.div
             className=" bg-white/10 border border-white/20  p-6 flex flex-col justify-center text-center md:h-80"
             variants={textVariant}
@@ -137,7 +133,7 @@ const WhyChoose = () => {
             custom={9}
           >
             <motion.p
-              className="text-lg font-semibold tracking-wide mb-2"
+              className="text-[clamp(13px,1.2vw,18px)] font-normal tracking-tight mb-1"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"
@@ -147,7 +143,7 @@ const WhyChoose = () => {
               CUSTOMER-CENTRIC APPROACH
             </motion.p>
             <motion.p
-              className="text-sm text-gray-300"
+              className="text-[clamp(12px,1vw,16px)] text-gray-300 leading-[1.4]"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"
@@ -159,10 +155,10 @@ const WhyChoose = () => {
           </motion.div>
         </div>
 
-       
+        {/* RIGHT TEXT */}
         <div className="flex flex-col justify-center">
           <motion.p
-            className="text-lg uppercase tracking-[3px] text-gray-50 mb-6"
+            className="text-[clamp(10px,1vw,14px)] tracking-[0.3em] text-gray-50 mb-6"
             variants={textVariant}
             initial="hidden"
             whileInView="visible"
@@ -171,50 +167,23 @@ const WhyChoose = () => {
           >
             Why Choose Us
           </motion.p>
+
           <motion.h2
-            className="text-5xl font-semibold uppercase leading-tight"
+            className="font-normal leading-[1.05] text-[clamp(28px,4vw,90px)] uppercase"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <motion.span
-              className="block"
-              variants={textVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={13}
-            >
+            <motion.span className="block" variants={textVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={13}>
               Your Trusted
             </motion.span>
-            <motion.span
-              className="block"
-              variants={textVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={14}
-            >
+            <motion.span className="block" variants={textVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={14}>
               Partner in
             </motion.span>
-            <motion.span
-              className="block"
-              variants={textVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={15}
-            >
+            <motion.span className="block" variants={textVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={15}>
               Land
             </motion.span>
-            <motion.span
-              className="block"
-              variants={textVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={16}
-            >
+            <motion.span className="block" variants={textVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={16}>
               Investments
             </motion.span>
           </motion.h2>

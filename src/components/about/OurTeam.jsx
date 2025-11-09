@@ -11,7 +11,7 @@ const textVariant = {
     opacity: 1,
     transition: {
       delay: i * 0.1,
-      duration: 0.5,
+      duration: 0.6,
       ease: "easeOut",
     },
   }),
@@ -24,26 +24,19 @@ export default function OurTeam() {
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16">
           {/* LEFT HEADING */}
           <div className="flex-shrink-0 w-full lg:w-1/4 text-center lg:text-left">
-            <motion.h2
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-black"
-              variants={textVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={0}
-            >
-              OUR
-            </motion.h2>
-            <motion.h2
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-black"
-              variants={textVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={1}
-            >
-              TEAM
-            </motion.h2>
+            {["OUR", "TEAM"].map((word, i) => (
+              <motion.span
+                key={i}
+                className="block text-black font-normal leading-[1.05] text-[clamp(28px,4vw,90px)]"
+                variants={textVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+              >
+                {word}
+              </motion.span>
+            ))}
           </div>
 
           {/* TEAM MEMBERS */}
@@ -51,70 +44,76 @@ export default function OurTeam() {
             {/* MEMBER 1 */}
             <div className="flex flex-col items-center lg:items-start w-full sm:w-[45%] lg:w-[40%]">
               <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 mb-6 overflow-hidden">
-                <img
-                  
-                  src={img1}
-                  alt="Shreyash Tarawade"
-                  className="w-full h-full object-cover"
-                />
+                <img src={img1} alt="Shreyash Tarawade" className="w-full h-full object-cover" />
               </div>
+
+              {/* Name + designation (no gap between them) */}
               <div className="text-center lg:text-left w-full">
-                <motion.h3
-                  className="text-lg sm:text-xl md:text-2xl text-black whitespace-nowrap uppercase tracking-wide mb-2"
-                  variants={textVariant}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  custom={2}
-                >
-                  SHREYASH TARAWADE
-                </motion.h3>
-                <motion.p
-                  className="text-xs sm:text-sm md:text-base font-sans text-black whitespace-nowrap uppercase tracking-wide"
-                  variants={textVariant}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  custom={3}
-                >
-                  MANAGING DIRECTOR
-                </motion.p>
-                <Line />
+                <div className="leading-tight">
+                  <motion.h3
+                    className="text-lg sm:text-xl md:text-2xl text-black uppercase tracking-wide mb-0"
+                    variants={textVariant}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    custom={2}
+                  >
+                    SHREYASH TARAWADE
+                  </motion.h3>
+                  <motion.p
+                    className="text-xs sm:text-sm md:text-base font-sans text-black uppercase tracking-wide mb-0"
+                    variants={textVariant}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    custom={3}
+                  >
+                    MANAGING DIRECTOR
+                  </motion.p>
+                </div>
+
+                {/* now add space before line */}
+                <div className="mt-2">
+                  <Line />
+                </div>
               </div>
             </div>
 
             {/* MEMBER 2 */}
             <div className="flex flex-col items-center lg:items-start w-full sm:w-[45%] lg:w-[40%]">
               <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 mb-6 overflow-hidden">
-                <img
-                  
-                  src={img2}
-                  alt="Sonal Jadhav"
-                  className="w-full h-full object-cover"
-                />
+                <img src={img2} alt="Sonal Jadhav" className="w-full h-full object-cover" />
               </div>
+
+              {/* Name + designation (no gap between) */}
               <div className="text-center lg:text-left w-full">
-                <motion.h3
-                  className="text-lg sm:text-xl md:text-2xl text-black uppercase tracking-wide mb-2"
-                  variants={textVariant}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  custom={4}
-                >
-                  SONAL JADHAV
-                </motion.h3>
-                <motion.p
-                  className="text-xs sm:text-sm md:text-base font-sans text-black uppercase tracking-wide"
-                  variants={textVariant}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  custom={5}
-                >
-                  CHIEF ARCHITECT
-                </motion.p>
-                <Line />
+                <div className="leading-tight">
+                  <motion.h3
+                    className="text-lg sm:text-xl md:text-2xl text-black uppercase tracking-wide mb-0"
+                    variants={textVariant}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    custom={4}
+                  >
+                    SONAL JADHAV
+                  </motion.h3>
+                  <motion.p
+                    className="text-xs sm:text-sm md:text-base font-sans text-black uppercase tracking-wide mb-0"
+                    variants={textVariant}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    custom={5}
+                  >
+                    CHIEF ARCHITECT
+                  </motion.p>
+                </div>
+
+                {/* space before line */}
+                <div className="mt-2">
+                  <Line />
+                </div>
               </div>
             </div>
           </div>

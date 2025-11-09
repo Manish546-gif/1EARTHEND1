@@ -47,7 +47,7 @@ export default function AboutLanding() {
         <div className="hidden sm:block w-full h-full">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <motion.h1
-              className="text-4xl md:text-4xl lg:text-4xl xl:text-7xl"
+              className="text-[clamp(28px,4vw,90px)] font-normal"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"
@@ -72,11 +72,11 @@ export default function AboutLanding() {
           </div>
 
           <div className="absolute lg:bottom-20 bottom-28 right-6 px-3 lg:right-8 max-w-md xl:max-w-xs">
-            <div className="text-sm lg:text-base whitespace-nowrap leading-relaxed font-light">
+            <div className="space-y-1">
               {paragraphLines.map((line, i) => (
                 <motion.p
                   key={i}
-                  className="block"
+                  className="text-[#FBF0DA] leading-[1.4] font-normal text-[3.5vw] sm:text-[2.2vw] md:text-base"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -106,7 +106,7 @@ export default function AboutLanding() {
 
           {/* Paragraph (aligned left) */}
           <motion.div
-            className="w-full max-w-md text-sm leading-relaxed font-light text-left mt-6"
+            className="w-full max-w-md text-left mt-6 space-y-1"
             variants={textVariant}
             initial="hidden"
             whileInView="visible"
@@ -114,9 +114,17 @@ export default function AboutLanding() {
             custom={1}
           >
             {paragraphLines.map((line, i) => (
-              <p key={i} className="block whitespace-nowrap">
+              <motion.p
+                key={i}
+                className="text-[#FBF0DA] leading-[1.4] font-normal text-[3.5vw] sm:text-[2.2vw] md:text-base"
+                variants={textVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={1 + i}
+              >
                 {line}
-              </p>
+              </motion.p>
             ))}
           </motion.div>
 

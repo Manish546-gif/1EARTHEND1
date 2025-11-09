@@ -3,19 +3,21 @@ import { motion } from "framer-motion";
 import origin2 from "../../assets/origin2.png";
 import Line from "../common/Line";
 
+/* Variants */
 const textVariant = {
-  hidden: { y: 40, opacity: 0 },
+  hidden: { y: 30, opacity: 0 },
   visible: (i) => ({
     y: 0,
     opacity: 1,
     transition: {
       delay: i * 0.1,
-      duration: 0.5,
+      duration: 0.6,
       ease: "easeOut",
     },
   }),
 };
 
+/* Paragraphs */
 const originLines = [
   "One Earth Properties was",
   "founded with a singular",
@@ -23,10 +25,10 @@ const originLines = [
   "estate by uniting sustainability,",
   "culture, and modern living.",
   "Rooted in Pune’s serene",
-  "landscapes,our journey began",
-  " with a simple belief:",
+  "landscapes, our journey began",
+  "with a simple belief:",
   "that land is not just to be",
-  "developed,but to be nurtured.",
+  "developed, but to be nurtured.",
 ];
 
 const philosophyLines = [
@@ -36,23 +38,24 @@ const philosophyLines = [
   "we create spaces that coexist",
   "with their surroundings",
   "where innovation serves the",
-  " Earth, and design becomes",
-  "an expression of balance. Each",
-  "project stands as a testament to",
-  "harmony, integrity, and renewal.",
+  "Earth, and design becomes",
+  "an expression of balance.",
+  "Each project stands as a testament",
+  "to harmony, integrity, and renewal.",
 ];
 
 export default function Origin() {
   const heading = "DESIGNING IN HARMONY".split(" ");
 
   return (
-    <div className="flex flex-col lg:flex-row bg-[#FBF0DA] justify-center md:mb-10 min-h-screen gap-10 md:mt-20 px-6 sm:px-8 lg:px-0 py-10 lg:py-0">
-      {/* Heading Section */}
-      <div className="text-left w-full lg:w-auto md:mb-0 lg:mr-12 text-[6vw] sm:text-[5vw] md:text-5xl lg:text-6xl leading-tight">
+    <section className="w-full min-h-screen bg-[#FBF0DA] px-8 lg:px-20 py-20 flex flex-col lg:flex-row gap-16">
+      
+      {/* LEFT COLUMN — HEADING */}
+      <div className="w-full lg:w-1/4 text-left">
         {heading.map((word, i) => (
           <motion.span
             key={i}
-            className="block"
+            className="block text-black font-normal leading-[1.05] text-[clamp(28px,4vw,90px)] whitespace-nowrap"
             variants={textVariant}
             initial="hidden"
             whileInView="visible"
@@ -64,59 +67,68 @@ export default function Origin() {
         ))}
       </div>
 
-      {/* Image Section */}
-      <div className="flex-shrink-0 relative w-full sm:w-4/5 md:w-3/5 lg:w-[40%] overflow-hidden md:mb-0 mx-auto lg:mx-0">
-        <motion.div
-          initial={{ scaleX: 1, opacity: 1 }}
-          whileInView={{ scaleX: 0, opacity: 1 }}
-          transition={{ duration: 1.5, delay: 0.6, ease: "circOut" }}
-          viewport={{ once: true }}
-          style={{ transformOrigin: "right" }}
-          className="w-full origin-right absolute z-10 h-full bg-[#FBF0DA]"
-        />
-        <img src={origin2} alt="" className="w-full h-full object-cover" />
+      {/* MIDDLE COLUMN — IMAGE */}
+      <div className="w-full lg:w-2/4 flex justify-center">
+        <div className="w-full max-w-xl h-[400px] sm:h-[500px] lg:h-[650px] xl:h-[700px] overflow-hidden relative">
+          <motion.div
+            initial={{ scaleX: 1 }}
+            whileInView={{ scaleX: 0 }}
+            transition={{ duration: 1.2, delay: 0.4, ease: "circOut" }}
+            viewport={{ once: true }}
+            className="absolute inset-0 bg-[#FBF0DA] z-10 origin-right"
+          />
+          <img
+            src={origin2}
+            alt="Origin"
+            className="w-full h-full object-cover"
+          />
+        </div>
       </div>
 
-      {/* Text Content */}
-      <div className="w-full lg:w-1/6 text-left md:ml-22 px-1 sm:px-0">
-        <div className="mb-6">
+      {/* RIGHT COLUMN — TEXT */}
+      <div className="w-full lg:w-1/4 text-black flex flex-col gap-10">
+        
+        {/* OUR ORIGINS */}
+        <div>
           <motion.h3
-            className="mb-2 text-[3.8vw] sm:text-[2.8vw] md:text-lg lg:text-xl"
+            className="text-[clamp(14px,1.6vw,18px)] font-semibold tracking-wide mb-4"
             variants={textVariant}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={0}
+            custom={20}
           >
             OUR ORIGINS
           </motion.h3>
 
-          <div className="mb-2 md:mb-28">
+          {/* FIRST PARAGRAPH */}
+          <div className="space-y-1 mb-6">
             {originLines.map((line, i) => (
               <motion.p
                 key={i}
-                className="block text-[3vw] sm:text-[2.5vw] md:text-base lg:text-lg whitespace-nowrap leading-relaxed w-full"
+                className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
                 variants={textVariant}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                custom={1 + i}
+                custom={21 + i}
               >
                 {line}
               </motion.p>
             ))}
           </div>
 
-          <div className="leading-relaxed">
+          {/* SECOND PARAGRAPH */}
+          <div className="space-y-1">
             {philosophyLines.map((line, i) => (
               <motion.p
                 key={i}
-                className="block text-[3vw] sm:text-[2.5vw] md:text-base whitespace-nowrap lg:text-lg w-full"
+                className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
                 variants={textVariant}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                custom={3 + i}
+                custom={40 + i}
               >
                 {line}
               </motion.p>
@@ -124,52 +136,35 @@ export default function Origin() {
           </div>
         </div>
 
+        {/* OUR VALUES */}
         <div>
           <motion.h3
-            className="font-bold mb-2 text-[3.8vw] sm:text-[2.8vw] md:text-lg lg:text-xl"
+            className="text-[clamp(14px,1.6vw,18px)] font-semibold tracking-wide mb-4"
             variants={textVariant}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={5}
+            custom={60}
           >
-            OUR ORIGINS
+            OUR VALUES
           </motion.h3>
 
-          <motion.ul className="space-y-1 text-[3vw] sm:text-[2.5vw] md:text-base lg:text-lg">
-            <motion.li
-              variants={textVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={6}
-            >
+          <motion.ul className="space-y-1 text-[clamp(13px,1.2vw,18px)] leading-[1.45]">
+            <motion.li variants={textVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={61}>
               Harmony
             </motion.li>
             <Line />
-            <motion.li
-              variants={textVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={7}
-            >
+            <motion.li variants={textVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={62}>
               Integrity
             </motion.li>
             <Line />
-            <motion.li
-              variants={textVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={8}
-            >
+            <motion.li variants={textVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={63}>
               Sustainability
             </motion.li>
             <Line />
           </motion.ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

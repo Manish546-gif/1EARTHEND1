@@ -70,7 +70,7 @@ const ProjectSlider = () => {
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="text-4xl md:text-6xl font-light text-[#FBF0DA] tracking-widest"
+              className="text-[3.5vw] sm:text-[2.2vw] md:text-4xl md:text-6xl font-light text-[#FBF0DA] tracking-widest"
             >
               Coming Soon
             </motion.h2>
@@ -114,14 +114,14 @@ const ProjectSlider = () => {
           {/* Slide Content */}
           <div className="relative z-10 max-w-screen-2xl mx-auto px-5 sm:px-10 w-full h-full flex flex-col justify-between py-10 sm:py-20">
             {/* Page Number */}
-            <div className="flex justify-end mt-10 text-xl font-light">
+            <div className="flex justify-end mt-10 text-[3.5vw] sm:text-[2.2vw] md:text-xl font-light">
               {projects[page].id} / {projects.length}
             </div>
 
             {/* Bottom Section */}
             <div className="flex justify-between items-end">
               <div>
-                <h2 className="md:text-8xl sm:text-6xl font-light tracking-tight leading-none">
+                <h2 className="text-[3.5vw] sm:text-[2.2vw] md:text-8xl sm:text-6xl font-light tracking-tight leading-none">
                   {projects[page].title.split(" ").map((word, i) => (
                     <div key={i}>{word}</div>
                   ))}
@@ -129,7 +129,7 @@ const ProjectSlider = () => {
               </div>
 
               <TransitionLink to="/project">
-                <button className="relative overflow-hidden bg-transparent border border-[#FBF0DA] hover:bg-[#FBF0DA] hover:text-black hover:cursor-pointer px-6 sm:px-8 py-3 rounded-full text-xs sm:text-sm font-medium transition-colors duration-300 group">
+                <button className="relative overflow-hidden bg-transparent border border-[#FBF0DA] hover:bg-[#FBF0DA] hover:text-black hover:cursor-pointer px-6 sm:px-8 py-3 rounded-full text-[3.5vw] sm:text-[2.2vw] md:text-xs sm:text-sm font-medium transition-colors duration-300 group">
                   <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
                     See Project
                   </span>

@@ -31,8 +31,8 @@ export default function CraftVisionSection() {
   return (
     <div>
       <Line />
-      <div className="min-h-screen bg-[#FBF0DA] flex md:px-10 mb-10 items-center justify-center p-4">
-        <div className="max-w-8xl w-full mx-auto">
+      <div className="min-h-screen bg-[#FBF0DA] flex items-center justify-center p-4 py-10">
+        <div className="max-w-[1600px] w-full mx-auto px-4 lg:px-8">
          
           <div className="hidden lg:grid grid-cols-3 items-center">
            
@@ -64,51 +64,43 @@ export default function CraftVisionSection() {
                 },
               }}
             >
-              <div className="overflow-hidden mb-6">
-                <motion.p
-                  className="text-lg font-medium text-gray-black tracking-wider"
-                  initial={{ y: 30, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.8,
-                    ease: [0.25, 0.46, 0.45, 0.94],
-                  }}
-                >
+              <motion.div
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
+              >
+                <h5 className="tracking-[0.3em] text-black mt-4 sm:mt-6 text-[clamp(10px,1vw,14px)] font-normal">
                   CONNECT
-                </motion.p>
-              </div>
+                </h5>
+              </motion.div>
 
-              <h1 className="text-6xl lg:text-6xl xl:text-7xl text-black mb-8">
+              <div className="text-black tracking-tight mt-8 md:mt-8 leading-[1.1] text-left">
                 {["CRAFT", "YOUR", "VISION"].map((word, i) => (
-                  <div key={i} className="overflow-hidden">
-                    <motion.span
-                      className="block"
-                      initial={{ y: 60, opacity: 0 }}
-                      whileInView={{ y: 0, opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        duration: 0.8,
-                        ease: [0.25, 0.46, 0.45, 0.94],
-                        delay: 0.1 * (i + 1),
-                      }}
-                    >
-                      {word}
-                    </motion.span>
-                  </div>
-                ))}
-              </h1>
-
-              <div className="md:w-3/5 w-full sm:mb-10 whitespace-nowrap lg:mb-10 mb-5 md:mb-10">
-                {paragraphLines.map((line, i) => (
-                  <motion.p
+                  <motion.span
                     key={i}
-                    className="md:text-sm lg:text-sm text-lg whitespace-nowrap"
+                    className="block whitespace-nowrap text-[clamp(28px,4vw,90px)] font-normal"
                     variants={textVariant}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
                     custom={i}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </div>
+
+              <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[85%] xl:w-[70%] text-left space-y-1 mt-12">
+                {paragraphLines.map((line, i) => (
+                  <motion.p
+                    key={i}
+                    className="text-black leading-[1.4] font-normal text-[3.5vw] sm:text-[2.2vw] md:text-base"
+                    variants={textVariant}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    custom={i + 4}
                   >
                     {line}
                   </motion.p>
@@ -117,12 +109,12 @@ export default function CraftVisionSection() {
 
               <TransitionLink to="/contact">
                 <motion.button
-                  className="relative overflow-hidden bg-yellow-600 hover:bg-black hover:cursor-pointer text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-300 group"
+                  className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full font-medium transition-colors duration-200 group text-[clamp(12px,1vw,16px)] mt-10"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  custom={paragraphLines.length}
+                  custom={paragraphLines.length + 4}
                 >
                   <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
                     GET IN TOUCH
@@ -154,35 +146,32 @@ export default function CraftVisionSection() {
           <div className="lg:hidden flex flex-col items-start mt-12 space-y-6 text-left">
             {/* HEADING */}
             <div>
-              <motion.p
-                className="text-lg font-medium text-gray-black tracking-wider mb-2"
+              <motion.div
                 initial={{ y: 30, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
               >
-                CONNECT
-              </motion.p>
+                <h5 className="tracking-[0.3em] text-black mt-4 sm:mt-6 text-[clamp(10px,1vw,14px)] font-normal">
+                  CONNECT
+                </h5>
+              </motion.div>
 
-              <h1 className="text-5xl sm:text-6xl  text-black mb-3 mt-3 ">
+              <div className="text-black tracking-tight mt-6 md:mt-0 leading-[1.1] text-left">
                 {["CRAFT", "YOUR", "VISION"].map((word, i) => (
-                  <div key={i} className="overflow-hidden">
-                    <motion.span
-                      className=""
-                      initial={{ y: 60, opacity: 0 }}
-                      whileInView={{ y: 0, opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        duration: 0.8,
-                        ease: [0.25, 0.46, 0.45, 0.94],
-                        delay: 0.1 * (i + 1),
-                      }}
-                    >
-                      {word}
-                    </motion.span>
-                  </div>
+                  <motion.span
+                    key={i}
+                    className="block whitespace-nowrap text-[clamp(28px,4vw,90px)] font-normal"
+                    variants={textVariant}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    custom={i}
+                  >
+                    {word}
+                  </motion.span>
                 ))}
-              </h1>
+              </div>
             </div>
 
             {/* FIRST IMAGE */}
@@ -203,7 +192,7 @@ export default function CraftVisionSection() {
               {paragraphLines.map((line, i) => (
                 <motion.p
                   key={i}
-                  className="text-base sm:text-lg whitespace-nowrap"
+                  className="text-[3.5vw] sm:text-[2.2vw] md:text-base whitespace-nowrap font-normal"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -216,12 +205,12 @@ export default function CraftVisionSection() {
 
               <TransitionLink to="/contact">
                 <motion.button
-                  className="relative mt-2 overflow-hidden bg-yellow-600 hover:bg-black hover:cursor-pointer text-white px-6 py-3 rounded-full text-sm font-medium transition-colors duration-300 group"
+                  className="relative mt-2 overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full font-medium transition-colors duration-200 group text-[clamp(12px,1vw,16px)]"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  custom={paragraphLines.length}
+                  custom={paragraphLines.length + 4}
                 >
                   <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
                     GET IN TOUCH

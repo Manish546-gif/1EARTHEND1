@@ -20,22 +20,22 @@ const textVariant = {
 
 function EverySpaceSection() {
   const paragraphLines = [
-    "In every creation by One Earth,the spirit",
-    "of harmony is ever-present.",
-    "Rooted in the wisdom of the land and the ",
-    "rhythm of nature, our spaces are shaped",
-    "to coexist with their surroundings.",
-    "Each design honors the earth's quiet",
-    " intelligence blending tradition,",
-    "sustainability, and innovation into a",
-    "living narrative of balance and belonging.",
+    "In every creation by One Earth,the",
+    "spirit of harmony is ever-present.",
+    "Rooted in the wisdom of the land",
+    "and the rhythm of nature, our spaces",
+    "are shaped to coexist with their",
+    "surroundings. Each design honors",
+    "the earth's quiet intelligence",
+    "blending tradition,sustainability,",
+    "and innovation into aliving narrative",
+    "of balance and belonging.",
   ];
 
   return (
     <div className="min-h-screen bg-[#FBF0DA] flex items-center justify-center p-4 py-10">
       <div className="max-w-[1600px] w-full mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-16 items-center">
-
           {/* Column 1 */}
           <div className="flex flex-col justify-between w-full min-h-[200px] sm:min-h-[450px] md:min-h-[600px]">
             <motion.div
@@ -44,28 +44,17 @@ function EverySpaceSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
             >
-              <h5
-                className="tracking-[0.3em] text-black mt-4 sm:mt-6"
-                style={{
-                  fontSize: "0.9vw",
-                  fontWeight: 400,
-                }}
-              >
+              <h5 className="tracking-[0.3em] text-black mt-4 sm:mt-6 text-[clamp(10px,1vw,14px)] font-normal">
                 ABOUT
               </h5>
             </motion.div>
 
-            <div
-              className="text-black tracking-tight mt-6 md:mt-0 leading-[1.1]"
-              style={{
-                fontSize: "4vw",
-                fontWeight: 400,
-              }}
-            >
+            {/* Headline words – clamp around 4vw */}
+            <div className="text-black tracking-tight mt-6 md:mt-0 leading-[1.1] text-left">
               {["EVERY", "SPACE", "HOLDS", "A SOUL"].map((word, i) => (
                 <motion.span
                   key={i}
-                  className="block"
+                  className="block whitespace-nowrap text-[clamp(28px,4vw,90px)] font-normal"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -104,18 +93,13 @@ function EverySpaceSection() {
           </div>
 
           {/* Column 3 */}
-          <div className="flex flex-col justify-between lg:justify-center items-start lg:items-end w-full gap-10 mt-5 md:mt-8 lg:mt-0 text-right">
+          <div className="flex flex-col justify-between lg:justify-between items-start lg:items-end w-full gap-10 mt-5 md:mt-8 lg:mt-0 text-right">
             {/* Paragraphs */}
-            <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[85%] xl:w-[70%] text-left  space-y-1 lg:mb-10">
+            <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[85%] xl:w-[70%] text-left space-y-1">
               {paragraphLines.map((line, i) => (
                 <motion.p
                   key={i}
-                  className="text-black"
-                  style={{
-                    fontSize: "1.1vw",
-                    fontWeight: 400,
-                    lineHeight: "1.6",
-                  }}
+                  className="text-black leading-[1.4] font-normal text-[3.5vw] sm:text-[2.2vw] md:text-base"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -127,14 +111,11 @@ function EverySpaceSection() {
               ))}
             </div>
 
-            {/* Button */}
-            <div className="w-full flex justify-start lg:justify-end">
+            {/* Button – aligned exactly to paragraph left; no gap above */}
+            <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[85%] xl:w-[70%] text-left mt-0 -mt-1">
               <TransitionLink to="/about">
                 <motion.button
-                  className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full font-medium transition-colors duration-300 group"
-                  style={{
-                    fontSize: "1vw",
-                  }}
+                  className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full font-medium transition-colors duration-200 group text-[clamp(12px,1vw,16px)]"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -151,9 +132,9 @@ function EverySpaceSection() {
               </TransitionLink>
             </div>
 
-            {/* Small Image */}
+            {/* Small Image – right-bottom, with gap from button */}
             <motion.div
-              className="w-full sm:w-[70%] md:w-[60%] lg:w-[80%] xl:w-[70%] self-center lg:self-end h-[180px] sm:h-[220px] md:h-[260px] lg:h-[280px] xl:h-[200px] overflow-hidden relative"
+              className="w-full sm:w-[70%] md:w-[60%] lg:w-[80%] xl:w-[70%] self-end mt-10 h-[180px] sm:h-[220px] md:h-[260px] lg:h-[280px] xl:h-[200px] overflow-hidden relative"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

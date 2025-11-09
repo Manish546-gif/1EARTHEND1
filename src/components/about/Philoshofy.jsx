@@ -1,8 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import origin2 from '../../assets/origin3.png';
+import origin2 from "../../assets/origin3.png";
 import Line from "../common/Line";
 
+/* Animation */
 const textVariant = {
   hidden: { y: 40, opacity: 0 },
   visible: (i) => ({
@@ -10,12 +11,13 @@ const textVariant = {
     opacity: 1,
     transition: {
       delay: i * 0.1,
-      duration: 0.5,
+      duration: 0.6,
       ease: "easeOut",
     },
   }),
 };
 
+/* Content */
 const originsLines = [
   "One Earth Properties is more than",
   "a real estate brand - it’s a vision",
@@ -23,7 +25,7 @@ const originsLines = [
   "We are a collective of dreamers,",
   "planners, and creators who believe",
   "that land is not just owned -",
-  "it is honoured."
+  "it is honoured.",
 ];
 
 const philosophyDescLines = [
@@ -35,19 +37,20 @@ const philosophyDescLines = [
   "deep cultural heritage. One Earth",
   "Properties creates spaces that breathe",
   "freely, evolve gracefully, and stand",
-  "resiliently against time."
+  "resiliently against time.",
 ];
 
 export default function Philosophy() {
   const heading = "WHAT WE STAND FOR".split(" ");
 
   return (
-    <div className="flex flex-col md:flex-row bg-[#FBF0DA] justify-center min-h-screen mb-10 p-8 md:gap-15 xl:gap-15 gap:10 md:mt-20">
-      <div className="text-5xl md:text-7xl  mb-8 md:mb-0 md:mr-20 text-left">
+    <section className="w-full min-h-screen bg-[#FBF0DA] px-8 lg:px-20 py-20 flex flex-col md:flex-row gap-16">
+      {/* LEFT HEADING */}
+      <div className="w-full md:w-1/3 text-left">
         {heading.map((word, i) => (
-          <motion.h1
+          <motion.span
             key={i}
-            className="block"
+            className="block text-black font-normal leading-[1.05] text-[clamp(28px,4vw,90px)]"
             variants={textVariant}
             initial="hidden"
             whileInView="visible"
@@ -55,109 +58,101 @@ export default function Philosophy() {
             custom={i}
           >
             {word}
-          </motion.h1>
+          </motion.span>
         ))}
       </div>
-      <div className="mb-6 md:w-3/6 md:ml-10">
-          <motion.h3
-            className=" mb-2"
-            variants={textVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={4}
-          >
-            OUR PHILOSOPHY
-          </motion.h3>
-          <div className="md:text-lg whitespace-nowrap mb-2 md:mb-28">
-            {originsLines.map((line, i) => (
-              <motion.p
-                key={i}
-                className="block"
-                variants={textVariant}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={5 + i}
-              >
-                {line}
-              </motion.p>
-            ))}
-          </div>
-          <div className="md:text-lg whitespace-nowrap">
-            {philosophyDescLines.map((line, i) => (
-              <motion.p
-                key={i}
-                className="block"
-                variants={textVariant}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={7 + i}
-              >
-                {line}
-              </motion.p>
-            ))}
-          </div>
+
+      {/* MIDDLE TEXT BLOCK */}
+      <div className="w-full md:w-1/3 text-left">
+        {/* OUR PHILOSOPHY HEADING */}
+        <motion.h3
+          className="text-[clamp(14px,1.6vw,18px)] font-semibold tracking-wide mb-4"
+          variants={textVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={10}
+        >
+          OUR PHILOSOPHY
+        </motion.h3>
+
+        {/* FIRST PARAGRAPH */}
+        <div className="space-y-1 mb-8">
+          {originsLines.map((line, i) => (
+            <motion.p
+              key={i}
+              className="text-black leading-[1.4] text-[clamp(13px,1.2vw,18px)]"
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={11 + i}
+            >
+              {line}
+            </motion.p>
+          ))}
         </div>
-     
-      <div className="md:ml-32 w-full md:w-6/9 text-left">
-      <div className="flex-shrink-0  md:h-130 relative w-full md:w-full mb-8 overflow-hidden md:mb-5">
-      <motion.div
-                initial={{ scaleX: 1, opacity: 1 }}
-                whileInView={{ scaleX: 0, opacity: 1 }}
-                transition={{ duration: 1.5, delay: 0.6, ease: "circOut" }}
-                viewport={{ once: true }}
-                style={{ transformOrigin: "right" }}
-                className="w-full origin-right absolute z-10 h-full bg-[#FBF0DA]"
-              />
-              <img src={origin2} alt="" className="w-full h-full bg-cover" />
-      </div>
-        <div>
-          <motion.h3
-            className="font-bold mb-2"
-            variants={textVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={9}
-          >
-            OUR PHILOSOPHY
-          </motion.h3>
-          <motion.ul className=" space-y-1">
-            <motion.li
+
+        {/* SECOND PARAGRAPH */}
+        <div className="space-y-1">
+          {philosophyDescLines.map((line, i) => (
+            <motion.p
+              key={i}
+              className="text-black leading-[1.4] text-[clamp(13px,1.2vw,18px)]"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              custom={10}
+              custom={30 + i}
             >
-              Innovation
-            </motion.li>
-            <Line />
-            <motion.li
-              variants={textVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={11}
-            >
-              Legacy
-            </motion.li>
-            <Line />
-            <motion.li
-              variants={textVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={12}
-            >
-              Sustainability
-            </motion.li>
-            <Line />
-          </motion.ul>
+              {line}
+            </motion.p>
+          ))}
         </div>
       </div>
-    </div>
+
+      {/* IMAGE + VALUES */}
+      <div className="w-full md:w-1/3 text-left">
+        {/* IMAGE */}
+        <div className="w-full h-[400px] sm:h-[500px] lg:h-[650px] xl:h-[700px] mb-10 overflow-hidden relative">
+          <motion.div
+            initial={{ scaleX: 1 }}
+            whileInView={{ scaleX: 0 }}
+            transition={{ duration: 1.5, delay: 0.6, ease: "circOut" }}
+            viewport={{ once: true }}
+            className="absolute inset-0 bg-[#FBF0DA] z-10 origin-right"
+          />
+
+          <img src={origin2} alt="Philosophy" className="w-full h-full object-cover" />
+        </div>
+
+        {/* VALUES LIST */}
+        <motion.h3
+          className="text-[clamp(14px,1.6vw,18px)] font-semibold tracking-wide mb-4"
+          variants={textVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={60}
+        >
+          OUR VALUES
+        </motion.h3>
+
+        <motion.ul className="space-y-1 text-[clamp(13px,1.2vw,18px)] leading-[1.45]">
+          <motion.li variants={textVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={61}>
+            Innovation
+          </motion.li>
+          <Line />
+          <motion.li variants={textVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={62}>
+            Legacy
+          </motion.li>
+          <Line />
+          <motion.li variants={textVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={63}>
+            Sustainability
+          </motion.li>
+          <Line />
+        </motion.ul>
+      </div>
+    </section>
   );
 }

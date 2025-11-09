@@ -1,3 +1,5 @@
+// Updated HeroSection with right-text shifted slightly left and upward
+
 import React from "react";
 import { motion } from "framer-motion";
 import bgVideo from "../../assets/HomeLanding.mp4";
@@ -83,8 +85,8 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right Text */}
-        <div className="max-w-full md:max-w-xs text-[#FBF0DA] font-Grenda text-left">
+        {/* Right Text shifted slightly left & upward */}
+        <div className="max-w-full md:max-w-xs text-[#FBF0DA] font-Grenda text-left relative md:-translate-x-6 md:-translate-y-8">
           {rightText.map((line, i) => (
             <motion.p
               key={i}

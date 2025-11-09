@@ -2,6 +2,19 @@ import { motion } from "framer-motion";
 import React from "react";
 import Line from "../common/Line";
 
+const textVariant = {
+  hidden: { y: 40, opacity: 0 },
+  visible: (i) => ({
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
+
 export default function OurProcess() {
   const processSteps = [
     {
@@ -38,17 +51,25 @@ export default function OurProcess() {
   ];
 
   return (
-    <div className="min-h-screen  flex items-start mt-10 mb-10 justify-center px-6 lg:px-8 py-16">
-      <div className="max-w-8xl mx-auto w-full">
-        <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
-          <div className="flex-shrink-0 md:w-4/11">
-            <div className="text-center  lg:text-left">
-              <h2 className="text-6xl lg:text-8xl  text-black">
-                <span className="block">OUR</span>
-                <span className="block">PROCESS</span>
-              </h2>
-            </div>
-          </div>
+   <div className="min-h-screen flex items-start justify-center px-8 lg:px-20 py-20">
+  <div className="max-w-8xl mx-auto w-full">
+    <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
+
+      <div className="w-full md:w-1/3 text-left">
+        {["OUR", "PROCESS"].map((word, i) => (
+          <motion.span
+            key={i}
+            className="block text-black font-normal leading-[1.05] text-[clamp(28px,4vw,90px)]"
+            variants={textVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={i}
+          >
+            {word}
+          </motion.span>
+        ))}
+      </div>
 
           <div className="flex-1">
                <div className="space-y-6">
