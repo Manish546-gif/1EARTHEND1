@@ -1,10 +1,23 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { usePageTransition } from "../components/common/CurtainPreloader";
 import projectimg from "../assets/solo32.jpg";
 import TransitionLink from "../components/common/redirect";
 
 const ProjectsSection = () => {
+  const { waitForCurtainOpen } = usePageTransition();
   const [showComingSoon, setShowComingSoon] = useState(false);
+
+  const topBarH2Ref = useRef(null);
+  const topBarPRef = useRef(null);
+  const centerDivRef = useRef(null);
+  const centerImgRef = useRef(null);
+  const centerH1Ref = useRef(null);
+  const centerPRef = useRef(null);
+  const prevButtonRef = useRef(null);
+  const nextButtonRef = useRef(null);
+  const progressBarRef = useRef(null);
+  const comingSoonRef = useRef(null);
 
   const project = {
     id: 1,
@@ -18,15 +31,96 @@ const ProjectsSection = () => {
     setTimeout(() => setShowComingSoon(false), 2000);
   };
 
+  useEffect(() => {
+    let killed = false;
+
+    const animate = async () => {
+      await waitForCurtainOpen();
+      if (killed) return;
+
+      const tl = gsap.timeline();
+
+      // Set initial states
+      gsap.set(topBarH2Ref.current, { y: -20, opacity: 0 });
+      gsap.set(topBarPRef.current, { y: -20, opacity: 0 });
+      gsap.set(centerDivRef.current, { opacity: 0, y: 60, scale: 0.95 });
+      gsap.set(centerImgRef.current, { scale: 1.05 });
+      gsap.set(centerH1Ref.current, { opacity: 0, y: 20 });
+      gsap.set(centerPRef.current, { opacity: 0, y: 20 });
+      gsap.set(progressBarRef.current, { width: 0 });
+      gsap.set(progressBarRef.current.children[0], { width: 0 });
+
+      // Animate top bar
+      tl.to(topBarH2Ref.current, {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "easeOut",
+      });
+
+      tl.to(topBarPRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "easeOut",
+      }, "-=0.6");
+
+      // Animate center project
+      tl.to(centerDivRef.current, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1.2,
+        ease: "power2.out",
+      }, "-=0.4");
+
+      tl.to(centerImgRef.current, {
+        scale: 1,
+        duration: 2.0,
+        ease: "easeOut",
+      }, "-=1.0");
+
+      tl.to(centerH1Ref.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "easeOut",
+      }, "-=0.8");
+
+      tl.to(centerPRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "easeOut",
+      }, "-=0.6");
+
+      // Animate progress bar
+      tl.to(progressBarRef.current, {
+        width: 120,
+        duration: 1,
+        ease: "power2.out",
+      }, "-=0.4");
+
+      tl.to(progressBarRef.current.children[0], {
+        width: "100%",
+        duration: 1.2,
+        ease: "easeOut",
+      }, "-=0.8");
+    };
+
+    animate();
+
+    return () => {
+      killed = true;
+    };
+  }, [waitForCurtainOpen]);
+
   return (
     <section className="relative h-screen w-full bg-black overflow-hidden text-[#FBF0DA]">
       {/* Background */}
-      <motion.div
+      <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${project.image})` }}
-        initial={{ opacity: 0, scale: 1.05 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
       />
 
       {/* Overlay */}
@@ -37,127 +131,114 @@ const ProjectsSection = () => {
 
         {/* Top bar */}
         <div className="flex justify-between items-start">
-          <motion.h2
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
+          <h2
+            ref={topBarH2Ref}
             className="text-[clamp(10px,1vw,14px)] tracking-[0.3em] font-light uppercase"
+            style={{ opacity: 0, transform: 'translateY(-20px)' }}
           >
             OUR PROJECTS
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+          <p
+            ref={topBarPRef}
             className="text-[clamp(10px,1vw,14px)] font-light"
+            style={{ opacity: 0, transform: 'translateY(-20px)' }}
           >
             1 / 1
-          </motion.p>
+          </p>
         </div>
 
         {/* Center project */}
         <div className="flex flex-col items-center justify-center flex-grow">
-          <motion.div
-            initial={{ opacity: 0, y: 60, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1.2, type: "spring", stiffness: 80, damping: 18 }}
+          <div
+            ref={centerDivRef}
             className="flex flex-col items-center"
+            style={{ opacity: 0, transform: 'translateY(60px) scale(0.95)' }}
           >
             <TransitionLink to="/projectsolo">
-              <motion.div
-                whileHover={{ scale: 1.04, transition: { duration: 0.4 } }}
+              <div
                 className="overflow-hidden shadow-2xl rounded"
+                onMouseEnter={() => gsap.to(centerDivRef.current, { scale: 1.04, duration: 0.4 })}
+                onMouseLeave={() => gsap.to(centerDivRef.current, { scale: 1, duration: 0.4 })}
               >
-                <motion.img
+                <img
+                  ref={centerImgRef}
                   src={project.image}
                   alt={project.name}
                   className="object-cover w-[72vw] sm:w-[60vw] md:w-[42vw] lg:w-[32vw] h-[44vh] sm:h-[56vh] md:h-[60vh]"
-                  initial={{ scale: 1.05 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 2.0 }}
+                  style={{ scale: 1.05 }}
                 />
-              </motion.div>
+              </div>
             </TransitionLink>
 
-            <motion.h1
+            <h1
+              ref={centerH1Ref}
               className="mt-6 text-center md:text-left uppercase tracking-tight font-normal text-[clamp(20px,2.6vw,42px)]"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
+              style={{ opacity: 0, transform: 'translateY(20px)' }}
             >
               {project.name}
-            </motion.h1>
+            </h1>
 
-            <motion.p
+            <p
+              ref={centerPRef}
               className="mt-1 text-[clamp(12px,1vw,16px)] tracking-wide text-[#FBF0DA]/85"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
+              style={{ opacity: 0, transform: 'translateY(20px)' }}
             >
               {project.location}
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
         </div>
 
         {/* Bottom controls */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
           <div className="flex gap-8 text-[clamp(11px,0.9vw,14px)] tracking-[0.2em] uppercase">
-            <motion.button
-              whileTap={{ scale: 0.94 }}
-              whileHover={{ opacity: 0.8 }}
+            <button
+              ref={prevButtonRef}
               className="cursor-not-allowed opacity-50"
+              onClick={() => gsap.to(prevButtonRef.current, { scale: 0.94, duration: 0.1, yoyo: true, repeat: 1 })}
             >
               Prev
-            </motion.button>
-            <motion.button
-              whileTap={{ scale: 0.96 }}
-              whileHover={{ opacity: 0.9 }}
-              onClick={handleNextClick}
+            </button>
+            <button
+              ref={nextButtonRef}
+              onClick={() => {
+                gsap.to(nextButtonRef.current, { scale: 0.96, duration: 0.1, yoyo: true, repeat: 1 });
+                handleNextClick();
+              }}
             >
               Next
-            </motion.button>
+            </button>
           </div>
 
           {/* Progress bar */}
-          <motion.div
+          <div
+            ref={progressBarRef}
             className="h-[6px] rounded-full bg-[#FBF0DA]/30 overflow-hidden w-[120px]"
-            initial={{ width: 0 }}
-            animate={{ width: 120 }}
-            transition={{ duration: 1, type: "spring", stiffness: 100, damping: 12 }}
+            style={{ width: 0 }}
           >
-            <motion.div
+            <div
               className="h-full bg-[#FBF0DA] rounded-full shadow-[0_0_10px_rgba(251,240,218,0.8)]"
-              initial={{ width: 0 }}
-              animate={{ width: "100%" }}
-              transition={{ delay: 0.5, duration: 1.2, ease: "easeOut" }}
+              style={{ width: 0 }}
             />
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Coming Soon Overlay */}
-      <AnimatePresence>
-        {showComingSoon && (
-          <motion.div
-            className="absolute inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm z-30"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6 }}
+      {showComingSoon && (
+        <div
+          ref={comingSoonRef}
+          className="absolute inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm z-30"
+          style={{ opacity: 0 }}
+        >
+          <h1
+            className="text-[clamp(28px,4vw,64px)] font-light tracking-[0.2em]"
+            style={{ transform: 'translateY(40px)', opacity: 0 }}
           >
-            <motion.h1
-              initial={{ y: 40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -40, opacity: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-[clamp(28px,4vw,64px)] font-light tracking-[0.2em]"
-            >
-              Coming Soon
-            </motion.h1>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            Coming Soon
+          </h1>
+        </div>
+      )}
     </section>
   );
 };

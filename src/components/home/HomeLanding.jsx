@@ -1,23 +1,16 @@
 // Updated HeroSection with right-text shifted slightly left and upward
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { usePageTransition } from "../common/CurtainPreloader";
 import bgVideo from "../../assets/HomeLanding.mp4";
 
-const textVariant = {
-  hidden: { y: 40, opacity: 0 },
-  visible: (i) => ({
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  }),
-};
-
 const HeroSection = () => {
+  const { waitForCurtainOpen } = usePageTransition();
+  const leftTextRefs = useRef([]);
+  const headingRefs = useRef([]);
+  const rightTextRefs = useRef([]);
+
   const leftText = [
     "Creating timeless spaces where",
     "nature, culture, and design coexist",
@@ -36,6 +29,55 @@ const HeroSection = () => {
     "live consciously, in harmony with",
     "the Earth.",
   ];
+
+  useEffect(() => {
+    let killed = false;
+
+    const animate = async () => {
+      await waitForCurtainOpen();
+      if (killed) return;
+
+      const tl = gsap.timeline();
+
+      // Set initial states
+      gsap.set(leftTextRefs.current, { y: 40, opacity: 0 });
+      gsap.set(headingRefs.current, { y: 40, opacity: 0 });
+      gsap.set(rightTextRefs.current, { y: 40, opacity: 0 });
+
+      // Animate left text
+      tl.to(leftTextRefs.current, {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "easeOut",
+        stagger: 0.2,
+      });
+
+      // Animate heading
+      tl.to(headingRefs.current, {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "easeOut",
+        stagger: 0.2,
+      }, "-=0.4");
+
+      // Animate right text
+      tl.to(rightTextRefs.current, {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "easeOut",
+        stagger: 0.2,
+      }, "-=0.4");
+    };
+
+    animate();
+
+    return () => {
+      killed = true;
+    };
+  }, [waitForCurtainOpen]);
 
   return (
     <section className="relative bg-black w-full h-screen overflow-hidden flex flex-col md:flex-row justify-end md:justify-between px-6 md:px-10 py-6 md:py-10">
@@ -57,30 +99,26 @@ const HeroSection = () => {
         {/* Left Text */}
         <div className="max-w-xs md:max-w-sm text-[#FBF0DA] sm:text-left">
           {leftText.map((line, i) => (
-            <motion.p
+            <p
               key={i}
+              ref={(el) => (leftTextRefs.current[i] = el)}
               className="block font-Grenda text-[4vw] sm:text-[2.5vw] md:text-2xl"
-              variants={textVariant}
-              initial="hidden"
-              animate="visible"
-              custom={i}
+              style={{ opacity: 0, transform: 'translateY(40px)' }}
             >
               {line}
-            </motion.p>
+            </p>
           ))}
 
           <div className="text-[#FBF0DA] mt-6 md:mt-20 text-left">
             {heading.map((word, i) => (
-              <motion.span
+              <span
                 key={i}
+                ref={(el) => (headingRefs.current[i] = el)}
                 className="block font-Grenda text-[8vw] sm:text-[6vw] md:text-[9vw] leading-none"
-                variants={textVariant}
-                initial="hidden"
-                animate="visible"
-                custom={i + 3}
+                style={{ opacity: 0, transform: 'translateY(40px)' }}
               >
                 {word}
-              </motion.span>
+              </span>
             ))}
           </div>
         </div>
@@ -88,16 +126,14 @@ const HeroSection = () => {
         {/* Right Text shifted slightly left & upward */}
         <div className="max-w-full md:max-w-xs text-[#FBF0DA] font-Grenda text-left relative md:-translate-x-6 md:-translate-y-8">
           {rightText.map((line, i) => (
-            <motion.p
+            <p
               key={i}
+              ref={(el) => (rightTextRefs.current[i] = el)}
               className="block text-[3.5vw] sm:text-[2.2vw] md:text-base"
-              variants={textVariant}
-              initial="hidden"
-              animate="visible"
-              custom={i + 6}
+              style={{ opacity: 0, transform: 'translateY(40px)' }}
             >
               {line}
-            </motion.p>
+            </p>
           ))}
         </div>
       </div>

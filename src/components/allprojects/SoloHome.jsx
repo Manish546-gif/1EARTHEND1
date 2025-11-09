@@ -1,22 +1,52 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { usePageTransition } from "../common/CurtainPreloader";
 import projectimg from "../../assets/solo32.jpg";
 
-const textVariant = {
-  hidden: { y: 30, opacity: 0 },
-  visible: (i) => ({
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  }),
-};
-
 export default function SoloHome() {
+  const { waitForCurtainOpen } = usePageTransition();
+  const titleRefs = useRef([]);
+  const locationRef = useRef(null);
+
   const title = ["HARMONY", "HIGHLAND"];
+
+  useEffect(() => {
+    let killed = false;
+
+    const animate = async () => {
+      await waitForCurtainOpen();
+      if (killed) return;
+
+      const tl = gsap.timeline();
+
+      // Set initial states
+      gsap.set(titleRefs.current, { y: 30, opacity: 0 });
+      gsap.set(locationRef.current, { y: 30, opacity: 0 });
+
+      // Animate title
+      tl.to(titleRefs.current, {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: "easeOut",
+        stagger: 0.1,
+      });
+
+      // Animate location
+      tl.to(locationRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: "easeOut",
+      }, "-=0.4");
+    };
+
+    animate();
+
+    return () => {
+      killed = true;
+    };
+  }, [waitForCurtainOpen]);
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
@@ -35,31 +65,25 @@ export default function SoloHome() {
           {/* Title */}
           <div className="text-left leading-none">
             {title.map((word, i) => (
-              <motion.span
+              <span
                 key={word}
+                ref={(el) => (titleRefs.current[i] = el)}
                 className="block font-normal leading-[0.95] text-[clamp(32px,8vw,120px)] uppercase"
-                variants={textVariant}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={i}
+                style={{ opacity: 0, transform: 'translateY(30px)' }}
               >
                 {word}
-              </motion.span>
+              </span>
             ))}
           </div>
 
           {/* Location */}
-          <motion.p
+          <p
+            ref={locationRef}
             className="mt-3 text-[clamp(12px,1.2vw,18px)] tracking-wide"
-            variants={textVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={title.length + 1}
+            style={{ opacity: 0, transform: 'translateY(30px)' }}
           >
             Velhe, Bhor, Pune
-          </motion.p>
+          </p>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { usePageTransition } from "../components/common/CurtainPreloader";
 
 import SoloHome from '../components/allprojects/SoloHome';
 import SoloInfo from '../components/allprojects/SoloInfo';
@@ -12,11 +13,29 @@ import TestimonialSection from '../components/allprojects/TestimonialSection';
 
 
 const Projectsolo = () => {
+  const { waitForCurtainOpen } = usePageTransition();
+
   const project = {
     name: "PROJECT NAME",
     location: "LOCATION",
     image: "https://via.placeholder.com/1200x800?text=Project+Background"
   };
+
+  useEffect(() => {
+    let killed = false;
+
+    const animate = async () => {
+      await waitForCurtainOpen();
+      if (killed) return;
+      // No animations, just follow the pattern
+    };
+
+    animate();
+
+    return () => {
+      killed = true;
+    };
+  }, [waitForCurtainOpen]);
 
   return (
     <div className="relative bg-[#FBF0DA]">
