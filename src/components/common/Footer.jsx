@@ -57,7 +57,7 @@ export default function Footer() {
         <div className="flex flex-col space-y-8 max-w-xl sm:text-left sm:items-start">
           {/* Navigation */}
           <nav>
-            <ul className="space-y-3 md:space-y-4 text-xl  md:text-lg">
+            <ul className="space-y-3 md:space-y-4 text-base md:text-lg">
               {navItems.map((item, i) => (
                 <motion.li
                   key={item.num}

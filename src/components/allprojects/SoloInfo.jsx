@@ -47,7 +47,7 @@ const SoloInfo = () => {
     <div className="max-w-[1600px] mx-auto px-6 lg:px-8 py-12 md:py-20 flex flex-col md:flex-row gap-16">
       {/* Left: Big Image */}
       <motion.div
-        className="w-full md:w-7/12 h-[400px] sm:h-[500px] lg:h-[650px] xl:h-[950px] relative overflow-hidden"
+        className="w-full md:w-7/12 h-[400px] sm:h-[500px] lg:h-[650px] xl:h-[700px] relative overflow-hidden"
       >
         <motion.div
           initial={{ scaleX: 1, opacity: 1 }}
@@ -79,7 +79,7 @@ const SoloInfo = () => {
             {infoPara.map((line, i) => (
               <motion.p
                 key={i}
-                className="leading-[1.45] text-[clamp(16px,1.2vw,18px)]"
+                className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
                 variants={textVariant}
                 initial="hidden"
                 whileInView="visible"
@@ -93,7 +93,7 @@ const SoloInfo = () => {
         </div>
 
         {/* Small Image */}
-        <motion.div className="w-full  h-[220px] sm:h-[260px] md:h-[230px] lg:h-[230px]  overflow-hidden relative">
+        <motion.div className="w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[300px] overflow-hidden relative">
           <motion.div
             initial={{ scaleX: 1, opacity: 1 }}
             whileInView={{ scaleX: 0, opacity: 1 }}

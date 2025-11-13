@@ -11,8 +11,8 @@ const textVariant = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: i * 0.1,
-      duration: 0.5,
+      delay: i * 0.2,
+      duration: 0.8,
       ease: "easeOut",
     },
   }),
@@ -99,7 +99,7 @@ function EverySpaceSection() {
               {paragraphLines.map((line, i) => (
                 <motion.p
                   key={i}
-                  className="text-black leading-[1.4] font-normal text-[5vw] sm:text-[2.2vw] md:text-base"
+                  className="text-black leading-[1.4] font-normal text-[3.5vw] sm:text-[2.2vw] md:text-base"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"

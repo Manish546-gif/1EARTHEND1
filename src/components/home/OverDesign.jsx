@@ -32,7 +32,7 @@ export default function OverDesign() {
 
   return (
     <div>
-      <div className="min-h-screen bg-[#FBF0DA] flex items-center justify-center p-4 pb-10">
+      <div className="min-h-screen bg-[#FBF0DA] flex items-center justify-center p-4 py-10">
         <div className="max-w-[1600px] w-full mx-auto px-4 lg:px-8">
           {/* ================== DESKTOP VIEW ================== */}
           <div className="hidden lg:grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-16 items-center">
@@ -103,6 +103,7 @@ export default function OverDesign() {
 
             {/* Right Content */}
             <div className="flex flex-col justify-between lg:justify-center items-start lg:items-end w-full gap-26 mt-5 md:mt-8 lg:mt-0 text-right">
+              {/* Paragraphs */}
               <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[85%] xl:w-[70%] text-left space-y-1">
                 {paragraphLines.map((line, i) => (
                   <motion.p
@@ -119,6 +120,7 @@ export default function OverDesign() {
                 ))}
               </div>
 
+              {/* Button */}
               <div className="w-full flex justify-start lg:justify-end">
                 <TransitionLink to="/contact">
                   <motion.button
@@ -139,6 +141,7 @@ export default function OverDesign() {
                 </TransitionLink>
               </div>
 
+              {/* Small Image */}
               <motion.div
                 className="w-full sm:w-[70%] md:w-[60%] lg:w-[80%] xl:w-[70%] self-center lg:self-end h-[180px] sm:h-[220px] md:h-[260px] lg:h-[280px] xl:h-[200px] overflow-hidden relative"
                 initial={{ opacity: 0, y: 30 }}
@@ -165,7 +168,7 @@ export default function OverDesign() {
 
           {/* ================== MOBILE/TABLET VIEW ================== */}
           <div className="lg:hidden flex flex-col items-start mt-10 space-y-8 sm:space-y-10">
-            {/* Heading (Two words per line) */}
+            {/* Heading */}
             <motion.h1
               className="text-black leading-tight"
               style={{
@@ -183,8 +186,8 @@ export default function OverDesign() {
                 },
               }}
             >
-              {["DESIGN THAT", "NURTURES EARTH"].map((line, index) => (
-                <div className="overflow-hidden" key={index}>
+              {["DESIGN", "THAT", "NURTURES", "EARTH"].map((word, index) => (
+                <div className="overflow-hidden" key={word}>
                   <motion.span
                     className="block"
                     initial={{ y: 30, opacity: 0.5 }}
@@ -196,7 +199,7 @@ export default function OverDesign() {
                       delay: 0.1 + index * 0.1,
                     }}
                   >
-                    {line}
+                    {word}
                   </motion.span>
                 </div>
               ))}
@@ -216,12 +219,12 @@ export default function OverDesign() {
             </div>
 
             {/* Paragraph + Button */}
-            <div className="text-left w-full">
-              <div className="w-full sm:w-full md:w-3/4 px-0">
+            <div className="text-left">
+              <div className="w-full sm:w-5/6 md:w-3/4">
                 {paragraphLines.map((line, i) => (
                   <motion.p
                     key={i}
-                    className="  text-[5vw] sm:text-[2.2vw] md:text-base font-normal"
+                    className="text-gray-900 leading-relaxed text-[3.5vw] sm:text-[2.2vw] md:text-base font-normal"
                     variants={textVariant}
                     initial="hidden"
                     whileInView="visible"
@@ -238,7 +241,7 @@ export default function OverDesign() {
                   <motion.button
                     className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-5 sm:px-6 py-3 rounded-full font-medium transition-colors duration-300 group"
                     style={{
-                      fontSize: "2.9vw",
+                      fontSize: "2.5vw",
                     }}
                     variants={textVariant}
                     initial="hidden"

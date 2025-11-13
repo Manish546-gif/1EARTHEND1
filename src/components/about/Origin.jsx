@@ -3,48 +3,52 @@ import { motion } from "framer-motion";
 import origin2 from "../../assets/origin2.png";
 import Line from "../common/Line";
 
-/* ================================
-   ✨ Smooth, Professional Text Animations
-================================ */
+/* Variants */
 const textVariant = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { y: 30, opacity: 0 },
   visible: (i) => ({
     y: 0,
     opacity: 1,
     transition: {
-      delay: i * 0.08,
+      delay: i * 0.1,
       duration: 0.6,
-      ease: [0.22, 1, 0.36, 1], // “easeOutExpo” curve for elegance
+      ease: "easeOut",
     },
   }),
 };
 
+/* Paragraphs */
+const originLines = [
+  "One Earth Properties was",
+  "founded with a singular",
+  "vision – to redefine real",
+  "estate by uniting sustainability,",
+  "culture, and modern living.",
+  "Rooted in Pune’s serene",
+  "landscapes, our journey began",
+  "with a simple belief:",
+  "that land is not just to be",
+  "developed, but to be nurtured.",
+];
+
+const philosophyLines = [
+  "Inspired by India’s deep",
+  "connection to nature and",
+  "timeless craftsmanship,",
+  "we create spaces that coexist",
+  "with their surroundings",
+  "where innovation serves the",
+  "Earth, and design becomes",
+  "an expression of balance.",
+  "Each project stands as a testament",
+  "to harmony, integrity, and renewal.",
+];
+
 export default function Origin() {
   const heading = "DESIGNING IN HARMONY".split(" ");
 
-  const originLines = [
-    "One Earth Properties was founded",
-
-    "singular with a vision – to redefine real",
-    "estate by uniting sustainability, culture,",
-    "and modern living. Rooted in Pune’s",
-    "sence landscapes, our journey began",
-    "with a simple belief: that land is not",
-    "just to be developed, but to be nurtured.",
-  ];
-
-  const philosophyLines = [
-    "Inspired by India’s deep connection to",
-    "nature and timeless craftsmanship, we",
-    "create spaces that coexist with their",
-    "surroundings where innovation serves the",
-    "Earth, and design becomes an expression",
-    "of balance.Each project stands as a",
-    "testament to harmony, integrity, and renewal.",
-  ];
-
   return (
-    <section className="w-full min-h-screen bg-[#FBF0DA] px-8 lg:px-10 py-20 flex flex-col lg:flex-row gap-16">
+    <section className="w-full min-h-screen bg-[#FBF0DA] px-8 lg:px-20 py-20 flex flex-col lg:flex-row gap-16">
       
       {/* LEFT COLUMN — HEADING */}
       <div className="w-full lg:w-1/4 text-left">
@@ -69,7 +73,7 @@ export default function Origin() {
           <motion.div
             initial={{ scaleX: 1 }}
             whileInView={{ scaleX: 0 }}
-            transition={{ duration: 1.1, delay: 0.4, ease: "easeOut" }}
+            transition={{ duration: 1.2, delay: 0.4, ease: "circOut" }}
             viewport={{ once: true }}
             className="absolute inset-0 bg-[#FBF0DA] z-10 origin-right"
           />
@@ -97,11 +101,12 @@ export default function Origin() {
             OUR ORIGINS
           </motion.h3>
 
+          {/* FIRST PARAGRAPH */}
           <div className="space-y-1 mb-6">
             {originLines.map((line, i) => (
               <motion.p
                 key={i}
-                className="leading-[1.5] text-[clamp(16px,1.2vw,18px)]"
+                className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
                 variants={textVariant}
                 initial="hidden"
                 whileInView="visible"
@@ -113,11 +118,12 @@ export default function Origin() {
             ))}
           </div>
 
+          {/* SECOND PARAGRAPH */}
           <div className="space-y-1">
             {philosophyLines.map((line, i) => (
               <motion.p
                 key={i}
-                className="leading-[1.5] text-[clamp(16px,1.2vw,18px)]"
+                className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
                 variants={textVariant}
                 initial="hidden"
                 whileInView="visible"
@@ -143,20 +149,19 @@ export default function Origin() {
             OUR VALUES
           </motion.h3>
 
-          <motion.ul className="space-y-1 text-[clamp(16px,1.2vw,18px)] leading-[1.45]">
-            {["Harmony", "Integrity", "Sustainability"].map((value, i) => (
-              <motion.p
-                key={i}
-                variants={textVariant}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={61 + i}
-              >
-                {value}
-                <Line />
-              </motion.p>
-            ))}
+          <motion.ul className="space-y-1 text-[clamp(13px,1.2vw,18px)] leading-[1.45]">
+            <motion.li variants={textVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={61}>
+              Harmony
+            </motion.li>
+            <Line />
+            <motion.li variants={textVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={62}>
+              Integrity
+            </motion.li>
+            <Line />
+            <motion.li variants={textVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={63}>
+              Sustainability
+            </motion.li>
+            <Line />
           </motion.ul>
         </div>
       </div>

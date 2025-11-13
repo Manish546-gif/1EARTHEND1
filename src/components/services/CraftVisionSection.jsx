@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Line from "../common/Line.jsx";
 import craft1 from "../../assets/craft1.png";
 import craft2 from "../../assets/craft2.png";
 import TransitionLink from "../common/redirect.jsx";
-
 const textVariant = {
   hidden: { y: 40, opacity: 0 },
   visible: (i) => ({
@@ -11,7 +11,7 @@ const textVariant = {
     opacity: 1,
     transition: {
       delay: i * 0.1,
-      duration: 0.4,
+      duration: 0.8,
       ease: "easeOut",
     },
   }),
@@ -31,11 +31,11 @@ export default function CraftVisionSection() {
   return (
     <div>
       <Line />
-      <div className="min-h-screen bg-[#FBF0DA] flex items-center justify-center p-4 ">
+      <div className="min-h-screen bg-[#FBF0DA] flex items-center justify-center p-4 py-10">
         <div className="max-w-[1600px] w-full mx-auto px-4 lg:px-8">
-          {/* ================= DESKTOP VIEW ================= */}
+         
           <div className="hidden lg:grid grid-cols-3 items-center">
-            {/* LEFT IMAGE */}
+           
             <div>
               <motion.div className="relative md:mt-80 overflow-hidden h-70 w-full md:w-4/6">
                 <motion.div
@@ -68,11 +68,7 @@ export default function CraftVisionSection() {
                 initial={{ y: 30, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{
-                  duration: 0.8,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                  delay: 0.2,
-                }}
+                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
               >
                 <h5 className="tracking-[0.3em] text-black mt-4 sm:mt-6 text-[clamp(10px,1vw,14px)] font-normal">
                   CONNECT
@@ -99,7 +95,7 @@ export default function CraftVisionSection() {
                 {paragraphLines.map((line, i) => (
                   <motion.p
                     key={i}
-                    className="text-black leading-[1.4] font-normal text-[5vw] sm:text-[2.2vw] md:text-base"
+                    className="text-black leading-[1.4] font-normal text-[3.5vw] sm:text-[2.2vw] md:text-base"
                     variants={textVariant}
                     initial="hidden"
                     whileInView="visible"
@@ -146,55 +142,40 @@ export default function CraftVisionSection() {
             </div>
           </div>
 
-          {/* ================= MOBILE / TABLET VIEW ================= */}
-          <div className="lg:hidden flex flex-col items-start mt-12 space-y-8 sm:space-y-10 text-left">
-            {/* CONNECT visible in mobile view */}
-            <motion.h5
-              className="tracking-[0.3em] text-black uppercase text-[3.5vw] sm:text-[2vw] font-normal"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-            >
-              CONNECT
-            </motion.h5>
-
+          {/* MOBILE VIEW — left aligned */}
+          <div className="lg:hidden flex flex-col items-start mt-12 space-y-6 text-left">
             {/* HEADING */}
-            <motion.h1
-              className="text-black leading-tight"
-              style={{ fontSize: "7vw", fontWeight: 400 }}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: { staggerChildren: 0.15 },
-                },
-              }}
-            >
-              {["CRAFT YOUR", "VISION"].map((line, index) => (
-                <div className="overflow-hidden" key={index}>
+            <div>
+              <motion.div
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
+              >
+                <h5 className="tracking-[0.3em] text-black mt-4 sm:mt-6 text-[clamp(10px,1vw,14px)] font-normal">
+                  CONNECT
+                </h5>
+              </motion.div>
+
+              <div className="text-black tracking-tight mt-6 md:mt-0 leading-[1.1] text-left">
+                {["CRAFT", "YOUR", "VISION"].map((word, i) => (
                   <motion.span
-                    className="block"
-                    initial={{ y: 30, opacity: 0.5 }}
-                    whileInView={{ y: 0, opacity: 1 }}
+                    key={i}
+                    className="block whitespace-nowrap text-[clamp(28px,4vw,90px)] font-normal"
+                    variants={textVariant}
+                    initial="hidden"
+                    whileInView="visible"
                     viewport={{ once: true }}
-                    transition={{
-                      duration: 0.8,
-                      ease: [0.25, 0.46, 0.45, 0.94],
-                      delay: 0.1 + index * 0.1,
-                    }}
+                    custom={i}
                   >
-                    {line}
+                    {word}
                   </motion.span>
-                </div>
-              ))}
-            </motion.h1>
+                ))}
+              </div>
+            </div>
 
             {/* FIRST IMAGE */}
-            <div className="h-[320px] sm:h-[400px] md:h-[480px] w-full relative overflow-hidden ">
+            <div className="h-[320px] sm:h-[400px] md:h-[480px] w-full relative overflow-hidden rounded">
               <motion.div
                 initial={{ scaleX: 1, opacity: 1 }}
                 whileInView={{ scaleX: 0, opacity: 1 }}
@@ -207,11 +188,11 @@ export default function CraftVisionSection() {
             </div>
 
             {/* PARAGRAPH + BUTTON */}
-            <div className="w-full sm:w-full md:w-3/4 text-left space-y-1 px-0">
+            <div className="w-full md:w-3/4 text-left space-y-1">
               {paragraphLines.map((line, i) => (
                 <motion.p
                   key={i}
-                  className="text-gray-900 leading-relaxed text-[5vw] sm:text-[2.2vw] md:text-base font-normal"
+                  className="text-[3.5vw] sm:text-[2.2vw] md:text-base whitespace-nowrap font-normal"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -224,7 +205,7 @@ export default function CraftVisionSection() {
 
               <TransitionLink to="/contact">
                 <motion.button
-                  className="relative mt-4 overflow-hidden bg-yellow-600 hover:bg-black text-white px-6 sm:px-8 py-3 rounded-full font-medium transition-colors duration-300 group text-[clamp(12px,1vw,16px)]"
+                  className="relative mt-2 overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full font-medium transition-colors duration-200 group text-[clamp(12px,1vw,16px)]"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"

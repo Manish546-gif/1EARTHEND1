@@ -19,12 +19,13 @@ const textVariant = {
 
 /* Content */
 const originsLines = [
-  "One Earth Properties is more than a real",
-  "estate brand - it’s a vision built on",
-  "legacy, balance, and purpose. We are a",
-  "collective of dreamers,planners, and ",
-  "creators who believe that land is not just",
-  " owned - it is honoured",
+  "One Earth Properties is more than",
+  "a real estate brand - it’s a vision",
+  "built on legacy, balance, and purpose.",
+  "We are a collective of dreamers,",
+  "planners, and creators who believe",
+  "that land is not just owned -",
+  "it is honoured.",
 ];
 
 const philosophyDescLines = [
@@ -80,7 +81,7 @@ export default function Philosophy() {
           {originsLines.map((line, i) => (
             <motion.p
               key={i}
-              className="text-black leading-[1.4] text-[clamp(16px,1.2vw,18px)]"
+              className="text-black leading-[1.4] text-[clamp(13px,1.2vw,18px)]"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"
@@ -97,7 +98,7 @@ export default function Philosophy() {
           {philosophyDescLines.map((line, i) => (
             <motion.p
               key={i}
-              className="text-black leading-[1.4] text-[clamp(16px,1.2vw,18px)]"
+              className="text-black leading-[1.4] text-[clamp(13px,1.2vw,18px)]"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"
@@ -113,7 +114,7 @@ export default function Philosophy() {
       {/* IMAGE + VALUES */}
       <div className="w-full md:w-1/3 text-left">
         {/* IMAGE */}
-        <div className="w-full h-[400px] sm:h-[500px] lg:h-[650px] xl:h-[600px] mb-10 overflow-hidden relative">
+        <div className="w-full h-[400px] sm:h-[500px] lg:h-[650px] xl:h-[700px] mb-10 overflow-hidden relative">
           <motion.div
             initial={{ scaleX: 1 }}
             whileInView={{ scaleX: 0 }}
