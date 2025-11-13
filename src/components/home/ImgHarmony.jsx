@@ -58,7 +58,7 @@ const ImgHarmony = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
         >
-          <h5 className="tracking-[0.3em] text-black mt-4 sm:mt-6 text-[clamp(10px,1vw,14px)] font-normal">
+          <h5 className="tracking-[0.3em] text-black mt-4 sm:mt-6 text-[clamp(14px,4vw,22px)] lg:text-[clamp(10px,1vw,14px)] font-normal">
             SERVICE
           </h5>
         </motion.div>
@@ -118,7 +118,7 @@ const ImgHarmony = () => {
           <motion.p
             custom={3}
             variants={textVariant}
-            className="max-w-md text-[3.5vw] sm:text-[2.2vw] md:text-base leading-relaxed text-center lg:text-left text-gray-800 font-normal"
+            className="max-w-md text-[clamp(14px,4vw,18px)] leading-relaxed text-center lg:text-left text-gray-800 font-normal"
           >
             Each One Earth creation blends thoughtful design with sustainable
             innovation — crafting spaces that reflect your vision while honoring
@@ -137,25 +137,31 @@ const ImgHarmony = () => {
 
       {/* Button */}
       <motion.div
-        custom={5}
-        variants={textVariant}
-        className="mt-0 flex justify-center lg:justify-start"
-      >
-        <TransitionLink to="/services">
-          <motion.button
-            className="relative overflow-hidden bg-yellow-600 hover:bg-black hover:cursor-pointer text-white px-7 py-3.5 rounded-full text-base sm:text-lg font-medium transition-colors duration-300 group"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
-              OUR SERVICES
-            </span>
-            <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
-              OUR SERVICES
-            </span>
-          </motion.button>
-        </TransitionLink>
-      </motion.div>
+  custom={5}
+  variants={textVariant}
+  className="mt-8 sm:mt-10 lg:mt-12 flex justify-center lg:justify-start"
+>
+  <TransitionLink to="/services">
+    <motion.button
+      className="
+        relative overflow-hidden bg-yellow-600 hover:bg-black text-white 
+        rounded-full font-medium transition-colors duration-300 group
+        px-[4vw] py-[2vw] sm:px-[3vw] sm:py-[1.5vw] lg:px-[1.8vw] lg:py-[0.9vw]
+        text-[4vw] sm:text-[2.4vw] lg:text-[1vw]
+      "
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.98 }}
+    >
+      <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
+        OUR SERVICES
+      </span>
+      <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
+        OUR SERVICES
+      </span>
+    </motion.button>
+  </TransitionLink>
+</motion.div>
+
     </motion.section>
   );
 };

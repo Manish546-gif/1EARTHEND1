@@ -5,13 +5,13 @@ import Line from "../common/Line";
 
 /* Variants */
 const textVariant = {
-  hidden: { y: 30, opacity: 0 },
+  hidden: { y: 20, opacity: 0 },
   visible: (i) => ({
     y: 0,
     opacity: 1,
     transition: {
-      delay: i * 0.1,
-      duration: 0.6,
+      delay: i * 0.06,      // faster stagger
+      duration: 0.3,        // faster animation
       ease: "easeOut",
     },
   }),
@@ -49,7 +49,7 @@ export default function Origin() {
 
   return (
     <section className="w-full min-h-screen bg-[#FBF0DA] px-8 lg:px-20 py-20 flex flex-col lg:flex-row gap-16">
-      
+
       {/* LEFT COLUMN — HEADING */}
       <div className="w-full lg:w-1/4 text-left">
         {heading.map((word, i) => (
@@ -73,7 +73,11 @@ export default function Origin() {
           <motion.div
             initial={{ scaleX: 1 }}
             whileInView={{ scaleX: 0 }}
-            transition={{ duration: 1.2, delay: 0.4, ease: "circOut" }}
+            transition={{
+              duration: 0.7,      // faster curtain slide
+              delay: 0.25,        // synced with heading
+              ease: "circOut"
+            }}
             viewport={{ once: true }}
             className="absolute inset-0 bg-[#FBF0DA] z-10 origin-right"
           />
@@ -87,82 +91,168 @@ export default function Origin() {
 
       {/* RIGHT COLUMN — TEXT */}
       <div className="w-full lg:w-1/4 text-black flex flex-col gap-10">
-        
-        {/* OUR ORIGINS */}
-        <div>
-          <motion.h3
-            className="text-[clamp(14px,1.6vw,18px)] font-semibold tracking-wide mb-4"
-            variants={textVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={20}
-          >
-            OUR ORIGINS
-          </motion.h3>
+        {/* MOBILE VIEW */}
+        <div className="lg:hidden">
+          {/* OUR ORIGINS */}
+          <div>
+            <motion.h3
+              className="text-[clamp(16px,1.8vw,20px)] font-semibold tracking-wide mb-4"
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={15}
+            >
+              OUR ORIGINS
+            </motion.h3>
 
-          {/* FIRST PARAGRAPH */}
-          <div className="space-y-1 mb-6">
-            {originLines.map((line, i) => (
-              <motion.p
-                key={i}
-                className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
-                variants={textVariant}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={21 + i}
-              >
-                {line}
-              </motion.p>
-            ))}
+            {/* FIRST PARAGRAPH */}
+            <div className="space-y-1 mb-6">
+              {originLines.map((line, i) => (
+                <motion.p
+                  key={i}
+                  className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
+                  variants={textVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={16 + i}
+                >
+                  {line}
+                </motion.p>
+              ))}
+            </div>
+
+            {/* SECOND PARAGRAPH */}
+            <div className="space-y-1">
+              {philosophyLines.map((line, i) => (
+                <motion.p
+                  key={i}
+                  className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
+                  variants={textVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={30 + i}
+                >
+                  {line}
+                </motion.p>
+              ))}
+            </div>
           </div>
 
-          {/* SECOND PARAGRAPH */}
-          <div className="space-y-1">
-            {philosophyLines.map((line, i) => (
-              <motion.p
-                key={i}
-                className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
-                variants={textVariant}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={40 + i}
-              >
-                {line}
-              </motion.p>
-            ))}
+          {/* OUR VALUES */}
+          <div>
+            <motion.h3
+              className="text-[clamp(16px,1.8vw,20px)] font-semibold tracking-wide mb-4"
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={50}
+            >
+              OUR VALUES
+            </motion.h3>
+
+            <motion.ul className="space-y-1 text-[clamp(13px,1.2vw,18px)] leading-[1.45]">
+              {["Harmony", "Integrity", "Sustainability"].map((item, i) => (
+                <React.Fragment key={i}>
+                  <motion.li
+                    variants={textVariant}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    custom={51 + i}
+                  >
+                    {item}
+                  </motion.li>
+                  <Line />
+                </React.Fragment>
+              ))}
+            </motion.ul>
           </div>
         </div>
 
-        {/* OUR VALUES */}
-        <div>
-          <motion.h3
-            className="text-[clamp(14px,1.6vw,18px)] font-semibold tracking-wide mb-4"
-            variants={textVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={60}
-          >
-            OUR VALUES
-          </motion.h3>
+        {/* DESKTOP VIEW */}
+        <div className="hidden lg:block">
+          {/* OUR ORIGINS */}
+          <div>
+            <motion.h3
+              className="text-[clamp(14px,1.6vw,18px)] font-semibold tracking-wide mb-4"
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={15}
+            >
+              OUR ORIGINS
+            </motion.h3>
 
-          <motion.ul className="space-y-1 text-[clamp(13px,1.2vw,18px)] leading-[1.45]">
-            <motion.li variants={textVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={61}>
-              Harmony
-            </motion.li>
-            <Line />
-            <motion.li variants={textVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={62}>
-              Integrity
-            </motion.li>
-            <Line />
-            <motion.li variants={textVariant} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={63}>
-              Sustainability
-            </motion.li>
-            <Line />
-          </motion.ul>
+            {/* FIRST PARAGRAPH */}
+            <div className="space-y-1 mb-6">
+              {originLines.map((line, i) => (
+                <motion.p
+                  key={i}
+                  className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
+                  variants={textVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={16 + i}
+                >
+                  {line}
+                </motion.p>
+              ))}
+            </div>
+
+            {/* SECOND PARAGRAPH */}
+            <div className="space-y-1">
+              {philosophyLines.map((line, i) => (
+                <motion.p
+                  key={i}
+                  className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
+                  variants={textVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={30 + i}
+                >
+                  {line}
+                </motion.p>
+              ))}
+            </div>
+          </div>
+
+          {/* OUR VALUES */}
+          <div>
+            <motion.h3
+              className="text-[clamp(14px,1.6vw,18px)] font-semibold tracking-wide mb-4"
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={50}
+            >
+              OUR VALUES
+            </motion.h3>
+
+            <motion.ul className="space-y-1 text-[clamp(13px,1.2vw,18px)] leading-[1.45]">
+              {["Harmony", "Integrity", "Sustainability"].map((item, i) => (
+                <React.Fragment key={i}>
+                  <motion.li
+                    variants={textVariant}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    custom={51 + i}
+                  >
+                    {item}
+                  </motion.li>
+                  <Line />
+                </React.Fragment>
+              ))}
+            </motion.ul>
+          </div>
         </div>
       </div>
     </section>

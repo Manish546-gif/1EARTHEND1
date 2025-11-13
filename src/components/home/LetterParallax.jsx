@@ -102,16 +102,24 @@ export default function LetterParallax () {
             transformStyle: 'preserve-3d'
           }}
         >
-          <div className="block md:block" style={{ transformStyle: 'preserve-3d' }}>
+          <div className="hidden md:block" style={{ transformStyle: 'preserve-3d' }}>
             {createLetters('EVOLVING WITH')}
           </div>
 
-          <div className="block md:hidden" style={{ transformStyle: 'preserve-3d' }}>
-            {createLetters('THE LAND')}
+          <div className="hidden md:block" style={{ transformStyle: 'preserve-3d' }}>
+            {createLetters('THE EARTH')}
           </div>
 
-          <div className="hidden md:block" style={{ transformStyle: 'preserve-3d' }}>
-            {createLetters('THE LAND')}
+          <div className="block md:hidden" style={{ transformStyle: 'preserve-3d' }}>
+            {createLetters('EVOLVING')}
+          </div>
+
+          <div className="block md:hidden" style={{ transformStyle: 'preserve-3d' }}>
+            {createLetters('WITH')}
+          </div>
+
+          <div className="block md:hidden" style={{ transformStyle: 'preserve-3d' }}>
+            {createLetters('THE EARTH')}
           </div>
         </div>
       </div>

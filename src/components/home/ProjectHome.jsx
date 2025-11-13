@@ -25,10 +25,9 @@ const ProjectSlider = () => {
   const [showComingSoon, setShowComingSoon] = useState(false);
 
   const paginate = (newDirection) => {
-    // If there's only one project, show "Coming Soon"
     if (projects.length === 1) {
       setShowComingSoon(true);
-      setTimeout(() => setShowComingSoon(false), 2000); // hides after 2 seconds
+      setTimeout(() => setShowComingSoon(false), 2000);
       return;
     }
 
@@ -54,7 +53,7 @@ const ProjectSlider = () => {
         {">"}
       </button>
 
-      {/* Coming Soon Animation */}
+      {/* Coming Soon Overlay */}
       <AnimatePresence>
         {showComingSoon && (
           <motion.div
@@ -78,6 +77,7 @@ const ProjectSlider = () => {
         )}
       </AnimatePresence>
 
+      {/* Slides */}
       <AnimatePresence custom={direction} initial={false}>
         <motion.div
           key={projects[page].id}
@@ -89,7 +89,7 @@ const ProjectSlider = () => {
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className="absolute inset-0 w-full h-full flex items-center justify-center"
         >
-          {/* Background Image */}
+          {/* Background Image Layer */}
           <motion.div
             className="absolute inset-0 w-full h-full overflow-hidden"
             initial={{ x: direction > 0 ? 50 : -50 }}
@@ -111,8 +111,9 @@ const ProjectSlider = () => {
             <div className="absolute inset-0 bg-black/40" />
           </motion.div>
 
-          {/* Slide Content */}
+          {/* Content Layer */}
           <div className="relative z-10 max-w-screen-2xl mx-auto px-5 sm:px-10 w-full h-full flex flex-col justify-between py-10 sm:py-20">
+            
             {/* Page Number */}
             <div className="flex justify-end mt-10 text-[3.5vw] sm:text-[2.2vw] md:text-xl font-light">
               {projects[page].id} / {projects.length}
@@ -120,14 +121,24 @@ const ProjectSlider = () => {
 
             {/* Bottom Section */}
             <div className="flex justify-between items-end">
+
+              {/* Title (Only Mobile Changed to h5 size) */}
               <div>
-                <h2 className="text-[3.5vw] sm:text-[2.2vw] md:text-8xl sm:text-6xl font-light tracking-tight leading-none">
+                <h2
+                  className="
+                    text-4xl             /* MOBILE h5 size */
+                    sm:text-[2.2vw]      /* Tablet */
+                    md:text-8xl          /* Desktop */
+                    font-light tracking-tight leading-none
+                  "
+                >
                   {projects[page].title.split(" ").map((word, i) => (
                     <div key={i}>{word}</div>
                   ))}
                 </h2>
               </div>
 
+              {/* Button */}
               <TransitionLink to="/project">
                 <button className="relative overflow-hidden bg-transparent border border-[#FBF0DA] hover:bg-[#FBF0DA] hover:text-black hover:cursor-pointer px-6 sm:px-8 py-3 rounded-full text-[3.5vw] sm:text-[2.2vw] md:text-xs sm:text-sm font-medium transition-colors duration-300 group">
                   <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
@@ -138,6 +149,7 @@ const ProjectSlider = () => {
                   </span>
                 </button>
               </TransitionLink>
+
             </div>
           </div>
         </motion.div>
