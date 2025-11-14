@@ -47,21 +47,44 @@ export default function Origin() {
     <section className="w-full min-h-screen bg-[#FBF0DA] px-8 lg:px-20 py-20 flex flex-col lg:flex-row gap-16">
 
       {/* LEFT COLUMN — HEADING */}
-      <div className="w-full lg:w-1/4 text-left">
-        {heading.map((word, i) => (
-          <motion.span
-            key={i}
-            className="block text-black font-normal leading-[1.05] text-[clamp(28px,4vw,90px)] whitespace-nowrap"
-            variants={textVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={i}
-          >
-            {word}
-          </motion.span>
-        ))}
-      </div>
+<div className="w-full lg:w-1/4 text-left">
+
+  {/* DESKTOP — ORIGINAL 3 WORDS, 3 LINES */}
+  <div className="hidden lg:block">
+    {heading.map((word, i) => (
+      <motion.span
+        key={i}
+        className="block text-black font-normal leading-[1.05] text-[clamp(28px,4vw,90px)] whitespace-nowrap"
+        variants={textVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        custom={i}
+      >
+        {word}
+      </motion.span>
+    ))}
+  </div>
+
+  {/* MOBILE — TWO LINES ONLY */}
+  <div className="lg:hidden">
+    {["DESIGNING IN", "HARMONY"].map((line, i) => (
+      <motion.span
+        key={i}
+        className="block text-black font-normal leading-[1.05] text-[clamp(28px,7vw,60px)] whitespace-nowrap"
+        variants={textVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        custom={i}
+      >
+        {line}
+      </motion.span>
+    ))}
+  </div>
+
+</div>
+
 
       {/* MIDDLE COLUMN — IMAGE */}
       <div className="w-full lg:w-2/4 flex justify-center">
