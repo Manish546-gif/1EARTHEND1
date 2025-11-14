@@ -6,7 +6,8 @@ import feature2 from "../../assets/feature2.png";
 export default function SoloFeatures() {
   return (
     <section className="max-w-8xl mx-auto px-4 sm:px-6 md:px-10 py-12 flex flex-col lg:flex-row gap-10 sm:gap-16 lg:gap-32 my-10">
-      {/* Left Image */}
+
+      {/* LEFT IMAGE — animation untouched */}
       <motion.div className="relative overflow-hidden flex-shrink-0 w-full md:w-1/2">
         <motion.div
           initial={{ scaleX: 1, opacity: 1 }}
@@ -19,10 +20,16 @@ export default function SoloFeatures() {
         <img src={feature1} className="w-full h-full object-cover" alt="Feature 1" />
       </motion.div>
 
-      {/* Right Text and Second Image */}
-      <div className="flex flex-col flex-grow w/full">
+      {/* RIGHT TEXT */}
+      <div className="flex flex-col flex-grow w-full">
+
+        {/* LABEL */}
         <motion.h2
-          className="text-[clamp(14px,1.6vw,18px)] font-semibold tracking-wide mb-4 inline-block pb-0"
+          className="
+            text-[clamp(16px,4vw,22px)]        /* MOBILE bigger */
+            md:text-[clamp(14px,1.6vw,18px)]  /* DESKTOP same */
+            font-semibold tracking-wide mb-4
+          "
           initial={{ y: 40, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -31,6 +38,7 @@ export default function SoloFeatures() {
           MAIN FEATURES
         </motion.h2>
 
+        {/* FEATURES LIST */}
         <ul className="space-y-8 md:mr-10 lg:mr-20">
           {[
             {
@@ -61,13 +69,31 @@ export default function SoloFeatures() {
               transition={{ duration: 0.6, delay: i * 0.1 + 0.3 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <p className="font-semibold text-[clamp(13px,1.2vw,18px)] uppercase flex items-center gap-2 mb-1 tracking-tight">
+              {/* TITLE */}
+              <p
+                className="
+                  font-semibold uppercase tracking-tight flex items-center gap-2 mb-1
+                  text-[clamp(14px,4vw,20px)]       /* MOBILE */
+                  md:text-[clamp(13px,1.2vw,18px)]  /* DESKTOP original */
+                "
+              >
                 <span className="text-2xl leading-none">•</span>
                 {item.title}
               </p>
-              <p className="text-[clamp(12px,1vw,16px)] leading-[1.4] max-w-prose">
+
+              {/* DESCRIPTION */}
+              <p
+                className="
+                  leading-[1.45]
+                  text-[clamp(13px,3.2vw,17px)]      /* MOBILE paragraph size */
+                  md:text-[clamp(12px,1vw,16px)]     /* DESKTOP original */
+                  text-gray-900 max-w-prose
+                "
+              >
                 {item.desc}
               </p>
+
+              {/* UNDERLINE */}
               <motion.div
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
@@ -80,7 +106,7 @@ export default function SoloFeatures() {
           ))}
         </ul>
 
-        {/* Bottom Image */}
+        {/* SECOND IMAGE — Animation untouched */}
         <motion.div className="mt-10 sm:mt-16 lg:mt-18 w-full sm:w-4/6 md:w-5/9 self-center md:self-end relative overflow-hidden">
           <motion.div
             initial={{ scaleX: 1, opacity: 1 }}
@@ -92,6 +118,7 @@ export default function SoloFeatures() {
           />
           <img src={feature2} alt="Feature 2" className="w-full h-full object-cover" />
         </motion.div>
+
       </div>
     </section>
   );

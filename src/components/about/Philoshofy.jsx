@@ -10,8 +10,8 @@ const textVariant = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: i * 0.06,     // quicker stagger
-      duration: 0.3,       // faster slide + fade
+      delay: i * 0.04,     // quicker stagger
+      duration: 0.2,       // faster slide + fade
       ease: "easeOut",
     },
   }),
@@ -83,7 +83,7 @@ export default function Philosophy() {
             {originsLines.map((line, i) => (
               <motion.p
                 key={i}
-                className="text-black leading-[1.4] text-[clamp(13px,1.2vw,18px)]"
+                className="text-black leading-[1.4] text-[clamp(17px,1.2vw,18px)]"
                 variants={textVariant}
                 initial="hidden"
                 whileInView="visible"
@@ -100,7 +100,7 @@ export default function Philosophy() {
             {philosophyDescLines.map((line, i) => (
               <motion.p
                 key={i}
-                className="text-black leading-[1.4] text-[clamp(13px,1.2vw,18px)]"
+                className="text-black leading-[1.4] text-[clamp(17px,1.2vw,18px)]"
                 variants={textVariant}
                 initial="hidden"
                 whileInView="visible"

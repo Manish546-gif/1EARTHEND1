@@ -201,7 +201,7 @@ export default function CraftVisionSection() {
               {paragraphMobile.map((line, i) => (
                 <motion.p
                   key={i}
-                  className="text-[clamp(14px,4vw,18px)] font-normal text-gray-900"
+                  className="text-[clamp(17px,4vw,18px)] font-normal text-gray-900"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
-import img1 from "../../assets/team1.png";
-import img2 from "../../assets/team2.png";
+import img1 from "../../assets/team13.JPG";
+import img2 from "../../assets/team12.jpeg";
 import Line from "../common/Line";
 
 const textVariant = {

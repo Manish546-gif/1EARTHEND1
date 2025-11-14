@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import origin2 from "../../assets/origin2.png";
+import origin2 from "../../assets/import.jpeg";
 import Line from "../common/Line";
 
 /* Variants */
@@ -10,8 +10,8 @@ const textVariant = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: i * 0.06,      // faster stagger
-      duration: 0.3,        // faster animation
+      delay: i * 0.04,      // faster stagger
+      duration: 0.2,        // faster animation
       ease: "easeOut",
     },
   }),
@@ -19,29 +19,25 @@ const textVariant = {
 
 /* Paragraphs */
 const originLines = [
-  "One Earth Properties was",
-  "founded with a singular",
-  "vision – to redefine real",
-  "estate by uniting sustainability,",
-  "culture, and modern living.",
-  "Rooted in Pune’s serene",
-  "landscapes, our journey began",
-  "with a simple belief:",
-  "that land is not just to be",
-  "developed, but to be nurtured.",
+  "One Earth Properties was founded with",
+  "a singular vision – to redefine real",
+  "estate by uniting sustainability,culture,",
+  " and modern living.Rooted in Pune’s",
+  "serene landscapes, our journey began",
+  "with a simple belief: that land is not ",
+  "just to be developed, but to be nurtured.",
 ];
 
 const philosophyLines = [
-  "Inspired by India’s deep",
-  "connection to nature and",
-  "timeless craftsmanship,",
-  "we create spaces that coexist",
-  "with their surroundings",
-  "where innovation serves the",
-  "Earth, and design becomes",
-  "an expression of balance.",
-  "Each project stands as a testament",
-  "to harmony, integrity, and renewal.",
+  "Inspired by India’s deep connection to",
+  "nature and timeless craftsmanship, we",
+  "create spaces that coexist with their",
+
+  "surroundings where innovation serves",
+  "the Earth, and design becomes an",
+  " expression of balance. Each project",
+  " stands as a testament to harmony,",
+  " integrity, and renewal.",
 ];
 
 export default function Origin() {
@@ -111,7 +107,7 @@ export default function Origin() {
               {originLines.map((line, i) => (
                 <motion.p
                   key={i}
-                  className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
+                  className="leading-[1.45] text-[clamp(16px,1.2vw,18px)]"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -128,7 +124,7 @@ export default function Origin() {
               {philosophyLines.map((line, i) => (
                 <motion.p
                   key={i}
-                  className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
+                  className="leading-[1.45] text-[clamp(16px,1.2vw,18px)]"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -144,7 +140,7 @@ export default function Origin() {
           {/* OUR VALUES */}
           <div>
             <motion.h3
-              className="text-[clamp(16px,1.8vw,20px)] font-semibold tracking-wide mb-4"
+              className="text-[clamp(16px,1.8vw,20px)] mt-4 font-semibold tracking-wide mb-4"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"
@@ -154,7 +150,7 @@ export default function Origin() {
               OUR VALUES
             </motion.h3>
 
-            <motion.ul className="space-y-1 text-[clamp(13px,1.2vw,18px)] leading-[1.45]">
+            <motion.ul className="space-y-1 text-[clamp(15px,1.2vw,18px)] leading-[1.45]">
               {["Harmony", "Integrity", "Sustainability"].map((item, i) => (
                 <React.Fragment key={i}>
                   <motion.li
