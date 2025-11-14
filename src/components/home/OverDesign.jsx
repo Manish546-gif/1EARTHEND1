@@ -93,7 +93,7 @@ export default function OverDesign() {
               >
                 <h5 className="tracking-[0.3em] text-black mt-4 sm:mt-6 
                 text-[clamp(10px,1vw,14px)] font-normal">
-                  DESIGN
+                  
                 </h5>
               </motion.div>
 
@@ -186,23 +186,6 @@ export default function OverDesign() {
 
           {/* ================== MOBILE / TABLET VIEW ================== */}
           <div className="lg:hidden flex flex-col items-start mt-10 space-y-8 sm:space-y-10">
-
-            {/* DESIGN LABEL — same as EveryAbout */}
-            <motion.div
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.8,
-                ease: [0.25, 0.46, 0.45, 0.94],
-                delay: 0.2,
-              }}
-            >
-              <h5 className="tracking-[0.3em] text-black font-normal mt-4 sm:mt-6 
-              text-[clamp(14px,4vw,22px)]">
-                DESIGN
-              </h5>
-            </motion.div>
 
             {/* MOBILE HEADING — unchanged */}
             <div className="text-black tracking-tight mt-6 leading-[1.05] text-left">
