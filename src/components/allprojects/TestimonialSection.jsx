@@ -19,13 +19,13 @@ const TestimonialSection = () => {
       <div className="relative z-10 max-w-3xl">
         <div className="text-[clamp(13px,1.2vw,18px)] md:ml-40 w-70 text-start leading-[1.4]">
           {[
-            "Investing in One Earth Properties has",
-            "been one of the most fulfilling",
+            "Investing in One Earth Properties",
+            "has been one of the most fulfilling",
             "decisions I’ve made. The project",
-            "beautifully combines natural serenity",
-            "with thoughtful planning — every",
-            "detail reflects care, balance, and",
-            "sustainability. It’s not just a",
+            "beautifully combines natural ",
+            "serenity with thoughtful planning",
+            "every detail reflects care, balance,",
+            "and sustainability. It’s not just a",
             "property; it feels like being part of",
             "something larger, a community built",
             "with purpose.",

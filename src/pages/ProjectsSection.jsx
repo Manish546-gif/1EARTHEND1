@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { usePageTransition } from "../components/common/CurtainPreloader";
-import projectimg from "../assets/unwater.jpeg";
+import projectimg from "../assets/mybird.jpg";
 import TransitionLink from "../components/common/redirect";
 
 const ProjectsSection = () => {

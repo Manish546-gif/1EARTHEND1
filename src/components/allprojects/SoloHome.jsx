@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { usePageTransition } from "../common/CurtainPreloader";
-import projectimg from "../../assets/unwater.jpeg";
+import projectimg from "../../assets/mybird.jpg";
 
 export default function SoloHome() {
   const { waitForCurtainOpen } = usePageTransition();
