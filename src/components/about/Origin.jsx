@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import origin2 from "../../assets/import.jpeg";
+import origin2 from "../../assets/harmoney2.jpeg";
 import Line from "../common/Line";
 
 /* Variants */

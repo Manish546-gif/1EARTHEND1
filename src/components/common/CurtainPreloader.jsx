@@ -271,9 +271,6 @@ const CurtainPreloader = ({ children }) => {
     setIsCurtainOpen(false); // we start closed on initial load
     document.body.style.overflow = "hidden";
 
-    // Resolve curtain open promise immediately for instant content animations
-    resolveAllCurtainWaiters();
-
     // Set initial states
     gsap.set([leftEdgeLineRef.current, rightEdgeLineRef.current], {
       scaleY: 1,
@@ -328,11 +325,8 @@ const CurtainPreloader = ({ children }) => {
       });
     }
 
-    // Resolve curtain open promise early for content animations
-    tl.call(() => resolveAllCurtainWaiters(), [], "+=0.2");
-
     // Fade out logo and shrink lines
-    tl.to(logoContainerRef.current, { opacity: 0, duration: 0.3 }, "+=0.0").to(
+    tl.to(logoContainerRef.current, { opacity: 0, duration: 0.3 }, "+=0.2").to(
       [leftEdgeLineRef.current, rightEdgeLineRef.current, topLineRef.current, bottomLineRef.current],
       { scaleY: 0, duration: 0.5, ease: "power3.inOut" },
       "<"

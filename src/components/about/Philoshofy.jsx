@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import origin2 from "../../assets/origin3.png";
+import origin2 from "../../assets/what.jpeg";
 import Line from "../common/Line";
 
 /* Faster + smoother animation */
@@ -216,7 +216,7 @@ export default function Philosophy() {
         {/* DESKTOP VIEW */}
         <div className="hidden md:block">
           {/* IMAGE */}
-          <div className="w-full h-[400px] sm:h-[500px] lg:h-[650px] xl:h-[700px] mb-10 overflow-hidden relative">
+          <div className="w-full h-[400px] sm:h-[500px] lg:h-[300px] xl:h-[350px] mb-6 overflow-hidden relative">
             <motion.div
               initial={{ scaleX: 1 }}
               whileInView={{ scaleX: 0 }}

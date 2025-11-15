@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import img1 from "../../assets/center1.png";
-import img2 from "../../assets/lefttop.png";
-import img4 from "../../assets/righttop.png";
-import img3 from "../../assets/leftbottom.png";
-import img5 from "../../assets/rightbottom.png";
-import img6 from "../../assets/centerbottom.png";
-import LetterParallax from "./LetterParallax";
+import img1 from "../../assets/gal1.jpeg";
+import img2 from "../../assets/gal2.jpeg";
+import img4 from "../../assets/gal4.jpg";
+import img3 from "../../assets/import.jpeg";
+import img5 from "../../assets/Rectangle 2.png";
+import img6 from "../../assets/2222.jpg";
+
 
 const ParallaxGallery = () => {
   const [isMobile, setIsMobile] = useState(false);

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { usePageTransition } from "../common/CurtainPreloader";
-import aboutland from "../../assets/aboutland.png";
+import aboutVideo from "../../assets/aboutland.mp4";
 
 export default function AboutLanding() {
   const { waitForCurtainOpen } = usePageTransition();
@@ -101,12 +101,15 @@ export default function AboutLanding() {
 
   return (
     <div className="relative min-h-screen overflow-hidden text-[#FBF0DA] flex items-center justify-center">
-      {/* Background Image */}
-      <img
+      {/* Background Video */}
+      <video
         data-scroll
         data-scroll-speed="-0.2"
-        src={aboutland}
-        alt="Background"
+        src={aboutVideo}
+        autoPlay
+        muted
+        loop
+        playsInline
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-black/50"></div>
@@ -119,14 +122,14 @@ export default function AboutLanding() {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <h1
               ref={headingRef}
-              className="text-[clamp(28px,4vw,90px)] font-normal"
+              className="text-[clamp(28px,5vw,90px)] font-normal"
               style={{ opacity: 0, transform: 'translateY(40px)' }}
             >
               ABOUT US
             </h1>
           </div>
 
-          <div className="absolute lg:bottom-12 bottom-4 left-2 lg:left-8">
+          <div className="absolute lg:bottom-18 bottom-16 left-2 lg:left-8">
             <h5
               ref={scrollRef}
               className="text-xl font-light tracking-widest transform origin-left"

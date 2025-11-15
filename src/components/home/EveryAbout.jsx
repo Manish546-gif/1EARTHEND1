@@ -62,7 +62,7 @@ function EverySpaceSection() {
                   tracking-[0.3em] text-black font-normal 
                   mt-4 sm:mt-6
                   text-[clamp(14px,4vw,22px)]    /* MOBILE bigger */
-                  lg:text-[clamp(10px,1vw,14px)] /* DESKTOP same */
+                  lg:text-[clamp(25px,1vw,14px)] /* DESKTOP same */
                 "
               >
                 ABOUT
