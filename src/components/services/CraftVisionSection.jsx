@@ -79,15 +79,6 @@ export default function CraftVisionSection() {
                 },
               }}
             >
-              <motion.div
-                initial={{ y: 30, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
-              >
-                <h5 className="tracking-[0.3em] text-black mt-4 sm:mt-6 text-[clamp(10px,1vw,14px)] font-normal">
-                  CONNECT
-                </h5>
-              </motion.div>
 
               <div className="text-black tracking-tight mt-8 leading-[1.1]">
                 {["CRAFT", "YOUR", "VISION"].map((word, i) => (
@@ -97,6 +88,7 @@ export default function CraftVisionSection() {
                     variants={textVariant}
                     initial="hidden"
                     whileInView="visible"
+                    viewport={{ once: true }}
                     custom={i}
                   >
                     {word}
@@ -113,6 +105,7 @@ export default function CraftVisionSection() {
                     variants={textVariant}
                     initial="hidden"
                     whileInView="visible"
+                    viewport={{ once: true }}
                     custom={i + 4}
                   >
                     {line}
@@ -127,6 +120,7 @@ export default function CraftVisionSection() {
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
+                  viewport={{ once: true }}
                   custom={paragraphLines.length + 4}
                 >
                   <span className="relative block group-hover:-translate-y-20 transition-transform duration-300">

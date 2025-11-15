@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import projectimg from "../../assets/info1.png";
-import info2 from "../../assets/info2.png";
+import info2 from "../../assets/mybird1.jpg";
 import Line from "../common/Line";
 
 const textVariant = {
@@ -58,7 +58,7 @@ const SoloInfo = () => {
           style={{ transformOrigin: "right" }}
           className="absolute inset-0 bg-[#FBF0DA] z-10 origin-right"
         />
-        <img src={projectimg} alt="Velhe Estate overview" className="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/20350390/pexels-photo-20350390.jpeg" alt="Velhe Estate overview" className="w-full h-full object-cover" />
       </motion.div>
 
       {/* Right: Text + small image + details */}

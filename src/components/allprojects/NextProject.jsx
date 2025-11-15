@@ -109,7 +109,7 @@ export default function NextProject() {
               />
 
               <img
-                src={nextp}
+                src="https://images.pexels.com/photos/19911960/pexels-photo-19911960.jpeg"
                 alt="Next Project Preview"
                 className="w-full h-full object-cover"
               />

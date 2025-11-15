@@ -42,8 +42,6 @@ const Projectsolo = () => {
       <SoloHome />
       <SoloInfo />
       <Line/>
-      <BlankSolo />
-      <Line/>
       <SoloFeatures />
       <Line/>
       <Blank2 />

@@ -15,7 +15,7 @@ const BlankSolo = () => {
           className="w-full origin-right absolute h-full bg-[#FBF0DA]"
         />
         <img
-          src={blank}
+          src="https://images.pexels.com/photos/9613124/pexels-photo-9613124.jpeg"
           className="w-full h-full object-cover"
           alt=""
         />

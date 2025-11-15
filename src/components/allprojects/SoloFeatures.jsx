@@ -24,7 +24,7 @@ export default function SoloFeatures() {
           style={{ transformOrigin: 'right' }}
           className="w-full origin-right absolute h-full bg-[#FBF0DA]"
         />
-        <img src={feature1} className="w-full h-full object-cover" alt="Feature 1" />
+        <img src="https://images.pexels.com/photos/30036477/pexels-photo-30036477.jpeg" className="w-full h-full object-cover" alt="Feature 1" />
       </motion.div>
 
       {/* RIGHT COLUMN */}
@@ -132,7 +132,7 @@ export default function SoloFeatures() {
             style={{ transformOrigin: 'right' }}
             className="w-full absolute h-full bg-[#FBF0DA]"
           />
-          <img src={feature2} alt="Feature 2" className="w-full h-full object-cover" />
+          <img src="https://images.pexels.com/photos/9575999/pexels-photo-9575999.jpeg" alt="Feature 2" className="w-full h-full object-cover" />
         </motion.div>
 
       </div>

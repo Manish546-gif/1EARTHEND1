@@ -243,7 +243,7 @@ export default function Origin() {
           </div>
 
           {/* OUR VALUES */}
-          <div>
+          <div className="mt-6">
             <motion.h3
               className="text-[clamp(14px,1.6vw,18px)] font-semibold tracking-wide mb-4"
               variants={textVariant}

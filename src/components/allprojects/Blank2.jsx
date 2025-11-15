@@ -15,7 +15,7 @@ function Blank2() {
           className="w-full origin-right absolute h-full bg-[#FBF0DA]"
         ></motion.div>
         <img
-          src={blank2}
+          src="https://images.pexels.com/photos/9613124/pexels-photo-9613124.jpeg"
           alt=""
           className="w-full h-full object-cover"
         />
