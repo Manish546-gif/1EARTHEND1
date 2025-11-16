@@ -3,15 +3,6 @@ import { motion } from "framer-motion";
 import origin2 from "../../assets/what.jpeg";
 import Line from "../common/Line";
 
-/* Faster + smoother animation */
-      delay: i * 0.04,     // quicker stagger
-      duration: 0.2,       // faster slide + fade
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
-      ease: "easeOut",
-    },
-  }),
-};
-=======
 const textVariant = {
   hidden: { y: 25, opacity: 0 },
   visible: (i) => ({
@@ -20,14 +11,6 @@ const textVariant = {
     transition: {
       delay: i * 0.06,     // quicker stagger
       duration: 0.3,       // faster slide + fade
-      ease: "easeOut",
-    },
-  }),
-};
-=======
-      delay: i * 0.04,     // quicker stagger
-      duration: 0.2,       // faster slide + fade
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
       ease: "easeOut",
     },
   }),
@@ -99,11 +82,7 @@ export default function Philosophy() {
             {originsLines.map((line, i) => (
               <motion.p
                 key={i}
-<<<<<<< HEAD
                 className="text-black leading-[1.4] text-[clamp(13px,1.2vw,18px)]"
-=======
-                className="text-black leading-[1.4] text-[clamp(17px,1.2vw,18px)]"
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
                 variants={textVariant}
                 initial="hidden"
                 whileInView="visible"
@@ -120,11 +99,7 @@ export default function Philosophy() {
             {philosophyDescLines.map((line, i) => (
               <motion.p
                 key={i}
-<<<<<<< HEAD
                 className="text-black leading-[1.4] text-[clamp(13px,1.2vw,18px)]"
-=======
-                className="text-black leading-[1.4] text-[clamp(17px,1.2vw,18px)]"
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
                 variants={textVariant}
                 initial="hidden"
                 whileInView="visible"
@@ -240,11 +215,7 @@ export default function Philosophy() {
         {/* DESKTOP VIEW */}
         <div className="hidden md:block">
           {/* IMAGE */}
-<<<<<<< HEAD
           <div className="w-full h-[400px] sm:h-[500px] lg:h-[650px] xl:h-[700px] mb-10 overflow-hidden relative">
-=======
-          <div className="w-full h-[400px] sm:h-[500px] lg:h-[300px] xl:h-[350px] mb-6 overflow-hidden relative">
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
             <motion.div
               initial={{ scaleX: 1 }}
               whileInView={{ scaleX: 0 }}

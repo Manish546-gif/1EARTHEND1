@@ -50,7 +50,7 @@ export default function CraftVisionSection() {
 
           {/* ========== DESKTOP VIEW ========== */}
           <div className="hidden lg:grid grid-cols-3 items-center">
-            
+
             {/* LEFT IMAGE */}
             <div>
               <motion.div className="relative md:mt-80 overflow-hidden h-70 w-full md:w-4/6">
@@ -146,16 +146,10 @@ export default function CraftVisionSection() {
                 <img src={craft2} className="w-full h-full bg-cover" alt="" />
               </motion.div>
             </div>
+          </div>
+
           {/* ========== MOBILE VIEW ========== */}
           <div className="lg:hidden flex flex-col text-left space-y-6 mt-12">
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
-=======
-          {/* ========== MOBILE VIEW ========== */}
-          <div className="lg:hidden flex flex-col text-left space-y-6 mt-12">
-=======
-          {/* ========== MOBILE VIEW ========== */}
-          <div className="lg:hidden flex flex-col text-left space-y-6 mt-12">
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
 
             {/* LABEL */}
             <motion.div
@@ -196,15 +190,9 @@ export default function CraftVisionSection() {
               <img src={craft1} className="w-full h-full object-cover" alt="" />
             </div>
 
-<<<<<<< HEAD
-            {/* PARAGRAPH + BUTTON */}
-            <div className="w-full text-left space-y-1">
-              {paragraphLines.map((line, i) => (
-=======
             {/* MOBILE PARAGRAPH (updated) */}
             <div className="w-full space-y-2 leading-[1.35]">
               {paragraphMobile.map((line, i) => (
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
                 <motion.p
                   key={i}
                   className="text-[clamp(17px,4vw,18px)] font-normal text-gray-900"
