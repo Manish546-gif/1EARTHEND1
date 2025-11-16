@@ -1,15 +1,29 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePageTransition } from "../common/CurtainPreloader";
 
 export default function ContactForm() {
-  // ...existing code...
+  const { waitForCurtainOpen } = usePageTransition();
+  const [canAnimate, setCanAnimate] = useState(false);
+
+  useEffect(() => {
+    let killed = false;
+
+    const run = async () => {
+      await waitForCurtainOpen();
+      if (!killed) setCanAnimate(true);
+    };
+
+    run();
+    return () => (killed = true);
+  }, [waitForCurtainOpen]);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
   const [projectType, setProjectType] = useState("");
   const [message, setMessage] = useState("");
 
-  // toast state
   const [toastVisible, setToastVisible] = useState(false);
 
   const containerVariants = {
@@ -26,7 +40,7 @@ export default function ContactForm() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
-    const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const to = "oneearthpropertiesllp@gmail.com";
@@ -43,33 +57,30 @@ export default function ContactForm() {
     ];
     const body = bodyLines.join("\r\n");
 
-    // Open Gmail web compose (Gmail only). Do not show alerts or fall back.
     const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
       to
     )}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}&tf=1`;
 
     window.open(gmailUrl, "_blank", "noopener,noreferrer");
 
-    // show a short toast confirmation and then refresh the contact page
     setToastVisible(true);
-    // keep toast visible briefly so user sees confirmation, then reload
+
     setTimeout(() => {
       setToastVisible(false);
-      // reload contact page
       window.location.reload();
     }, 1600);
   };
-
 
   return (
     <motion.div
       className="min-h-screen bg-[#FBF0DA] flex items-center justify-center p-4"
       initial="hidden"
-      animate="visible"
+      animate={canAnimate ? "visible" : "hidden"}
       variants={containerVariants}
     >
       <div className="max-w-8xl w-full overflow-hidden flex flex-col lg:flex-row mt-20 mb-20">
-        {/* LEFT SIDE - TEXT */}
+        
+        {/* LEFT SIDE */}
         <motion.div
           className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center"
           variants={itemVariants}
@@ -131,13 +142,19 @@ export default function ContactForm() {
           </motion.div>
         </motion.div>
 
-        {/* RIGHT SIDE - FORM */}
+        {/* RIGHT SIDE */}
         <motion.div
           className="lg:w-1/2 p-8 lg:p-12 bg-[#FBF0DA]"
           variants={itemVariants}
         >
-          <motion.form className="space-y-8" variants={containerVariants} onSubmit={handleSubmit}>
-            {[
+          <motion.form
+            className="space-y-8"
+            variants={containerVariants}
+            onSubmit={handleSubmit}
+            initial="hidden"
+            animate={canAnimate ? "visible" : "hidden"}
+          >
+            {[ 
               { label: "NAME", state: name, setState: setName, type: "text", placeholder: "Your Name" },
               { label: "EMAIL ADDRESS", state: email, setState: setEmail, type: "email", placeholder: "your@email.com" },
               { label: "COMPANY NAME", state: company, setState: setCompany, type: "text", placeholder: "Your Company Name" },
@@ -157,7 +174,7 @@ export default function ContactForm() {
                 />
                 <motion.div
                   initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
+                  animate={{ scaleX: canAnimate ? 1 : 0 }}
                   transition={{ duration: 0.6 }}
                   style={{ transformOrigin: "left" }}
                   className="h-px w-full bg-black mt-4"
@@ -165,7 +182,6 @@ export default function ContactForm() {
               </motion.div>
             ))}
 
-            {/* PROJECT TYPE */}
             <motion.div variants={itemVariants}>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 PROJECT TYPE
@@ -182,14 +198,13 @@ export default function ContactForm() {
               </select>
               <motion.div
                 initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
+                animate={{ scaleX: canAnimate ? 1 : 0 }}
                 transition={{ duration: 0.6 }}
                 style={{ transformOrigin: "left" }}
                 className="h-px w-full bg-black mt-4"
               />
             </motion.div>
 
-            {/* MESSAGE */}
             <motion.div variants={itemVariants}>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 MESSAGE
@@ -203,14 +218,13 @@ export default function ContactForm() {
               ></textarea>
               <motion.div
                 initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
+                animate={{ scaleX: canAnimate ? 1 : 0 }}
                 transition={{ duration: 0.6 }}
                 style={{ transformOrigin: "left" }}
                 className="h-px w-full bg-black mt-4"
               />
             </motion.div>
 
-            {/* SUBMIT BUTTON */}
             <motion.button
               type="submit"
               whileHover={{
@@ -232,7 +246,6 @@ export default function ContactForm() {
         </motion.div>
       </div>
 
-      {/* Toast: simple confirmation shown briefly before page refresh */}
       {toastVisible && (
         <div className="fixed left-1/2 bottom-8 transform -translate-x-1/2 z-50">
           <div className="bg-black text-white px-4 py-2 rounded-md shadow-lg text-sm">

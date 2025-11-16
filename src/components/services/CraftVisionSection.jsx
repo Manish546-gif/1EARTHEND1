@@ -152,7 +152,7 @@ export default function CraftVisionSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
               >
-                <h5 className="tracking-[0.3em] text-black mt-4 sm:mt-6 text-[clamp(10px,1vw,14px)] font-normal">
+                <h5 className="tracking-[0.3em] text-black mt-4 sm:mt-6 text-[clamp(12px,1.2vw,16px)] font-normal">
                   CONNECT
                 </h5>
               </motion.div>
@@ -188,7 +188,7 @@ export default function CraftVisionSection() {
             </div>
 
             {/* PARAGRAPH + BUTTON */}
-            <div className="w-full md:w-3/4 text-left space-y-1">
+            <div className="w-full text-left space-y-1">
               {paragraphLines.map((line, i) => (
                 <motion.p
                   key={i}

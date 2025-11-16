@@ -62,79 +62,161 @@ const SoloInfo = () => {
 
       {/* Right: Text + small image + details */}
       <div className="w-full md:w-5/12 flex flex-col gap-10 md:pr-4">
-        {/* INFO */}
-        <div>
-          <motion.h3
-            className="text-[clamp(14px,1.6vw,18px)] font-semibold tracking-wide mb-4"
-            variants={textVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={0}
-          >
-            INFO
-          </motion.h3>
+        {/* MOBILE VIEW */}
+        <div className="md:hidden">
+          {/* INFO */}
+          <div>
+            <motion.h3
+              className="text-[clamp(16px,1.8vw,20px)] font-semibold tracking-wide mb-4"
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0}
+            >
+              INFO
+            </motion.h3>
 
-          <div className="space-y-1">
-            {infoPara.map((line, i) => (
-              <motion.p
-                key={i}
-                className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
-                variants={textVariant}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={1 + i}
-              >
-                {line}
-              </motion.p>
-            ))}
+            <div className="space-y-1">
+              {infoPara.map((line, i) => (
+                <motion.p
+                  key={i}
+                  className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
+                  variants={textVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={1 + i}
+                >
+                  {line}
+                </motion.p>
+              ))}
+            </div>
+          </div>
+
+          {/* Small Image */}
+          <motion.div className="w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[300px] overflow-hidden relative">
+            <motion.div
+              initial={{ scaleX: 1, opacity: 1 }}
+              whileInView={{ scaleX: 0, opacity: 1 }}
+              transition={{ duration: 1.5, delay: 0.4, ease: "circOut" }}
+              viewport={{ once: true }}
+              style={{ transformOrigin: "right" }}
+              className="absolute inset-0 bg-[#FBF0DA] z-10 origin-right"
+            />
+            <img src={info2} alt="Estate detail" className="w-full h-full object-cover" />
+          </motion.div>
+
+          {/* DETAILS */}
+          <div>
+            <motion.h3
+              className="text-[clamp(16px,1.8vw,20px)] font-semibold tracking-wide mb-4"
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={30}
+            >
+              DETAILS
+            </motion.h3>
+
+            <div className="space-y-5">
+              {details.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  className="text-[clamp(12px,1vw,16px)]"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.08 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="flex items-baseline justify-between gap-4 pb-1">
+                    <span className="font-medium tracking-wide">{item.label}</span>
+                    <span className="text-right">{item.value}</span>
+                  </div>
+                  <Line />
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Small Image */}
-        <motion.div className="w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[300px] overflow-hidden relative">
-          <motion.div
-            initial={{ scaleX: 1, opacity: 1 }}
-            whileInView={{ scaleX: 0, opacity: 1 }}
-            transition={{ duration: 1.5, delay: 0.4, ease: "circOut" }}
-            viewport={{ once: true }}
-            style={{ transformOrigin: "right" }}
-            className="absolute inset-0 bg-[#FBF0DA] z-10 origin-right"
-          />
-          <img src={info2} alt="Estate detail" className="w-full h-full object-cover" />
-        </motion.div>
+        {/* DESKTOP VIEW */}
+        <div className="hidden md:block">
+          {/* INFO */}
+          <div>
+            <motion.h3
+              className="text-[clamp(14px,1.6vw,18px)] font-semibold tracking-wide mb-4"
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0}
+            >
+              INFO
+            </motion.h3>
 
-        {/* DETAILS */}
-        <div>
-          <motion.h3
-            className="text-[clamp(14px,1.6vw,18px)] font-semibold tracking-wide mb-4"
-            variants={textVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={30}
-          >
-            DETAILS
-          </motion.h3>
+            <div className="space-y-1">
+              {infoPara.map((line, i) => (
+                <motion.p
+                  key={i}
+                  className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
+                  variants={textVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={1 + i}
+                >
+                  {line}
+                </motion.p>
+              ))}
+            </div>
+          </div>
 
-          <div className="space-y-5">
-            {details.map((item, index) => (
-              <motion.div
-                key={item.label}
-                className="text-[clamp(12px,1vw,16px)]"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.08 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-baseline justify-between gap-4 pb-1">
-                  <span className="font-medium tracking-wide">{item.label}</span>
-                  <span className="text-right">{item.value}</span>
-                </div>
-                <Line />
-              </motion.div>
-            ))}
+          {/* Small Image */}
+          <motion.div className="w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[300px] overflow-hidden relative">
+            <motion.div
+              initial={{ scaleX: 1, opacity: 1 }}
+              whileInView={{ scaleX: 0, opacity: 1 }}
+              transition={{ duration: 1.5, delay: 0.4, ease: "circOut" }}
+              viewport={{ once: true }}
+              style={{ transformOrigin: "right" }}
+              className="absolute inset-0 bg-[#FBF0DA] z-10 origin-right"
+            />
+            <img src={info2} alt="Estate detail" className="w-full h-full object-cover" />
+          </motion.div>
+
+          {/* DETAILS */}
+          <div>
+            <motion.h3
+              className="text-[clamp(14px,1.6vw,18px)] font-semibold tracking-wide mb-4"
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={30}
+            >
+              DETAILS
+            </motion.h3>
+
+            <div className="space-y-5">
+              {details.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  className="text-[clamp(12px,1vw,16px)]"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.08 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="flex items-baseline justify-between gap-4 pb-1">
+                    <span className="font-medium tracking-wide">{item.label}</span>
+                    <span className="text-right">{item.value}</span>
+                  </div>
+                  <Line />
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
