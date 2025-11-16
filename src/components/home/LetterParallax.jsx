@@ -101,27 +101,6 @@ export default function LetterParallax() {
             perspective: '2000px',
             transformStyle: 'preserve-3d',
           }}
-          <div className="hidden md:block" style={{ transformStyle: 'preserve-3d' }}>
-            {createLetters('EVOLVING WITH')}
-          </div>
-
-          <div className="hidden md:block" style={{ transformStyle: 'preserve-3d' }}>
-            {createLetters('THE EARTH')}
-          </div>
-
-          <div className="block md:hidden" style={{ transformStyle: 'preserve-3d' }}>
-            {createLetters('EVOLVING')}
-          </div>
-
-          <div className="block md:hidden" style={{ transformStyle: 'preserve-3d' }}>
-            {createLetters('WITH')}
-          </div>
-
-          <div className="block md:hidden" style={{ transformStyle: 'preserve-3d' }}>
-            {createLetters('THE EARTH')}
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
-          </div>
-=======
         >
           <div className="hidden md:block" style={{ transformStyle: 'preserve-3d' }}>
             {createLetters('EVOLVING WITH')}
@@ -142,28 +121,6 @@ export default function LetterParallax() {
           <div className="block md:hidden" style={{ transformStyle: 'preserve-3d' }}>
             {createLetters('THE EARTH')}
           </div>
-=======
-          <div className="hidden md:block" style={{ transformStyle: 'preserve-3d' }}>
-            {createLetters('EVOLVING WITH')}
-          </div>
-
-          <div className="hidden md:block" style={{ transformStyle: 'preserve-3d' }}>
-            {createLetters('THE EARTH')}
-          </div>
-
-          <div className="block md:hidden" style={{ transformStyle: 'preserve-3d' }}>
-            {createLetters('EVOLVING')}
-          </div>
-
-          <div className="block md:hidden" style={{ transformStyle: 'preserve-3d' }}>
-            {createLetters('WITH')}
-          </div>
-
-          <div className="block md:hidden" style={{ transformStyle: 'preserve-3d' }}>
-            {createLetters('THE EARTH')}
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
-          </div>
-
         </div>
       </div>
     </div>
