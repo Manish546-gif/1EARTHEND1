@@ -109,7 +109,10 @@ export default function OurTeam() {
                     CHIEF ARCHITECT
                   </motion.p>
                 </div>
-
+                {/* now add space before line */}
+                <div className="hidden mt-8 md:block">
+                  <Line />
+                </div>
                 
               </div>
             </div>

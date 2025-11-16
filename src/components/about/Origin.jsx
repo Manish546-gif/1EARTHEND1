@@ -18,25 +18,26 @@ const textVariant = {
 
 /* Paragraphs */
 const originLines = [
-  "One Earth Properties was founded with",
-  "a singular vision – to redefine real",
-  "estate by uniting sustainability,culture,",
-  " and modern living.Rooted in Pune’s",
-  "serene landscapes, our journey began",
-  "with a simple belief: that land is not ",
-  "just to be developed, but to be nurtured.",
+  "One Earth Properties was founded",
+  "with a singular vision – to redefine",
+  "real estate by uniting sustainability,",
+  "culture, and modern living. Rooted in",
+  "Pune`s serene landscapes, our",
+  "journey with a simple belief:",
+  "that land is not just to be developed,",
+  "but to be nurtured.",
 ];
 
 const philosophyLines = [
-  "Inspired by India’s deep connection to",
-  "nature and timeless craftsmanship, we",
-  "create spaces that coexist with their",
-
-  "surroundings where innovation serves",
-  "the Earth, and design becomes an",
-  " expression of balance. Each project",
-  " stands as a testament to harmony,",
-  " integrity, and renewal.",
+  "Inspired by India’s deep connection",
+  "to nature and timeless",
+  "craftsmanship, we create spaces",
+  "that coexist with their surroundings",
+  "where innovation serves the Earth,",
+  "and design becomes an  expression",
+  "of balance. Each project stands",
+  "as a testament to harmony, integrity",
+  "and renewal.",
 ];
 
 export default function Origin() {
