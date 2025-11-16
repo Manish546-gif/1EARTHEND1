@@ -15,27 +15,6 @@ const textVariant = {
     },
   }),
 };
-=======
-const textVariant = {
-  hidden: { y: 20, opacity: 0 },
-  visible: (i) => ({
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: i * 0.06,      // faster stagger
-      duration: 0.3,        // faster animation
-      ease: "easeOut",
-    },
-  }),
-};
-=======
-      delay: i * 0.04,      // faster stagger
-      duration: 0.2,        // faster animation
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
-      ease: "easeOut",
-    },
-  }),
-};
 
 /* Paragraphs */
 const originLines = [
@@ -112,17 +91,10 @@ export default function Origin() {
           <motion.div
             initial={{ scaleX: 1 }}
             whileInView={{ scaleX: 0 }}
-<<<<<<< HEAD
-            transition={{ 
-              duration: 0.7,      // faster curtain slide
-              delay: 0.25,        // synced with heading
-              ease: "circOut" 
-=======
             transition={{
               duration: 0.7,      // faster curtain slide
               delay: 0.25,        // synced with heading
               ease: "circOut"
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
             }}
             viewport={{ once: true }}
             className="absolute inset-0 bg-[#FBF0DA] z-10 origin-right"
@@ -157,11 +129,7 @@ export default function Origin() {
               {originLines.map((line, i) => (
                 <motion.p
                   key={i}
-<<<<<<< HEAD
-                  className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
-=======
                   className="leading-[1.45] text-[clamp(16px,1.2vw,18px)]"
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -178,11 +146,7 @@ export default function Origin() {
               {philosophyLines.map((line, i) => (
                 <motion.p
                   key={i}
-<<<<<<< HEAD
-                  className="leading-[1.45] text-[clamp(13px,1.2vw,18px)]"
-=======
                   className="leading-[1.45] text-[clamp(16px,1.2vw,18px)]"
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -196,11 +160,7 @@ export default function Origin() {
           </div>
 
           {/* OUR VALUES */}
-<<<<<<< HEAD
-          <div>
-=======
           <div className="mt-6">
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
             <motion.h3
               className="text-[clamp(16px,1.8vw,20px)] font-semibold tracking-wide mb-4"
               variants={textVariant}
@@ -212,11 +172,7 @@ export default function Origin() {
               OUR VALUES
             </motion.h3>
 
-<<<<<<< HEAD
-            <motion.ul className="space-y-1 text-[clamp(13px,1.2vw,18px)] leading-[1.45]">
-=======
             <motion.ul className="space-y-1 text-[clamp(15px,1.2vw,18px)] leading-[1.45]">
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
               {["Harmony", "Integrity", "Sustainability"].map((item, i) => (
                 <React.Fragment key={i}>
                   <motion.li
@@ -286,11 +242,7 @@ export default function Origin() {
           </div>
 
           {/* OUR VALUES */}
-<<<<<<< HEAD
-          <div>
-=======
           <div className="mt-6">
->>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
             <motion.h3
               className="text-[clamp(14px,1.6vw,18px)] font-semibold tracking-wide mb-4"
               variants={textVariant}
