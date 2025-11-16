@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { usePageTransition } from "../common/CurtainPreloader";
-import landimgservice from "../../assets/serviceland.png";
+import serviceVideo from "../../assets/serviceland.mp4";
 
 export default function ServiceLanding() {
   const { waitForCurtainOpen } = usePageTransition();
@@ -104,12 +104,15 @@ export default function ServiceLanding() {
 
   return (
     <div className="relative min-h-screen overflow-hidden flex text-[#FBF0DA] items-center justify-center">
-      {/* Background Image */}
-      <img
+      {/* Background Video */}
+      <video
         data-scroll
         data-scroll-speed="-0.2"
-        src={landimgservice}
-        alt="Background"
+        src={serviceVideo}
+        autoPlay
+        muted
+        loop
+        playsInline
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-black/40"></div>
@@ -123,7 +126,7 @@ export default function ServiceLanding() {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <h1
               ref={headingRef}
-              className="text-[clamp(32px,4vw,90px)] font-normal leading-[1.05] whitespace-nowrap"
+              className="text-[clamp(32px,5vw,90px)] font-normal leading-[1.05] whitespace-nowrap"
               style={{ opacity: 0, transform: 'translateY(40px)' }}
             >
               SERVICES
@@ -131,7 +134,7 @@ export default function ServiceLanding() {
           </div>
 
           {/* scroll */}
-          <div className="absolute lg:bottom-12 bottom-0 md:bottom-12 left-6 lg:left-8">
+            <div className="absolute lg:bottom-18 bottom-16 left-2 lg:left-8">
             <h5
               ref={scrollRef}
               className="text-xl font-light tracking-widest"

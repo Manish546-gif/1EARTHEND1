@@ -320,7 +320,7 @@ const CurtainPreloader = ({ children }) => {
       const circleLength = circleArcRef.current.getTotalLength();
       tl.to(circleArcRef.current, {
         strokeDashoffset: circleLength,
-        duration: 0.8,
+        duration: 0.4,
         ease: "power2.inOut",
       });
     }

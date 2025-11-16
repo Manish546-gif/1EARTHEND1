@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import whychoose from "../../assets/aboutland.png";
+import whychoose from "../../assets/whychoose.png";
 
 const textVariant = {
   hidden: { y: 40, opacity: 0 },
@@ -158,14 +158,14 @@ const WhyChoose = () => {
         {/* RIGHT TEXT */}
         <div className="flex flex-col justify-center">
           <motion.p
-            className="text-[clamp(10px,1vw,14px)] tracking-[0.3em] text-gray-50 mb-6"
+            className="text-[clamp(20px,1vw,14px)] tracking-[0.2em] text-gray-50 mb-6"
             variants={textVariant}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             custom={12}
           >
-            Why Choose Us
+            Why Choose Us ?
           </motion.p>
 
           <motion.h2

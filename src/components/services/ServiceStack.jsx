@@ -6,7 +6,12 @@ import designConsultation from "../../assets/Rectangle 107.png";
 import customSolutions from "../../assets/Rectangle 108.png";
 import projectManagement from "../../assets/Rectangle 109.png";
 import sustainabilityConsulting from "../../assets/Rectangle 110.png";
-
+import aftersales from "../../assets/aftersales.jpeg";
+import layoutplan from "../../assets/layoutplanning.jpeg";
+import consult from "../../assets/Business.jpeg";
+import registerassist from "../../assets/register.jpeg"
+import loan from "../../assets/loan.jpeg"
+import infradev from "../../assets/infradev.jpeg"
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
@@ -24,7 +29,7 @@ const services = [
       "Optimization of plots, roads, and open spaces",
       "Integration of sustainability and natural features",
     ],
-    image: designConsultation,
+    image: layoutplan,
   },
   {
     id: 2,
@@ -40,7 +45,7 @@ const services = [
       "Coordination with government registration offices",
       "Transparent handling of fees and compliance requirements",
     ],
-    image: customSolutions,
+    image: registerassist,
   },
   {
     id: 3,
@@ -56,7 +61,7 @@ const services = [
       "Assistance in selecting ideal plots or projects",
       "Personalized solutions aligned with client goals",
     ],
-    image: projectManagement,
+    image: consult,
   },
   {
     id: 4,
@@ -72,7 +77,7 @@ const services = [
       "Implementation of eco-conscious design principles",
       "Quality checks and long-term maintenance planning",
     ],
-    image: sustainabilityConsulting,
+    image: infradev,
   },
   {
     id: 5,
@@ -88,7 +93,7 @@ const services = [
       "Support with documentation and approvals",
       "Step-by-step guidance until loan disbursement",
     ],
-    image: designConsultation,
+    image: loan,
   },
   {
     id: 6,
@@ -104,7 +109,7 @@ const services = [
       "Resolution of queries or service requests",
       "Continued engagement to ensure long-term satisfaction",
     ],
-    image: customSolutions,
+    image: aftersales,
   },
 ];
 

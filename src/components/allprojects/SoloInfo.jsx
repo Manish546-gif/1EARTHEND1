@@ -1,7 +1,8 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import projectimg from "../../assets/info1.png";
-import info2 from "../../assets/info2.png";
+import info2 from "../../assets/mybird1.jpg";
 import Line from "../common/Line";
 
 const textVariant = {
@@ -47,7 +48,7 @@ const SoloInfo = () => {
     <div className="max-w-[1600px] mx-auto px-6 lg:px-8 py-12 md:py-20 flex flex-col md:flex-row gap-16">
       {/* Left: Big Image */}
       <motion.div
-        className="w-full md:w-7/12 h-[400px] sm:h-[500px] lg:h-[650px] xl:h-[700px] relative overflow-hidden"
+        className="w-full md:w-7/12 h-[400px] sm:h-[500px] lg:h-[650px] xl:h-[100%] relative overflow-hidden"
       >
         <motion.div
           initial={{ scaleX: 1, opacity: 1 }}
@@ -57,13 +58,57 @@ const SoloInfo = () => {
           style={{ transformOrigin: "right" }}
           className="absolute inset-0 bg-[#FBF0DA] z-10 origin-right"
         />
-        <img src={projectimg} alt="Velhe Estate overview" className="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/20350390/pexels-photo-20350390.jpeg" alt="Velhe Estate overview" className="w-full h-full object-cover" />
       </motion.div>
 
       {/* Right: Text + small image + details */}
       <div className="w-full md:w-5/12 flex flex-col gap-10 md:pr-4">
         {/* MOBILE VIEW */}
         <div className="md:hidden">
+          {/* INFO */}
+          <div>
+            <motion.h3
+              className="text-[clamp(16px,1.8vw,20px)] font-semibold tracking-wide mb-4"
+              variants={textVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0}
+            >
+              INFO
+            </motion.h3>
+
+            <div className="space-y-1">
+              {infoPara.map((line, i) => (
+                <motion.p
+                  key={i}
+                  className="leading-[1.45] text-[clamp(16px,1.2vw,18px)]"
+                  variants={textVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={1 + i}
+                >
+                  {line}
+                </motion.p>
+              ))}
+            </div>
+          </div>
+
+          {/* Small Image */}
+          <motion.div className="w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[200px] overflow-hidden relative">
+            <motion.div
+              initial={{ scaleX: 1, opacity: 1 }}
+              whileInView={{ scaleX: 0, opacity: 1 }}
+              transition={{ duration: 1.5, delay: 0.4, ease: "circOut" }}
+              viewport={{ once: true }}
+              style={{ transformOrigin: "right" }}
+              className="absolute inset-0 bg-[#FBF0DA] z-10 origin-right"
+            />
+            <img src={info2} alt="Estate detail" className="w-full h-full object-cover" />
+          </motion.div>
+>>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
+=======
           {/* INFO */}
           <div>
             <motion.h3
@@ -155,6 +200,37 @@ const SoloInfo = () => {
             >
               INFO
             </motion.h3>
+=======
+          <div className="space-y-1">
+            {infoPara.map((line, i) => (
+              <motion.p
+                key={i}
+                className="leading-[1.45] text-[clamp(16px,1.2vw,18px)]"
+                variants={textVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={1 + i}
+              >
+                {line}
+              </motion.p>
+            ))}
+          </div>
+        </div>
+
+        {/* Small Image */}
+        <motion.div className="w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[200px] overflow-hidden relative">
+          <motion.div
+            initial={{ scaleX: 1, opacity: 1 }}
+            whileInView={{ scaleX: 0, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0.4, ease: "circOut" }}
+            viewport={{ once: true }}
+            style={{ transformOrigin: "right" }}
+            className="absolute inset-0 bg-[#FBF0DA] z-10 origin-right"
+          />
+          <img src={info2} alt="Estate detail" className="w-full h-full object-cover" />
+        </motion.div>
+>>>>>>> 64b8724f88e5b8b1dc395825ad6d76795d8117a9
 
             <div className="space-y-1">
               {infoPara.map((line, i) => (

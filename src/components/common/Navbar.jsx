@@ -602,12 +602,7 @@ const Navbar = () => {
                       <p className="text-xs md:text-sm text-gray-400 mb-3 uppercase">
                         A1105, GOKHALE BUSINESS BAY, KOTHRUD, PUNE, 411038
                       </p>
-                      <p className="text-base md:text-lg uppercase">
-                        MONDAY TO FRIDAY
-                      </p>
-                      <p className="text-xs md:text-sm text-gray-400 mb-3 uppercase">
-                        8:00 AM - 6:00 PM
-                      </p>
+                      
                       <p className="text-base md:text-lg uppercase">
                         LEGAL
                       </p>

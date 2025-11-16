@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
-import img1 from "../../assets/team1.png";
-import img2 from "../../assets/team2.png";
+import img1 from "../../assets/team13.JPG";
+import img2 from "../../assets/team12.jpeg";
 import Line from "../common/Line";
 
 const textVariant = {
@@ -73,7 +73,7 @@ export default function OurTeam() {
                 </div>
 
                 {/* now add space before line */}
-                <div className="mt-2">
+                <div className="mt-8">
                   <Line />
                 </div>
               </div>
@@ -110,10 +110,7 @@ export default function OurTeam() {
                   </motion.p>
                 </div>
 
-                {/* space before line */}
-                <div className="mt-2">
-                  <Line />
-                </div>
+                
               </div>
             </div>
           </div>
