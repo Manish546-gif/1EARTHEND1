@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Line from "../common/Line.jsx";
-import craft1 from "../../assets/craft1.png";
-import craft2 from "../../assets/craft2.png";
+import craft1 from "../../assets/craftme5.jpeg";
+import craft2 from "../../assets/craftme2.jpeg";
 import TransitionLink from "../common/redirect.jsx";
 
 const textVariant = {

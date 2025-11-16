@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { usePageTransition } from "../common/CurtainPreloader";
-import projectimg from "../../assets/mybird.jpg";
+import projectimg from "../../assets/projectme.jpeg";
 
 export default function SoloHome() {
   const { waitForCurtainOpen } = usePageTransition();
@@ -82,7 +82,7 @@ export default function SoloHome() {
             className="mt-3 text-[clamp(12px,1.2vw,18px)] tracking-wide"
             style={{ opacity: 0, transform: 'translateY(30px)' }}
           >
-            Velhe, Bhor, Pune
+            Velhe/Rajgad, Pune
           </p>
         </div>
       </div>

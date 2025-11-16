@@ -134,9 +134,7 @@ export default function ContactForm() {
             <div>
               <h3 className="font-semibold text-gray-800 mb-2">OFFICE HOURS</h3>
               <p className="text-gray-600">
-                Monday to Friday
-                <br />
-                9:00 AM - 6:00PM
+                10:00 AM - 6:00PM
               </p>
             </div>
           </motion.div>

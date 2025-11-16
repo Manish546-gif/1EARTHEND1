@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import img1 from "../../assets/mybird.jpg";
+import img1 from "../../assets/projectme.jpeg";
 import TransitionLink from "../common/redirect";
 
 const projects = [

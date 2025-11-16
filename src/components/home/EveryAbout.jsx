@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import mainImage from "../../assets/Rectangle 3.png";
-import smallImage from "../../assets/Rectangle 51.png";
+import mainImage from "../../assets/try1.jpeg";
+import smallImage from "../../assets/try2.jpeg";
 import TransitionLink from "../common/redirect";
 
 const textVariant = {

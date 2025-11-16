@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import craft2 from "../../assets/Rectangle 79.png";
+import craft2 from "../../assets/try7.jpeg";
 import TransitionLink from "../common/redirect";
 
 // 🌿 Base fade + slide-in variant
@@ -86,7 +86,7 @@ const ImgHarmony = () => {
           </motion.h1>
 
           <motion.div
-            className="relative w-[280px] sm:w-[360px] md:w-[440px] overflow-hidden  lg:mt-0"
+            className="relative w-[280px] sm:w-[360px] md:w-[440px] md:h-[177px] overflow-hidden  lg:mt-0"
             variants={textVariant}
             custom={2.5}
           >

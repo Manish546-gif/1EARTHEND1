@@ -73,7 +73,7 @@ export default function OurTeam() {
                 </div>
 
                 {/* now add space before line */}
-                <div className="mt-2">
+                <div className="mt-8">
                   <Line />
                 </div>
               </div>
@@ -110,10 +110,7 @@ export default function OurTeam() {
                   </motion.p>
                 </div>
 
-                {/* space before line */}
-                <div className="mt-2">
-                  <Line />
-                </div>
+                
               </div>
             </div>
           </div>

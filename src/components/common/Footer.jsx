@@ -176,7 +176,10 @@ export default function Footer() {
                 <p className="text-gray-300 leading-relaxed">
                   A1105, Gokhale Business Bay, <br /> Kothrud, Pune, 411038
                 </p>
-              
+                <p className="uppercase font-medium mb-1 mt-5">Timings</p>
+                <p className="text-gray-300 leading-relaxed">
+                  10:00AM - 6:00PM
+                </p>
               </div>
             </motion.div>
           </div>
