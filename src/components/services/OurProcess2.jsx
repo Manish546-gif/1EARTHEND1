@@ -58,7 +58,7 @@ const OurProcess2 = () => {
     },
     {
       id: 6,
-      title: "POST-DELIVERY SUPPORT",
+      title: "POST-DELIVERY CONTACT & SUPPORT",
       whatWeDo: "Continued support and assistance even after project completion, ensuring long-term customer satisfaction and community development.",
       keyActivities: [
         "Ongoing customer support services",
