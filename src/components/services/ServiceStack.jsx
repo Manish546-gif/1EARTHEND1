@@ -19,7 +19,6 @@ const services = [
     id: 1,
     number: "(1)",
     title: "LAYOUT PLANNING",
-    about: "ABOUT",
     description:
       "Our layout planning process blends design intelligence with environmental sensitivity. We craft well-structured, sustainable layouts that enhance functionality while preserving the natural character of the land. Every project is meticulously planned to optimize space, connectivity, and long-term livability.",
     whatIncluded: "WHAT’S INCLUDED",
@@ -35,7 +34,6 @@ const services = [
     id: 2,
     number: "(2)",
     title: "REGISTRATION ASSISTANCE",
-    about: "ABOUT",
     description:
       "We simplify the complex legalities of property ownership with seamless registration support. Our experts handle the documentation, verification, and compliance process end-to-end, ensuring every transaction is transparent, secure, and stress-free for our clients.",
     whatIncluded: "WHAT’S INCLUDED",
@@ -51,7 +49,6 @@ const services = [
     id: 3,
     number: "(3)",
     title: "PROPERTY CONSULTATION",
-    about: "ABOUT",
     description:
       "With deep market insight and local expertise, we help you make informed investment decisions. Whether you’re buying your first plot or expanding your portfolio, our consultants provide tailored advice that aligns with your goals, budget, and vision for the future.",
     whatIncluded: "WHAT’S INCLUDED",
@@ -67,7 +64,6 @@ const services = [
     id: 4,
     number: "(4)",
     title: "INFRASTRUCTURE DEVELOPMENT",
-    about: "ABOUT",
     description:
       "We go beyond construction to create infrastructure that enhances community life and long-term value. Our developments are thoughtfully designed with robust planning, sustainable practices, and enduring materials that ensure quality, safety, and harmony with nature.",
     whatIncluded: "WHAT’S INCLUDED",
@@ -83,7 +79,6 @@ const services = [
     id: 5,
     number: "(5)",
     title: "LOAN ASSISTANCE",
-    about: "ABOUT",
     description:
       "We make property financing simple and accessible through trusted partnerships with leading financial institutions. Our team provides step-by-step guidance—from evaluating eligibility to final disbursement—helping you secure the best loan options without the hassle.",
     whatIncluded: "WHAT’S INCLUDED",
@@ -99,7 +94,6 @@ const services = [
     id: 6,
     number: "(6)",
     title: "AFTER-SALES SUPPORT",
-    about: "ABOUT",
     description:
       "Our relationship with clients continues well beyond the purchase. From timely updates to dedicated service assistance, we ensure every buyer feels supported, informed, and valued throughout their ownership journey—building trust that lasts for years.",
     whatIncluded: "WHAT’S INCLUDED",
@@ -121,7 +115,7 @@ const ServiceCard = ({ service, bgColor, textColor }) => {
   const featuresRef = useRef(null);
   const imageRef = useRef(null);
   const lineRef = useRef(null);
-  const aboutRef = useRef(null);
+  const  Ref = useRef(null);
   const whatIncludedRef = useRef(null);
 
   useEffect(() => {
@@ -152,7 +146,7 @@ const ServiceCard = ({ service, bgColor, textColor }) => {
           "-=0.8"
         )
         .fromTo(
-          aboutRef.current,
+           Ref.current,
           { y: 30, opacity: 0 },
           { y: 0, opacity: 0.7 },
           "-=0.6"
@@ -239,15 +233,15 @@ const ServiceCard = ({ service, bgColor, textColor }) => {
                   {service.number}{" "}
                 </div>{" "}
               </div>{" "}
-              {/* About Section */}{" "}
+              {/*   Section */}{" "}
               <div className="space-y-4">
                 {" "}
                 <h3
-                  ref={aboutRef}
+                  ref={ Ref}
                   className="text-sm lg:text-base font-light tracking-[0.3em] opacity-70"
                 >
                   {" "}
-                  {service.about}{" "}
+                  {service. }{" "}
                 </h3>{" "}
               </div>{" "}
             </div>
