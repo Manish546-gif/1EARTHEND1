@@ -247,7 +247,7 @@ const ServiceCard = ({ service, bgColor, textColor }) => {
                   className="text-sm lg:text-base font-light tracking-[0.3em] opacity-70"
                 >
                   {" "}
-                  {service. }{" "}
+                  {service.about}{" "}
                 </h3>{" "}
               </div>{" "}
             </div>
