@@ -5,7 +5,7 @@ import img1 from "../../assets/projectme.jpeg";
 import TransitionLink from "../common/redirect";
 
 const projects = [
-  { id: 1, title: "HARMONY HINGLAND", image: img1 },
+  { id: 1, title: "HARMONY HIGLAND", image: img1 },
 ];
 
 const slideVariants = {
