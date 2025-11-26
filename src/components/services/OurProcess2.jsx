@@ -91,7 +91,7 @@ const OurProcess2 = () => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.6,
         ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
@@ -106,7 +106,7 @@ const OurProcess2 = () => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: "easeOut"
       }
     }
@@ -121,7 +121,7 @@ const OurProcess2 = () => {
       height: 'auto',
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.4,
         ease: "easeInOut"
       }
     }

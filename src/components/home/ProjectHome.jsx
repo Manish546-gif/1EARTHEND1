@@ -5,7 +5,7 @@ import img1 from "../../assets/projectme.jpeg";
 import TransitionLink from "../common/redirect";
 
 const projects = [
-  { id: 1, title: "HARMONY HIGLAND", image: img1 },
+  { id: 1, title: "HARMONY HIGHLAND", image: img1 },
 ];
 
 const slideVariants = {
@@ -69,7 +69,7 @@ const ProjectSlider = () => {
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="text-[3.5vw] sm:text-[2.2vw] md:text-4xl md:text-6xl font-light text-[#FBF0DA] tracking-widest"
+              className="text-[3.5vw] sm:text-[2.2vw]  md:text-6xl font-light text-[#FBF0DA] tracking-widest"
             >
               Coming Soon
             </motion.h2>

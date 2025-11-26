@@ -9,8 +9,8 @@ const textVariant = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: i * 0.06,      // faster stagger
-      duration: 0.3,        // faster animation
+      delay: i * 0.02,      // faster stagger
+      duration: 0.2,        // faster animation
       ease: "easeOut",
     },
   }),

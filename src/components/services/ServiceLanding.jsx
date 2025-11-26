@@ -48,7 +48,7 @@ export default function ServiceLanding() {
       tl.to(headingRef.current, {
         y: 0,
         opacity: 1,
-        duration: 0.5,
+        duration: 0.3,
         ease: "easeOut",
       });
 
@@ -56,43 +56,43 @@ export default function ServiceLanding() {
       tl.to(paragraphRefs.current, {
         y: 0,
         opacity: 1,
-        duration: 0.5,
+        duration: 0.3,
         ease: "easeOut",
         stagger: 0.1,
-      }, "-=0.3");
+      }, "-=0.2");
 
       // Animate desktop scroll
       tl.to(scrollRef.current, {
         y: 0,
         opacity: 1,
-        duration: 0.5,
+        duration: 0.3,
         ease: "easeOut",
-      }, "-=0.3");
+      }, "-=0.2");
 
       // Animate mobile heading
       tl.to(mobileHeadingRef.current, {
         y: 0,
         opacity: 1,
-        duration: 0.5,
+        duration: 0.3,
         ease: "easeOut",
-      }, "-=0.3");
+      }, "-=0.2");
 
       // Animate mobile paragraphs
       tl.to(mobileParagraphRefs.current, {
         y: 0,
         opacity: 1,
-        duration: 0.5,
+        duration: 0.3,
         ease: "easeOut",
         stagger: 0.1,
-      }, "-=0.3");
+      }, "-=0.2");
 
       // Animate mobile scroll
       tl.to(mobileScrollRef.current, {
         y: 0,
         opacity: 1,
-        duration: 0.5,
+        duration: 0.3,
         ease: "easeOut",
-      }, "-=0.3");
+      }, "-=0.2");
     };
 
     animate();

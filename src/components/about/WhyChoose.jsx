@@ -8,8 +8,8 @@ const textVariant = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: i * 0.1,
-      duration: 0.5,
+      delay: i * 0.04,
+      duration: 0.3,
       ease: "easeOut",
     },
   }),

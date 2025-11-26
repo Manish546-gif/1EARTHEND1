@@ -11,7 +11,7 @@ const textVariant = {
     opacity: 1,
     transition: {
       duration: 1,
-      delay: i * 0.18,
+      delay: i * 0.06,
       ease: [0.33, 1, 0.68, 1], // smoother spring-like bezier
     },
   }),
@@ -23,7 +23,7 @@ const containerVariant = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.06,
       delayChildren: 0.2,
     },
   },

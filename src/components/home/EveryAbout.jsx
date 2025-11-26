@@ -11,8 +11,8 @@ const textVariant = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: i * 0.2,
-      duration: 0.8,
+      delay: i * 0.06,
+      duration: 0.4,
       ease: "easeOut",
     },
   }),
@@ -43,7 +43,7 @@ function EverySpaceSection() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FBF0DA] flex items-center justify-center p-4 py-10">
+    <div className="min-h-screen bg-[#FBF0DA] flex items-center justify-center p-4 py-10 md:py-20">
       <div className="max-w-[1600px] w-full mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-16 items-center">
 

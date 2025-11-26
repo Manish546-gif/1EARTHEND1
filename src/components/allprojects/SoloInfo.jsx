@@ -10,8 +10,8 @@ const textVariant = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: i * 0.1,
-      duration: 0.6,
+      delay: i * 0.06,
+      duration: 0.4,
       ease: "easeOut",
     },
   }),
@@ -77,7 +77,7 @@ const SoloInfo = () => {
               INFO
             </motion.h3>
 
-            <div className="space-y-1">
+            <div className="space-y-1 ">
               {infoPara.map((line, i) => (
                 <motion.p
                   key={i}
@@ -95,7 +95,7 @@ const SoloInfo = () => {
           </div>
 
           {/* Small Image */}
-          <motion.div className="w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[300px] overflow-hidden relative">
+          <motion.div className="w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[300px] overflow-hidden relative ">
             <motion.div
               initial={{ scaleX: 1, opacity: 1 }}
               whileInView={{ scaleX: 0, opacity: 1 }}

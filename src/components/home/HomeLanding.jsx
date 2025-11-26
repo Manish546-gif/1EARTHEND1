@@ -48,7 +48,7 @@ const HeroSection = () => {
       tl.to(leftTextRefs.current, {
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: 0.4,
         ease: "easeOut",
         stagger: 0.2,
       });
@@ -57,19 +57,19 @@ const HeroSection = () => {
       tl.to(headingRefs.current, {
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: 0.4,
         ease: "easeOut",
         stagger: 0.2,
-      }, "-=0.4");
+      }, "-=0.2");
 
       // Animate right text
       tl.to(rightTextRefs.current, {
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: 0.4,
         ease: "easeOut",
         stagger: 0.2,
-      }, "-=0.4");
+      }, "-=0.2");
     };
 
     animate();

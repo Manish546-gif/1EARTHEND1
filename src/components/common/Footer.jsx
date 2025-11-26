@@ -17,7 +17,7 @@ export default function Footer() {
     visible: (i) => ({
       y: 0,
       opacity: 1,
-      transition: { delay: i * 0.05, duration: 0.5, ease: "easeOut" },
+      transition: { delay: i * 0.05, duration: 0.4, ease: "easeOut" },
     }),
   };
 
@@ -26,7 +26,7 @@ export default function Footer() {
     visible: (i) => ({
       y: 0,
       opacity: 1,
-      transition: { delay: i * 0.1, duration: 0.8, ease: "easeOut" },
+      transition: { delay: i * 0.06, duration: 0.4, ease: "easeOut" },
     }),
   };
 
@@ -63,7 +63,7 @@ export default function Footer() {
                   key={item.num}
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: i * 0.15 }}
+                  transition={{ duration: 0.6, delay: i * 0.06 }}
                   viewport={{ once: true }}
                   className="flex items-baseline gap-2 overflow-hidden"
                 >
@@ -141,7 +141,7 @@ export default function Footer() {
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
               className={`${isMobile ? 'w-2/5 space-y-3' : 'space-y-5'}`}
             >
@@ -167,7 +167,7 @@ export default function Footer() {
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
               viewport={{ once: true }}
               className={`${isMobile ? 'w-2/5 space-y-3' : 'space-y-4 mt-8 md:mt-0'}`}
             >
