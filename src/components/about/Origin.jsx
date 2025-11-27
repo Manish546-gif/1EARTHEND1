@@ -88,7 +88,7 @@ export default function Origin() {
 
       {/* MIDDLE COLUMN — IMAGE */}
       <div className="w-full lg:w-2/4 flex justify-center">
-        <div className="w-full max-w-xl h-[400px] sm:h-[500px] lg:h-[650px] xl:h-[700px] overflow-hidden relative">
+        <div className="w-full max-w-xl h-[400px] sm:h-[500px] lg:h-[650px] xl:h-[720px] overflow-hidden relative">
           <motion.div
             initial={{ scaleX: 1 }}
             whileInView={{ scaleX: 0 }}

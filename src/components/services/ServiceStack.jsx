@@ -239,7 +239,7 @@ const ServiceCard = ({ service, bgColor, textColor }) => {
                   {service.number}{" "}
                 </div>{" "}
               </div>{" "}
-              {/*   Section */}{" "}
+                {/* Section{" "}
               <div className="space-y-4">
                 {" "}
                 <h3
@@ -249,7 +249,7 @@ const ServiceCard = ({ service, bgColor, textColor }) => {
                   {" "}
                   {service.about}{" "}
                 </h3>{" "}
-              </div>{" "}
+              </div>{" "} */}
             </div>
 
             {/* Middle Section */}

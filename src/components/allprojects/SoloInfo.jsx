@@ -174,7 +174,7 @@ const SoloInfo = () => {
           </div>
 
           {/* Small Image */}
-          <motion.div className="w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[300px] overflow-hidden relative">
+          <motion.div className="w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[270px] mt-5 overflow-hidden relative">
             <motion.div
               initial={{ scaleX: 1, opacity: 1 }}
               whileInView={{ scaleX: 0, opacity: 1 }}
@@ -189,12 +189,12 @@ const SoloInfo = () => {
           {/* DETAILS */}
           <div>
             <motion.h3
-              className="text-[clamp(14px,1.6vw,18px)] font-semibold tracking-wide mb-4"
+              className="text-[clamp(14px,1.6vw,18px)] mt-3 font-semibold tracking-wide mb-4"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              custom={30}
+              custom={5}
             >
               DETAILS
             </motion.h3>

@@ -215,7 +215,7 @@ export default function Philosophy() {
         {/* DESKTOP VIEW */}
         <div className="hidden md:block">
           {/* IMAGE */}
-          <div className="w-full h-[400px] sm:h-[500px] lg:h-[650px] xl:h-[700px] mb-10 overflow-hidden relative">
+          <div className="w-full h-[400px] sm:h-[500px] lg:h-[650px] xl:h-[500px] mb-10 overflow-hidden relative">
             <motion.div
               initial={{ scaleX: 1 }}
               whileInView={{ scaleX: 0 }}

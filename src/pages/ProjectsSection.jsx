@@ -54,14 +54,14 @@ const ProjectsSection = () => {
       tl.to(topBarH2Ref.current, {
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: 0.4,
         ease: "easeOut",
       });
 
       tl.to(topBarPRef.current, {
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: 0.4,
         ease: "easeOut",
       }, "-=0.6");
 
@@ -70,40 +70,40 @@ const ProjectsSection = () => {
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 1.2,
+        duration: 0.6,
         ease: "power2.out",
       }, "-=0.4");
 
       tl.to(centerImgRef.current, {
         scale: 1,
-        duration: 2.0,
+        duration: 1,
         ease: "easeOut",
       }, "-=1.0");
 
       tl.to(centerH1Ref.current, {
         opacity: 1,
         y: 0,
-        duration: 0.6,
+        duration: 0.3,
         ease: "easeOut",
       }, "-=0.8");
 
       tl.to(centerPRef.current, {
         opacity: 1,
         y: 0,
-        duration: 0.6,
+        duration: 0.3,
         ease: "easeOut",
       }, "-=0.6");
 
       // Animate progress bar
       tl.to(progressBarRef.current, {
         width: 120,
-        duration: 1,
+        duration: 0.5,
         ease: "power2.out",
       }, "-=0.4");
 
       tl.to(progressBarRef.current.children[0], {
         width: "100%",
-        duration: 1.2,
+        duration: 0.6,
         ease: "easeOut",
       }, "-=0.8");
     };
