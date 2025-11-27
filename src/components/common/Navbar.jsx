@@ -248,7 +248,7 @@ const Navbar = () => {
               <motion.img
                 src={menuIcon}
                 alt="Menu"
-                className="h-8 w-8 transition-all duration-100"
+                className="h-8 w-8 transition-all duration-100 cursor-pointer"
                 style={{
                   filter: isLightBackground ? "brightness(0)" : "none",
                 }}
@@ -295,7 +295,7 @@ const Navbar = () => {
                <motion.img
                 src={menuIcon}
                 alt="Menu"
-                className="h-8 w-8 transition-all duration-300"
+                className="h-8 w-8 transition-all cursor-pointer duration-300"
                 style={{
                   filter:"brightness(0)",
                 }}

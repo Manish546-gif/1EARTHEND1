@@ -45,10 +45,12 @@ function EverySpaceSection() {
   return (
     <div className="min-h-screen bg-[#FBF0DA] flex items-center justify-center p-4 py-10 md:py-20">
       <div className="max-w-[1600px] w-full mx-auto px-4 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-16 items-center">
+        
+        {/* GRID — All columns match center image height */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-16 items-stretch">
 
-          {/* LEFT COLUMN */}
-          <div className="flex flex-col justify-between w-full min-h-[200px] sm:min-h-[450px] md:min-h-[600px]">
+          {/* LEFT COLUMN — aligned top & bottom */}
+          <div className="flex flex-col justify-between h-full">
 
             {/* ABOUT LABEL */}
             <motion.div
@@ -60,19 +62,18 @@ function EverySpaceSection() {
               <h5
                 className="
                   tracking-[0.3em] text-black font-normal 
-                  mt-4 sm:mt-6
-                  text-[clamp(14px,4vw,22px)]    /* MOBILE bigger */
-                  lg:text-[clamp(25px,1vw,14px)] /* DESKTOP same */
+                  text-[clamp(14px,4vw,22px)]
+                  lg:text-[clamp(25px,1vw,14px)]
                 "
               >
                 ABOUT
               </h5>
             </motion.div>
 
-            {/* HEADINGS */}
-            <div className="text-black tracking-tight mt-6 md:mt-0 leading-[1.1] text-left">
+            {/* HEADINGS aligned to bottom */}
+            <div className="text-black tracking-tight leading-[1.1] text-left mt-4">
 
-              {/* DESKTOP (4 LINES, SAME SIZE AS YOUR ORIGINAL) */}
+              {/* DESKTOP 4 lines */}
               <div className="hidden sm:block">
                 {["EVERY", "SPACE", "HOLDS", "A SOUL"].map((word, i) => (
                   <motion.span
@@ -89,12 +90,12 @@ function EverySpaceSection() {
                 ))}
               </div>
 
-              {/* MOBILE (2 LINES, SAME SIZE AS DESKTOP) */}
+              {/* MOBILE 2 lines */}
               <div className="sm:hidden">
                 {["EVERY SPACE", "HOLDS A SOUL"].map((line, i) => (
                   <motion.span
                     key={i}
-                    className="block whitespace-nowrap text-[clamp(28px,4vw,90px)] font-normal leading-[1.05] mb-1"
+                    className="block whitespace-nowrap text-[clamp(28px,4vw,90px)] font-normal mb-1"
                     variants={textVariant}
                     initial="hidden"
                     whileInView="visible"
@@ -109,10 +110,18 @@ function EverySpaceSection() {
             </div>
           </div>
 
-          {/* CENTER IMAGE */}
+          {/* CENTER IMAGE (reference height for alignment) */}
           <div className="flex justify-center lg:justify-start w-full">
             <motion.div
-              className="w-full max-w-[650px] md:max-w-[750px] lg:max-w-[850px] xl:max-w-[950px] h-[400px] sm:h=[500px] lg:h-[650px] xl:h-[700px] overflow-hidden relative"
+              className="
+                relative
+                w-full
+                max-w-[850px]
+                lg:max-w-[850px]
+                xl:max-w-[950px]
+                h-[650px]   /* DESKTOP FIXED HEIGHT */
+                overflow-hidden
+              "
               initial={{ opacity: 1, scale: 1 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -130,8 +139,8 @@ function EverySpaceSection() {
             </motion.div>
           </div>
 
-          {/* RIGHT COLUMN */}
-          <div className="flex flex-col justify-between items-start lg:items-end w-full gap-10 mt-5 md:mt-8 lg:mt-0">
+          {/* RIGHT COLUMN — paragraph top & small image bottom */}
+          <div className="flex flex-col justify-between h-full items-start lg:items-end">
 
             {/* DESKTOP PARAGRAPH */}
             <div className="hidden sm:block w-full sm:w-[90%] md:w-[80%] lg:w-[85%] xl:w-[70%] text-left space-y-1">
@@ -150,7 +159,7 @@ function EverySpaceSection() {
               ))}
             </div>
 
-            {/* MOBILE PARAGRAPH — rewritten, width matched */}
+            {/* MOBILE */}
             <div className="sm:hidden space-y-2 max-w-[90%] leading-[1.25] text-[clamp(14px,4vw,18px)]">
               {paragraphLinesMobile.map((line, i) => (
                 <motion.p
@@ -168,10 +177,10 @@ function EverySpaceSection() {
             </div>
 
             {/* BUTTON */}
-            <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[85%] xl:w-[70%] text-left">
+            <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[85%] xl:w-[70%] text-left mb-6">
               <TransitionLink to="/about">
                 <motion.button
-                  className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full font-medium transition-colors duration-200 group text-[clamp(12px,1vw,16px)]"
+                  className="relative cursor-pointer overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full font-medium transition-colors duration-200 group text-[clamp(12px,1vw,16px)]"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -188,9 +197,13 @@ function EverySpaceSection() {
               </TransitionLink>
             </div>
 
-            {/* SMALL IMAGE */}
+            {/* SMALL IMAGE aligned with bottom of big image */}
             <motion.div
-              className="w-full sm:w-[70%] md:w-[60%] lg:w-[80%] xl:w-[70%] self-end mt-10 h-[180px] sm:h-[220px] md:h-[260px] lg:h-[280px] xl:h-[200px] overflow-hidden relative"
+              className="
+                w-full sm:w-[70%] md:w-[60%] lg:w-[80%] xl:w-[70%]
+                h-[220px] md:h-[260px] lg:h-[280px] xl:h-[200px]
+                overflow-hidden relative
+              "
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

@@ -22,7 +22,7 @@ const ProjectsSection = () => {
   const project = {
     id: 1,
     name: "HARMONY HIGHLAND",
-    location: "Velhe, Bhor, Pune",
+    location: "Velhe/Rajgad, Pune",
     image: projectimg,
   };
 
@@ -201,6 +201,7 @@ const ProjectsSection = () => {
             </button>
             <button
               ref={nextButtonRef}
+              className="cursor-pointer"
               onClick={() => {
                 gsap.to(nextButtonRef.current, { scale: 0.96, duration: 0.1, yoyo: true, repeat: 1 });
                 handleNextClick();

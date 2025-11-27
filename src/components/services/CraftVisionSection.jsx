@@ -116,7 +116,7 @@ export default function CraftVisionSection() {
               {/* Desktop Button */}
               <TransitionLink to="/contact">
                 <motion.button
-                  className="relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full font-medium transition-colors duration-200 group text-[clamp(12px,1vw,16px)] mt-10"
+                  className="cursor-pointer relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full font-medium transition-colors duration-200 group text-[clamp(12px,1vw,16px)] mt-10"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"

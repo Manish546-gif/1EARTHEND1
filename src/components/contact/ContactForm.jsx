@@ -231,7 +231,7 @@ export default function ContactForm() {
                 transition: { duration: 0.3, ease: "easeOut" },
               }}
               whileTap={{ scale: 0.95 }}
-              className="relative overflow-hidden bg-yellow-600 text-white px-8 py-3 rounded-full text-sm font-medium transition-colors duration-200 group"
+              className="cursor-pointer relative overflow-hidden bg-yellow-600 text-white px-8 py-3 rounded-full text-sm font-medium transition-colors duration-200 group"
             >
               <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
                 SUBMIT MESSAGE

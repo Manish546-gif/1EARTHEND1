@@ -143,7 +143,7 @@ const ImgHarmony = () => {
 >
   <TransitionLink to="/services">
     <motion.button
-      className="
+      className="cursor-pointer
         relative overflow-hidden bg-yellow-600 hover:bg-black text-white 
         rounded-full font-medium transition-colors duration-300 group
         px-[4vw] py-[2vw] sm:px-[3vw] sm:py-[1.5vw] lg:px-[1.8vw] lg:py-[0.9vw]
