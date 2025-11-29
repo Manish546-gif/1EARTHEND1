@@ -228,7 +228,7 @@ const OurProcess2 = () => {
 
                 <div className="overflow-hidden relative z-10">
                   <motion.button
-                    className="text-sm font-light text-gray-600 hover:text-gray-900 transition-colors duration-200 tracking-wider"
+                    className="text-sm font-light text-gray-600 hover:text-gray-900 transition-colors duration-200 text-left"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleMoreInfoClick(step.id);
@@ -237,8 +237,8 @@ const OurProcess2 = () => {
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 + 0.3 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: 1.0 }}
+                    whileTap={{ scale: 0.5 }}
                   >
                     {expandedInfo === step.id ? 'CLOSE' : 'MORE INFO'}
                   </motion.button>

@@ -177,24 +177,24 @@ function EverySpaceSection() {
             </div>
 
             {/* BUTTON */}
-            <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[85%] xl:w-[70%] text-left mb-6">
+            <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[85%] xl:w-[70%] text-left mt-8 mb-8">
               <TransitionLink to="/about">
-                <motion.button
-                  className="relative cursor-pointer overflow-hidden bg-yellow-600 hover:bg-black text-white px-8 py-3 rounded-full font-medium transition-colors duration-200 group text-[clamp(12px,1vw,16px)]"
-                  variants={textVariant}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  custom={paragraphLinesDesktop.length + 4}
-                >
-                  <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
-                    ABOUT US
-                  </span>
-                  <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
-                    ABOUT US
-                  </span>
-                </motion.button>
-              </TransitionLink>
+                  <motion.button
+                    className="cursor-pointer relative overflow-hidden bg-yellow-600 hover:bg-black text-white rounded-full font-medium transition-colors duration-300 group px-[4vw] py-[2vw] sm:px-[3vw] sm:py-[1.5vw] lg:px-[1.8vw] lg:py-[0.9vw] text-[4vw] sm:text-[2.4vw] lg:text-[1vw]"
+                    variants={textVariant}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    custom={paragraphLinesDesktop.length + 4}
+                  >
+                    <span className="relative block transition-transform duration-300 ease-in-out group-hover:-translate-y-20">
+                      ABOUT US
+                    </span>
+                    <span className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
+                      ABOUT US
+                    </span>
+                  </motion.button>
+                </TransitionLink>
             </div>
 
             {/* SMALL IMAGE aligned with bottom of big image */}

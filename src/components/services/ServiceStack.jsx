@@ -121,7 +121,6 @@ const ServiceCard = ({ service, bgColor, textColor }) => {
   const featuresRef = useRef(null);
   const imageRef = useRef(null);
   const lineRef = useRef(null);
-  const  Ref = useRef(null);
   const whatIncludedRef = useRef(null);
 
   useEffect(() => {
@@ -152,16 +151,10 @@ const ServiceCard = ({ service, bgColor, textColor }) => {
           "-=0.8"
         )
         .fromTo(
-           Ref.current,
-          { y: 30, opacity: 0 },
-          { y: 0, opacity: 0.7 },
-          "-=0.6"
-        )
-        .fromTo(
           descriptionRef.current,
           { y: 40, opacity: 0 },
           { y: 0, opacity: 1 },
-          "-=0.4"
+          "-=0.6"
         )
         .fromTo(
           whatIncludedRef.current,

@@ -162,17 +162,17 @@ export default function ServiceLanding() {
         </div>
 
         {/* ---- Mobile Layout ---- */}
-        <div className="sm:hidden relative w-full h-full flex flex-col justify-center">
+        <div className="sm:hidden relative w-full h-full">
 
           <h1
             ref={mobileHeadingRef}
-            className="text-[clamp(32px,10vw,60px)] font-normal leading-[1.05] mt-10"
+            className="text-[clamp(32px,10vw,60px)] absolute bottom-110 left-0 font-normal leading-[1.05] mt-10"
             style={{ opacity: 0, transform: 'translateY(40px)' }}
           >
             SERVICES
           </h1>
 
-          <div className="w-full max-w-md text-left mt-6 space-y-1">
+          <div className="w-full max-w-md text-left space-y-1 absolute bottom-20 left-0">
             {paragraphLines.map((line, i) => (
               <p
                 key={i}

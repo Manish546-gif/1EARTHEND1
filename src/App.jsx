@@ -47,7 +47,11 @@ const App = () => {
       locoInstance.current?.scrollTo(0, { duration: 0, disableLerp: true });
     });
     
-    setTimeout(() => locoInstance.current?.update(), 500);
+    setTimeout(() => {
+      if (locoInstance.current && typeof locoInstance.current.update === 'function') {
+        locoInstance.current.update();
+      }
+    }, 500);
 
     return () => {
       locoInstance.current?.destroy();

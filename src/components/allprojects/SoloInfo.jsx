@@ -77,7 +77,7 @@ const SoloInfo = () => {
               INFO
             </motion.h3>
 
-            <div className="space-y-1 ">
+            <div className="space-y-1">
               {infoPara.map((line, i) => (
                 <motion.p
                   key={i}
@@ -95,7 +95,7 @@ const SoloInfo = () => {
           </div>
 
           {/* Small Image */}
-          <motion.div className="w-full h-[220px] sm:h-[260px] md:h-[280px] lg:h-[300px] overflow-hidden relative ">
+          <motion.div className="w-full h-[220px] sm:h-[260px] md:h-[280px] mt-5 lg:h-[300px] overflow-hidden relative ">
             <motion.div
               initial={{ scaleX: 1, opacity: 1 }}
               whileInView={{ scaleX: 0, opacity: 1 }}
@@ -108,7 +108,7 @@ const SoloInfo = () => {
           </motion.div>
 
           {/* DETAILS */}
-          <div>
+          <div className="mt-5">
             <motion.h3
               className="text-[clamp(16px,1.8vw,20px)] font-semibold tracking-wide mb-4"
               variants={textVariant}

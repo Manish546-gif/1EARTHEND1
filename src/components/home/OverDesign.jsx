@@ -51,7 +51,7 @@ export default function OverDesign() {
             <motion.div
               className="
                 w-full max-w-[850px] xl:max-w-[950px]
-                h-[400px] sm:h-[500px] lg:h-[650px] xl:h-[700px]
+                h-[400px] sm:h-[500px] lg:h-[650px] xl:h-[650px]
                 overflow-hidden relative
               "
               initial={{ opacity: 1 }}
@@ -117,14 +117,10 @@ export default function OverDesign() {
             </div>
 
             {/* Button (middle) */}
-            <div className="w-[70%] text-left">
+            <div className="text-left">
               <TransitionLink to="/contact">
                 <motion.button
-                  className="
-                    relative overflow-hidden cursor-pointer bg-yellow-600 hover:bg-black text-white
-                    px-8 py-3 rounded-full font-medium transition-colors duration-200 group
-                    text-[clamp(12px,1vw,16px)]
-                  "
+                  className="cursor-pointer relative overflow-hidden bg-yellow-600 hover:bg-black text-white rounded-full font-medium transition-colors duration-300 group px-[4vw] py-[2vw] sm:px-[3vw] sm:py-[1.5vw] lg:px-[1.8vw] lg:py-[0.9vw] text-[4vw] sm:text-[2.4vw] lg:text-[1vw]"
                   variants={textVariant}
                   initial="hidden"
                   whileInView="visible"
@@ -216,11 +212,7 @@ export default function OverDesign() {
 
           <TransitionLink to="/contact">
             <motion.button
-              className="
-                relative overflow-hidden bg-yellow-600 hover:bg-black text-white px-6 py-3
-                rounded-full font-medium transition-colors duration-300 group
-              "
-              style={{ fontSize: "2.5vw" }}
+              className="cursor-pointer relative overflow-hidden bg-yellow-600 hover:bg-black text-white rounded-full font-medium transition-colors duration-300 group px-[4vw] py-[2vw] sm:px-[3vw] sm:py-[1.5vw] lg:px-[1.8vw] lg:py-[0.9vw] text-[4vw] sm:text-[2.4vw] lg:text-[1vw]"
               variants={textVariant}
               initial="hidden"
               whileInView="visible"

@@ -156,18 +156,18 @@ export default function AboutLanding() {
         </div>
 
         {/* ---- Mobile Layout ---- */}
-        <div className="sm:hidden relative w-full h-full flex flex-col justify-center ">
-          {/* About Heading (aligned left) */}
+        <div className="sm:hidden relative w-full h-full">
+          {/* About Heading (bottom-left) */}
           <h1
             ref={mobileHeadingRef}
-            className="text-4xl  tracking-wide text-left mt-10"
+            className="absolute bottom-80 left-0 text-[clamp(32px,10vw,60px)] font-normal tracking-wide leading-[1.05]"
             style={{ opacity: 0, transform: 'translateY(40px)' }}
           >
             ABOUT US
           </h1>
 
-          {/* Paragraph (aligned left) */}
-          <div className="w-full max-w-md text-left mt-6 space-y-1">
+          {/* Paragraph (bottom-left) */}
+          <div className="w-full max-w-md text-left space-y-1 absolute bottom-20 left-0">
             {paragraphLines.map((line, i) => (
               <p
                 key={i}

@@ -139,7 +139,7 @@ const ImgHarmony = () => {
       <motion.div
   custom={5}
   variants={textVariant}
-  className="mt-8 sm:mt-10 lg:mt-12 flex justify-center lg:justify-start"
+  className="mt-8 sm:mt-10 lg:mt-1 flex justify-center lg:justify-start"
 >
   <TransitionLink to="/services">
     <motion.button
